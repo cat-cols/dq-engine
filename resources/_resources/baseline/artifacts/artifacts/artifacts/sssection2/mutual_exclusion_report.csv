@@ -1,0 +1,21 @@
+rule_name,description,columns_involved,violation_expr,n_rows,n_violations,pct_violations,severity,notes
+no_multiple_lines_without_phone,Cannot have MultipleLines when PhoneService == 'No'.,"['PhoneService', 'MultipleLines']",PhoneService == 'No' and MultipleLines != 'No phone service',7043,0,0.0,ok,
+no_no_phone_service_when_phone_yes,"If PhoneService == 'Yes', MultipleLines cannot be 'No phone service'.","['PhoneService', 'MultipleLines']",PhoneService == 'Yes' and MultipleLines == 'No phone service',7043,0,0.0,ok,
+no_internet_addons_without_internet,"If InternetService == 'No', all internet add-ons must be 'No internet service'.","['InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']","InternetService == 'No' and (
+  OnlineSecurity != 'No internet service' or
+  OnlineBackup != 'No internet service' or
+  DeviceProtection != 'No internet service' or
+  TechSupport != 'No internet service' or
+  StreamingTV != 'No internet service' or
+  StreamingMovies != 'No internet service'
+)
+",7043,0,0.0,warn,"Evaluation error: ('unexpected EOF in multi-line statement', (1, 0))"
+no_no_internet_flag_when_internet_present,"If InternetService is DSL/Fiber, add-ons cannot say 'No internet service'.","['InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']","InternetService != 'No' and (
+  OnlineSecurity == 'No internet service' or
+  OnlineBackup == 'No internet service' or
+  DeviceProtection == 'No internet service' or
+  TechSupport == 'No internet service' or
+  StreamingTV == 'No internet service' or
+  StreamingMovies == 'No internet service'
+)
+",7043,0,0.0,warn,"Evaluation error: ('unexpected EOF in multi-line statement', (1, 0))"

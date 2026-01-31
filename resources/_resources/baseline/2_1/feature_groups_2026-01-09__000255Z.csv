@@ -1,0 +1,23 @@
+column,dtype,feature_group,n_unique,protected,notes
+Churn_flag,Int64,target,2,True,binary target (encoded)
+Churn,object,target_aux,2,True,raw target label
+customerID,object,id,7043,True,ID / key candidate
+SeniorCitizen,int64,numeric_flag,2,False,numeric small-card (n_unique=2 ≤ 20)
+MonthlyCharges,float64,numeric_continuous,1585,False,numeric continuous / high-card
+TotalCharges,float64,numeric_continuous,6530,False,numeric continuous / high-card
+tenure,int64,numeric_continuous,73,False,numeric continuous / high-card
+Contract,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+Dependents,object,categorical_low_card,2,False,low-card categorical (n_unique=2 ≤ 20)
+DeviceProtection,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+InternetService,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+MultipleLines,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+OnlineBackup,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+OnlineSecurity,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+PaperlessBilling,object,categorical_low_card,2,False,low-card categorical (n_unique=2 ≤ 20)
+Partner,object,categorical_low_card,2,False,low-card categorical (n_unique=2 ≤ 20)
+PaymentMethod,object,categorical_low_card,4,False,low-card categorical (n_unique=4 ≤ 20)
+PhoneService,object,categorical_low_card,2,False,low-card categorical (n_unique=2 ≤ 20)
+StreamingMovies,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+StreamingTV,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+TechSupport,object,categorical_low_card,3,False,low-card categorical (n_unique=3 ≤ 20)
+gender,object,categorical_low_card,2,False,low-card categorical (n_unique=2 ≤ 20)

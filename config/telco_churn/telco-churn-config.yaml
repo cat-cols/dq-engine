@@ -1,0 +1,29 @@
+# General configuration for Telco Churn Project (Level 3)
+
+data:
+  raw_path: data/raw/telco_customer_churn.csv
+  processed_path: data/processed/telco_clean.csv
+  reports_dir: reports/
+  figures_dir: figures/
+
+validation:
+  alpha: 0.05
+  multiple_comparison_method: bonferroni
+  issue_log_path: reports/issue_log.csv
+
+imputation:
+  numeric: mean       # or median
+  categorical: mode   # most frequent category
+  drop_threshold: 0.3 # drop column if >30% missing
+
+outlier_detection:
+  zscore_threshold: 3.0
+  iqr_multiplier: 1.5
+
+categorical:
+  high_cardinality_threshold: 20
+
+exports:
+  baseline_stats: reports/baseline_stats.json
+  validation_summary: reports/validation_summary.json
+  environment_snapshot: reports/environment_snapshot.json

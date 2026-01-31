@@ -1,0 +1,359 @@
+{
+  "timestamp_utc": "2025-12-30T02:33:16Z",
+  "run_id": "20251230T023316Z",
+  "git_hash": "2664deaff30737b96207401e9d4725e677d08220",
+  "script_or_notebook": "interactive_notebook",
+  "dataset_version_id": "1",
+  "project_root": "/Users/b/DATA/PROJECTS/Telco",
+  "config_path": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/config/project_config.yaml",
+  "level_name": "Level_3",
+  "level_root": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3",
+  "paths": {
+    "reports_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/reports",
+    "section2_reports_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/reports/section2",
+    "section2_artifacts_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/artifacts/section2",
+    "artifacts_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/artifacts",
+    "registry_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/registry",
+    "dataset_version_registry_path": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/registry/dataset_version_registry.csv",
+    "logs_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/logs",
+    "src_root": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/src",
+    "raw_data": "/Users/b/DATA/PROJECTS/Telco/data/_raw/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+    "processed_dir": "/Users/b/DATA/PROJECTS/Telco/data/processed",
+    "figures_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/figures",
+    "models_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/models",
+    "outputs_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/outputs"
+  },
+  "engineering_metrics": {
+    "duplicated_code_eliminated": 108,
+    "helper_functions_created": 1,
+    "sections_modularized": 3,
+    "notebook_cells_reduced": null
+  },
+  "data_quality_metrics": {
+    "pct_missing_before": 0.00743730688356558,
+    "pct_missing_after": null,
+    "drift_index": null
+  },
+  "performance_metrics": {
+    "runtime_seconds": null,
+    "memory_mb": 6.5061,
+    "pipeline_cost": null
+  },
+  "repo_maturity": {
+    "docs_pages": 216,
+    "pipeline_steps_automated": 17,
+    "setup_friction_minutes": null
+  },
+  "helpers": [
+    "telco_churn.section2.reporting.append_sec2"
+  ],
+  "nodes": [
+    {
+      "section": "2.0.1",
+      "name": "Reporting Bootstrap/Setup",
+      "kind": "infra",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "1.x"
+      ],
+      "expected_inputs": [
+        "CONFIG",
+        "df",
+        "REPORTS_DIR"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/reports/section2"
+      ],
+      "uses_append_sec2": true
+    },
+    {
+      "section": "2.0.2",
+      "name": "Config & Constants Registration",
+      "kind": "infra",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.1"
+      ],
+      "expected_inputs": [
+        "CONFIG",
+        "target_name",
+        "id_cols"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/reports/section2/section2_config_checks.csv"
+      ],
+      "uses_append_sec2": true
+    },
+    {
+      "section": "2.0.3",
+      "name": "Logging & Metadata Setup",
+      "kind": "infra",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.1",
+        "2.0.2"
+      ],
+      "expected_inputs": [
+        "PROJECT_ROOT",
+        "ARTIFACTS_DIR",
+        "dataset_version_registry.csv"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/artifacts/section2_run_metadata.json"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.0.4",
+      "name": "Dataset Snapshot & Preview",
+      "kind": "overview",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "1.5"
+      ],
+      "expected_inputs": [
+        "df",
+        "RAW_DATA"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/reports/section2/section2_2_0_4_dataset_overview.csv"
+      ],
+      "uses_append_sec2": true
+    },
+    {
+      "section": "2.0.5",
+      "name": "Row/Column Baseline Summary",
+      "kind": "overview",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.4"
+      ],
+      "expected_inputs": [
+        "df"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/reports/section2/section2_2_0_5_baseline_summary.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.0.6",
+      "name": "ID & Protected Columns Snapshot",
+      "kind": "overview",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.4",
+        "2.0.5"
+      ],
+      "expected_inputs": [
+        "df",
+        "id_cols",
+        "CONFIG.PATHS"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20251229_183315/artifacts/section2/protected_columns_2_0_6.yaml"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.0.7",
+      "name": "Dependency Registry Build",
+      "kind": "infra",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.1",
+        "2.0.2",
+        "2.0.3",
+        "2.0.4",
+        "2.0.5",
+        "2.0.6"
+      ],
+      "expected_inputs": [
+        "CONFIG",
+        "df",
+        "Section 2 artifacts"
+      ],
+      "expected_outputs": [
+        "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/artifacts/section2_registry.json"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.0.8",
+      "name": "Sanity Preview Printout",
+      "kind": "infra",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.7"
+      ],
+      "expected_inputs": [
+        "section2_registry.json"
+      ],
+      "expected_outputs": [
+        "stdout",
+        "section2_execution_map.md"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.1",
+      "name": "Base Schema & Consistency",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.0.x"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_1_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.2",
+      "name": "Numeric Ranges & Outliers",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.1"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_2_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.3",
+      "name": "Categorical Levels & Rarity",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.1"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_3_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.4",
+      "name": "Missingness Patterns",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.1"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_4_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.5",
+      "name": "Leakage & Target Dependence",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.1"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_5_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.6",
+      "name": "Time/Drift & Stability Checks",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.1"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_6_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.7",
+      "name": "Business Rules & Contracts",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.2",
+        "2.3",
+        "2.4"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_7_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.8",
+      "name": "Aggregated DQ Score / Summary",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.2",
+        "2.3",
+        "2.4",
+        "2.5",
+        "2.6",
+        "2.7"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_8_report.csv"
+      ],
+      "uses_append_sec2": false
+    },
+    {
+      "section": "2.9",
+      "name": "Export / Handoff",
+      "kind": "dq_step",
+      "script_or_notebook": "interactive_notebook",
+      "depends_on": [
+        "2.8"
+      ],
+      "expected_inputs": [
+        "df",
+        "CONFIG"
+      ],
+      "expected_outputs": [
+        "2_9_report.csv"
+      ],
+      "uses_append_sec2": false
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+group_id,mode,columns,n_rows,n_all_zero,n_single,n_multi,pct_all_zero,pct_multi,group_severity,notes
+contract_type,mutually_exclusive,"ContractType_Month-to-month, ContractType_One year, ContractType_Two year",0,0,0,0,,,info,"All configured columns missing from df: ContractType_Month-to-month, ContractType_One year, ContractType_Two year"
+internet_service,mutually_exclusive,"InternetService_No, InternetService_DSL, InternetService_Fiber optic",0,0,0,0,,,info,"All configured columns missing from df: InternetService_No, InternetService_DSL, InternetService_Fiber optic"
+payment_method,mutually_exclusive,"PaymentMethod_Mailed check, PaymentMethod_Electronic check, PaymentMethod_Bank transfer (automatic), PaymentMethod_Credit card (automatic)",0,0,0,0,,,info,"All configured columns missing from df: PaymentMethod_Mailed check, PaymentMethod_Electronic check, PaymentMethod_Bank transfer (automatic), PaymentMethod_Credit card (automatic)"

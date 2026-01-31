@@ -1,0 +1,2 @@
+feature_a,feature_b,cramers_v,theils_u_ab,theils_u_ba,association_label
+Contract,Churn,0.42489346206724066,0.10419099145432663,0.182310326715319,Moderate

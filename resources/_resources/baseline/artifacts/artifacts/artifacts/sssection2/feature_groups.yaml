@@ -1,0 +1,27 @@
+ID:
+- customerID
+Target:
+- Churn_flag
+Binary:
+- SeniorCitizen
+Numeric:
+- tenure
+- MonthlyCharges
+- TotalCharges
+Categorical:
+- gender
+- Partner
+- Dependents
+- PhoneService
+- MultipleLines
+- InternetService
+- OnlineSecurity
+- OnlineBackup
+- DeviceProtection
+- TechSupport
+- StreamingTV
+- StreamingMovies
+- Contract
+- PaperlessBilling
+- PaymentMethod
+- Churn

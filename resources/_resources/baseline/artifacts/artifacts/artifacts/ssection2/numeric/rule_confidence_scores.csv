@@ -1,0 +1,9 @@
+feature,rule_type,rule_id,confidence_score,hard_vs_soft,notes
+MonthlyCharges,range,range_minmax,1.0,hard,"viol_rate=0.0, total=7043"
+TotalCharges,range,range_minmax,1.0,hard,"viol_rate=0.0, total=7032"
+tenure,range,range_minmax,1.0,hard,"viol_rate=0.0, total=7043"
+SeniorCitizen,outlier_iqr_z,outlier_iqr_z,0.6,soft,max_pct_outliers=16.215
+Churn_flag,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
+MonthlyCharges,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
+TotalCharges,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
+tenure,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0

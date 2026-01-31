@@ -1,0 +1,2 @@
+scenario_name,test_type,effect_type,effect_value,alpha,target_power,observed_power,current_n_total,current_n_group_A,current_n_group_B,required_n_total,required_n_group_A,required_n_group_B,adequately_powered,notes
+Contract_MonthlyCharges_power,two_proportion_z,,,0.05,0.8,,,,,,,,False,No matching effect_size_report row for 'prop_Churn_Yes'

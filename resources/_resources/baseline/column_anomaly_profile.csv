@@ -1,0 +1,2 @@
+column_name,n_anomalies,n_rows_touched,n_warn,n_fail,max_severity_rank,mean_magnitude,max_severity,anomaly_density_per_row,risk_score
+TotalCharges,1,1,0,1,2,,fail,1.0,3.0

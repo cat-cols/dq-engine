@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: telco_analysis
+Version: 0.3.0
+Summary: Professional Telco Churn Analysis with Statistical Validation
+Author: Brandon Hardison
+Requires-Python: >=3.8
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.11.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: black>=23.3.0; extra == "dev"
+Dynamic: author
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

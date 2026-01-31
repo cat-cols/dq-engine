@@ -1,0 +1,2 @@
+column,n_unique,entropy,entropy_level,pct_top_category,is_near_constant,role,feature_group
+SeniorCitizen_flag_text,2,0.63942,low,83.78532,False,feature,unknown

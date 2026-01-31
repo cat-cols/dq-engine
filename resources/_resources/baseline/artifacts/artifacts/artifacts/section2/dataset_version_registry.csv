@@ -1,0 +1,2 @@
+version_id,dataset_path,file_hash,first_seen_utc,last_seen_utc,n_rows,n_cols
+1,/Users/b/DATA/PROJECTS/Telco/resources/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv,88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a,2025-11-14T04:30:22Z,2025-11-14T04:30:22Z,7043,21

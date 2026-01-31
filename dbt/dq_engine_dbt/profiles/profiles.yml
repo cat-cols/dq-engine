@@ -1,0 +1,8 @@
+dq_engine_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "/Users/b/DATA/PROJECTS/Telco/data/warehouse/dq_warehouse.duckdb"
+      schema: analytics
+      threads: 4

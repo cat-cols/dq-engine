@@ -1,0 +1,1317 @@
+# // project_config.yaml
+# // IBM Telco Churn Project
+# // Config Hub 📦
+
+# PURPOSE:
+  # Single source of truth for paths, thresholds, and schema expectations.
+  # Loaded in Section 1 (Environment Setup) → used throughout Section 2–3.
+
+# TODO: in order for config.get to work > update vars to strict/semantic
+  # strict_dtypes = CONFIG.get("SCHEMA_EXPECTED_DTYPES_STRICT", {})
+  # semantic_dtypes = CONFIG.get("SCHEMA_EXPECTED_DTYPES_SEMANTIC", {})
+  # use with def C
+  # strict_dtypes = C("SCHEMA_EXPECTED_DTYPES_STRICT", {})
+  # semantic_dtypes = C("SCHEMA_EXPECTED_DTYPES_SEMANTIC", {})
+
+# =============================================================================
+# 0) PROJECT META + PATHS + DATASET IO
+# =============================================================================
+
+# 2.0 dir config to hold processed outputs (parquet/csv/etc.)
+PATHS:
+  RUNS_ENABLED: true        # <— flip this to false to stop writing into Level_3/runs/
+  RUNS_WRITE_LATEST: true   # optional: writes runs/latest.txt
+  RAW_DATA_DIR: "data/_raw/"
+  PROCESSED_DIR: "data/processed/"
+  RESOURCES_DIR: "Level_3/resources/"
+  ARTIFACTS:     "Level_3/resources/artifacts/"
+  REPORTS:       "Level_3/resources/reports/"
+  FIGURES:       "Level_3/resources/figures/"
+  MODELS:        "Level_3/resources/models/"
+  OUTPUTS:       "Level_3/outputs/"
+  RUNS_DIR:      "Level_3/runs/"
+  LATEST_DIR:    "Level_3/resources/latest/"
+
+META:
+  PROJECT_NAME: "Data Quality Engine"
+  VERSION: "1.0"
+  LAST_UPDATED: "2025-11-11"
+
+DATASETS:
+  TELCO:
+    # file from IBM, relative to PROJECT_ROOT
+    RAW_FILE: "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+
+READ_OPTS:
+  encoding: "utf-8"
+  na_values: ["", " ", "NA", "NaN"]
+  keep_default_na: true
+  low_memory: false
+
+# =============================================================================
+# 1) IDENTIFIERS + TARGET
+# =============================================================================
+
+ID_COLUMNS:
+  - "customerID"
+
+TARGET:
+  COLUMN: "Churn_flag"
+  RAW_COLUMN: "Churn"
+  POSITIVE_CLASS: "Yes"
+  NEGATIVE_CLASS: "No"
+
+# =============================================================================
+# 2) KEYS (PK/FK)
+# =============================================================================
+
+# SECTION 2.0 PART 3
+KEYS:
+  PRIMARY_KEYS:
+    telco_customer: ["customerID"]
+
+  FOREIGN_KEYS:
+    fk_customer_to_dim:
+      fk_col: "customerID"           # column in df
+      ref_table: "CUSTOMER_DIM"      # name of a ref DataFrame in globals()/REF_TABLES, # must map to a DataFrame
+      ref_col: "customerID"          # in CUSTOMER_DIM / PK column in that ref table
+      max_unmatched_pct: 0.01         # fraction, e.g. 0.01 = 1% allowed
+
+    # fk_customer:
+    #   fk_col: customerID
+    #   ref_table: CUSTOMER_DIM
+    #   ref_col: customer_id
+    #   max_unmatched_pct: 0.001
+
+# =============================================================================
+# 3) SCHEMA + DTYPES + LEVEL DOMAINS
+# =============================================================================
+
+# 2.1.7A
+SCHEMA_ENFORCEMENT:
+  APPLY_COERCE: true
+
+SCHEMA_EXPECTED_DTYPES:
+  customerID: string
+  Churn_flag: Int64
+  SeniorCitizen: Int64
+  tenure: Int64
+  MonthlyCharges: float64
+  TotalCharges: float64
+  gender: string
+  Partner: string
+  Dependents: string
+  PhoneService: string
+  MultipleLines: string
+  InternetService: string
+  OnlineSecurity: string
+  OnlineBackup: string
+  DeviceProtection: string
+  TechSupport: string
+  StreamingTV: string
+  StreamingMovies: string
+  Contract: string
+  PaperlessBilling: string
+  PaymentMethod: string
+  Churn: string
+
+# pandas dtypes (strict) — used by 2.1.7A
+SCHEMA_EXPECTED_DTYPES_STRICT: &DTYPES_STRICT
+  customerID: object
+  tenure: int64
+  MonthlyCharges: float64
+  TotalCharges: float64
+  Churn: object
+  Churn_flag: Int64
+  SeniorCitizen: int64
+# Churn_flag: Int
+# SCHEMA_EXPECTED_DTYPES: *DTYPES_STRICT
+
+# semantic dtypes
+SCHEMA_EXPECTED_DTYPES_SEMANTIC: &DTYPES_SEMANTIC
+  customerID: string
+  gender: category
+  SeniorCitizen: int
+  Partner: category
+  Dependents: category
+  PhoneService: category
+  PaperlessBilling: category
+  MultipleLines: category
+  DeviceProtection: category
+  OnlineBackup: category
+  OnlineSecurity: category
+  TechSupport: category
+  StreamingMovies: category
+  StreamingTV: category
+  tenure: int
+  MonthlyCharges: float
+  TotalCharges: float
+
+# NEW
+EXPECTED_LEVELS: &EXPECTED_LEVELS
+  gender: ["Female", "Male"]
+  SeniorCitizen: ["0", "1"]
+  Partner: ["Yes", "No"]
+  Dependents: ["Yes", "No"]
+  PhoneService: ["Yes", "No"]
+  MultipleLines: ["Yes", "No", "No phone service"]
+  InternetService: ["DSL", "Fiber optic", "No"]
+  OnlineSecurity: ["Yes", "No", "No internet service"]
+  OnlineBackup: ["Yes", "No", "No internet service"]
+  DeviceProtection: ["Yes", "No", "No internet service"]
+  TechSupport: ["Yes", "No", "No internet service"]
+  StreamingTV: ["Yes", "No", "No internet service"]
+  StreamingMovies: ["Yes", "No", "No internet service"]
+  Contract: ["Month-to-month", "One year", "Two year"]
+  PaperlessBilling: ["Yes", "No"]
+  PaymentMethod:
+    - "Electronic check"
+    - "Mailed check"
+    - "Bank transfer (automatic)"
+    - "Credit card (automatic)"
+  Churn: ["Yes", "No"]
+
+CATEGORICAL:
+  VALID_DOMAINS: *EXPECTED_LEVELS
+
+# =============================================================================
+# 4) BASIC QUALITY / RANGES / MISSINGNESS
+# =============================================================================
+
+RANGES:
+  tenure:          {min: 0,   max: 120}
+  MonthlyCharges:  {min: 0,   max: 1000}
+  TotalCharges:    {min: 0,   max: 100000}
+
+DATA_QUALITY:
+  NUMERIC_LIKE_THRESHOLD: 0.95
+  RARE_PCT_THRESHOLD: 0.5
+  RARE_MIN_COUNT: 5
+  HIGH_CARD_THRESHOLD: 50
+  NEARLY_CONST_THRESHOLD: 0.98
+  SUSPECT_TOKENS:
+    - "?"
+    - "unknown"
+    - "unk"
+    - "n/a"
+    - "na"
+    - "n.a."
+    - "null"
+    - "none"
+    - "missing"
+    - "-"
+    - "--"
+    - "_"
+    - "tbd"
+
+MISSING_VALUES:
+  MAX_NULL_FRACTION_TO_IMPUTE: 0.4
+  STRATEGIES:
+    NUMERIC:
+      default: median
+      overrides:
+        TotalCharges: zero
+
+# Telco: TotalCharges
+LOGIC_REPAIR:
+  ENABLED: true
+  TAG_COLUMN: "_logic_repair_applied"
+  DEFAULT_STRATEGY: "flag_only"   # rules without explicit action will just flag
+
+  RULES:
+    # 1) Your main Telco pain point:
+    #    tenure > 0 but TotalCharges is null → fill with 0 (or your policy)
+    tenure_requires_totalcharges_fill_zero:
+      description: "If tenure > 0 and TotalCharges is null, fill TotalCharges with 0."
+      if: "(tenure > 0) & (TotalCharges.isna())"
+      action: "set_zero"
+      columns_to_fix: ["TotalCharges"]
+
+    # 2) Optional: also enforce 'zero tenure → zero total' as a cleanup rule
+    tenure_zero_total_zero:
+      description: "If tenure == 0 and TotalCharges is non-null and non-zero, force it to 0."
+      if: "(tenure == 0) & (TotalCharges.notna()) & (TotalCharges != 0)"
+      action: "set_zero"
+      columns_to_fix: ["TotalCharges"]
+
+# =============================================================================
+# 5) DERIVED FEATURES + ENCODING
+# =============================================================================
+
+DERIVED_FEATURES:
+  ENABLED: true
+  FEATURES:
+    tenure_months_bucket:
+      expr: "pd.cut(tenure, bins=[0,12,24,36,60,999], labels=['0-12','12-24','24-36','36-60','60+'])"
+    total_charges_per_month:
+      expr: "TotalCharges / (tenure.replace({0: np.nan}))"
+    avg_streaming_spend:
+      expr: "(StreamingMoviesCharges + StreamingTVCharges) / max(1, StreamingServicesCount)"
+
+ENCODING_PLAN:
+  ENABLED: true
+  GLOBAL_DEFAULT: "one_hot"    #OR: "ordinal"
+  STRATEGIES:
+    LOW_CARDINALITY_MAX: 10
+    HIGH_CARDINALITY_THRESHOLD: 50
+    METHODS:
+      ONE_HOT: ["Contract","InternetService","Partner","Dependents"]
+      ORDINAL: ["tenure_bucket"]
+      TARGET: ["PaymentMethod"]
+    EXCLUDE:
+      - "customerID"
+
+# =============================================================================
+# 6) DRIFT + TEMPORAL
+# =============================================================================
+
+# This is where we store the "golden run" numeric_profile that future runs compare against
+# 💡💡 Baseline snapshot for numeric profile — used by 2.3.14 drift checks
+DRIFT:
+  BASELINE_NUMERIC_PROFILE: "resources/artifacts/baseline/numeric_profile_baseline.csv"
+  # 💡💡 Drift thresholds — aligned with 2.3.14 drift_severity rules
+  PSI_WARN: 0.10      # moderate drift
+  PSI_FAIL: 0.25      # severe drift
+  KS_WARN: 0.10       # moderate KS
+  KS_FAIL: 0.20       # severe KS
+
+# 0-2 typical?
+TEMPORAL:
+  FUTURE_GRACE_DAYS: 0
+  MIN_DATE: "1999-01-01"
+  TIME_COLUMN: null     # "contract_start_date" | or whatever you want
+  TIME_BUCKET: "M"                     # already used in code
+  Z_THRESHOLD: 3.0
+  CORR_WINDOW: 3
+  CORR_DELTA_THRESHOLD: 0.3
+  INTERVALS:
+    tenure_interval:
+      start_col: "pseudo_start"
+      end_col: "pseudo_end"
+      min_duration: 0
+      max_duration: 3650     # 10 years, which is 120 months
+      unit: "days"
+    call_duration:
+      start_col: "call_start_ts"
+      end_col: "call_end_ts"
+      min_duration: 0        # no negative calls
+      max_duration: 360      # max 6 hours
+      unit: "minutes"
+    contract_lifetime:
+      start_col: "contract_start_date"
+      end_col: "contract_end_date"
+      min_duration: 0
+      max_duration: 3650     # 10 years
+      unit: "days"
+  PSEUDO_TIME:
+    COLUMN: "tenure"
+    BUCKET_WIDTH: 12      # (12M = 1 year buckets)
+
+# =============================================================================
+# 7) LOGIC RULES (2.5.x)
+# =============================================================================
+
+# LOGIC (2.5.3-2.5.6)
+LOGIC_RULES:
+  MUTUAL_EXCLUSION:
+    no_multiple_lines_without_phone:
+      description: "Cannot have MultipleLines when PhoneService == 'No'."
+      columns: ["PhoneService", "MultipleLines"]
+      # Violation expression = bad state | Explain:
+      # no phone service, but MultipleLines says anything other than 'No phone service'
+      violation_expr: "PhoneService == 'No' and MultipleLines != 'No phone service'"
+
+    no_no_phone_service_when_phone_yes:
+      description: "If PhoneService == 'Yes', MultipleLines cannot be 'No phone service'."
+      columns: ["PhoneService", "MultipleLines"]
+      # BAD state: PhoneService says they DO have phone, but MultipleLines
+      # claims 'No phone service'.
+      violation_expr: "PhoneService == 'Yes' and MultipleLines == 'No phone service'"
+
+    no_internet_addons_without_internet:
+      description: "If InternetService == 'No', all internet add-ons must be 'No internet service'."
+      columns:
+        - "InternetService"
+        - "OnlineSecurity"
+        - "OnlineBackup"
+        - "DeviceProtection"
+        - "TechSupport"
+        - "StreamingTV"
+        - "StreamingMovies"
+      # BAD state: claims no internet, but some add-on is active or 'Yes'/'No'
+      # instead of 'No internet service'
+      violation_expr: >
+        InternetService == 'No' and (
+          OnlineSecurity != 'No internet service' or
+          OnlineBackup != 'No internet service' or
+          DeviceProtection != 'No internet service' or
+          TechSupport != 'No internet service' or
+          StreamingTV != 'No internet service' or
+          StreamingMovies != 'No internet service'
+        )
+
+    no_no_internet_flag_when_internet_present:
+      description: "If InternetService is DSL/Fiber, add-ons cannot say 'No internet service'."
+      columns:
+        - "InternetService"
+        - "OnlineSecurity"
+        - "OnlineBackup"
+        - "DeviceProtection"
+        - "TechSupport"
+        - "StreamingTV"
+        - "StreamingMovies"
+      # BAD state: says they DO have internet, but some add-on claims
+      # 'No internet service'.
+      violation_expr: >
+        InternetService != 'No' and (
+          OnlineSecurity == 'No internet service' or
+          OnlineBackup == 'No internet service' or
+          DeviceProtection == 'No internet service' or
+          TechSupport == 'No internet service' or
+          StreamingTV == 'No internet service' or
+          StreamingMovies == 'No internet service'
+        )
+#
+  DEPENDENCIES:
+    # CORE RULE:
+    tenure_requires_total_charges:
+      description: "If tenure > 0, TotalCharges should not be null"
+      columns: ["tenure", "TotalCharges"]
+      if: "tenure > 0"
+      then: "TotalCharges.notna()"
+  # MORE RULE:
+    zero_monthly_implies_no_services:
+      description: "If MonthlyCharges == 0, customer should have no phone or internet service."
+      columns: ["MonthlyCharges", "PhoneService", "InternetService"]
+      if: "MonthlyCharges == 0"
+      then: "(PhoneService == 'No') and (InternetService == 'No')"
+    #
+    contract_implies_positive_tenure:
+      description: "If Contract is not 'Month-to-month', tenure should be > 0."
+      columns: ["Contract", "tenure"]
+      if: "Contract != 'Month-to-month'"
+      then: "tenure > 0"
+    #
+    total_charges_requires_monthly:
+      description: "If TotalCharges > 0, MonthlyCharges should also be > 0."
+      columns: ["TotalCharges", "MonthlyCharges"]
+      if: "TotalCharges > 0"
+      then: "MonthlyCharges > 0"
+
+  #
+  RATIO_CHECKS:
+    total_vs_mc_tenure:
+      description: "TotalCharges ≈ MonthlyCharges * tenure"
+      lhs: "TotalCharges"
+      rhs_expr: "MonthlyCharges * tenure"
+      max_rel_error: 0.2
+      max_abs_error: 20.0
+
+LOGIC:
+  NETWORK:
+    ENABLED: true
+    DEFAULT_SEVERITY: "warn"
+    RULES:
+      churn_contradiction_tenure0_churnyes:
+        rule_id: "churn_contradiction_tenure0_churnyes"
+        description: "Tenure == 0 but Churn_flag == 1"
+        severity: "fail"
+        feature_names: ["tenure", "Churn_flag"]
+
+# =============================================================================
+# 8) CROSS-DOMAIN CONSISTENCY + ONEHOT + TOTALS
+# =============================================================================
+
+CATNUM_ALIGNMENT:
+# 1) Contract length vs MonthlyCharges
+# Business story:
+#   Month-to-month is usually most expensive.
+#   Longer contracts often lock in discounts.
+# Monotonic choice:
+#   We order by increasing commitment and expect MonthlyCharges to DECREASE.
+
+  # Toggle this whole 2.5.7 layer on/off
+  ENABLED: true
+  # Optional: high-level thresholds for what counts as a "violation"
+  # (Your 2.5.7 script can choose to use these or keep its own defaults.)
+  THRESHOLDS:
+    # Maximum fraction of category pairs that can break the monotonic pattern
+    max_violating_pairs_pct: 0.2
+    # Minimum number of rows per category required to trust the comparison
+    min_group_size: 50
+  RULES:
+    contract_vs_monthly:
+      group_col: "Contract"
+      numeric_col: "MonthlyCharges"
+      expectation: "monotonic_decreasing"  # Month-to-month ≥ One year ≥ Two year
+      group_order:
+        - "Month-to-month"
+        - "One year"
+        - "Two year"
+      # category_order: ["Month-to-month","One year","Two year"]
+
+# SENIORS_RULE:
+    senior_discount:
+      group_col: "SeniorCitizen"
+      numeric_col: "MonthlyCharges"
+      expectation: "group_1 <= group_0"
+    # 2) Internet service tier vs MonthlyCharges
+    # Business story:
+    #   No internet < DSL < Fiber in terms of capability and price.
+    # Monotonic choice:
+    #   As you move from "No" → "DSL" → "Fiber optic",
+    #   average MonthlyCharges should not go DOWN.
+    internet_vs_monthly:
+      group_col: "InternetService"
+      numeric_col: "MonthlyCharges"
+      expectation: "monotonic_increasing"
+      group_order:
+        - "No"
+        - "DSL"
+        - "Fiber optic"
+    # 3) Tenure bucket vs MonthlyCharges
+    # Business story:
+    #   This is a softer, exploratory rule. You can frame it either way:
+    #   - promos for new customers (low then higher), or
+    #   - loyalty discounts (higher then lower).
+    # Here we choose "monotonic_increasing" as:
+    #   newer customers (0–12) ≲ mid-tenure ≲ long-tenure on price.
+    # NOTE: tenure_bucket should be created earlier in the pipeline
+    tenure_bucket_vs_monthly:
+      group_col: "tenure_bucket"
+      numeric_col: "MonthlyCharges"
+      expectation: "monotonic_increasing"
+      group_order:
+        - "0-12"
+        - "13-24"
+        - "25-48"
+        - "49-72"
+    # 4) Payment method vs MonthlyCharges (soft sanity check)
+    # Business story:
+    #   PaymentMethod often correlates with customer profile and pricing structure.
+    #   This is not a hard contract – more of a "shape" check:
+    #   mailed check ≲ electronic check ≲ auto-pay types.
+    # Monotonic choice:
+    #   As we move toward more automated payment methods, we *allow*
+    #   MonthlyCharges to trend upward (or at least not dramatically invert)
+    paymentmethod_vs_monthly:
+      group_col: "PaymentMethod"
+      numeric_col: "MonthlyCharges"
+      expectation: "monotonic_increasing"
+      group_order:
+        - "Mailed check"
+        - "Electronic check"
+        - "Bank transfer (automatic)"
+        - "Credit card (automatic)"
+
+# REAL COLUMNS (DUMMY)
+ONEHOT:
+  GROUPS:
+    contract_type:
+      mode: "mutually_exclusive"
+      columns:
+        - ContractType_Month-to-month
+        - ContractType_One year
+        - ContractType_Two year
+    internet_service:
+      mode: "mutually_exclusive"
+      columns:
+        - "InternetService_No"
+        - "InternetService_DSL"
+        - "InternetService_Fiber optic"
+
+    payment_method:
+      mode: "mutually_exclusive"
+      columns:
+        - "PaymentMethod_Mailed check"
+        - "PaymentMethod_Electronic check"
+        - "PaymentMethod_Bank transfer (automatic)"
+        - "PaymentMethod_Credit card (automatic)"
+
+TOTALS:
+  RULES:
+    total_vs_expected_from_tenure_monthly:
+      # Telco: TotalCharges should roughly match tenure * MonthlyCharges.
+      # Upstream requirement:
+      #   expected_total_from_tenure_monthly = tenure * MonthlyCharges
+      description: "TotalCharges ≈ expected_total_from_tenure_monthly (tenure × MonthlyCharges)"
+      total_col: "TotalCharges"
+      component_cols: ["expected_total_from_tenure_monthly"]
+      tolerance_abs: 50.0        # allow ~one partial month of noise
+      tolerance_rel: 0.20        # up to 20% relative deviation
+
+    zero_tenure_zero_total:
+      # Telco: if tenure is effectively zero, expected total charges should be ~0.
+      # Upstream requirement:
+      #   expected_total_for_zero_tenure:
+      #       0 for tenure == 0
+      #       NaN (or same as TotalCharges) otherwise
+      description: "Rows with tenure ≈ 0 should have near-zero TotalCharges"
+      total_col: "TotalCharges"
+      component_cols: ["expected_total_for_zero_tenure"]
+      tolerance_abs: 5.0         # allow a small startup/proration amount
+      tolerance_rel: 0.25        # not very meaningful here but harmless
+    contract_bounded_total:
+      # Telco: contract type should imply a reasonable minimum or pattern for total charges.
+      # Upstream requirement:
+      #   expected_min_total_from_contract:
+      #       derived from Contract + tenure + MonthlyCharges, e.g.
+      #       Month-to-month:      0 (no minimum)
+      #       One year / Two year: min(1, tenure) * MonthlyCharges
+      description: "TotalCharges should not fall below contract-implied minimum"
+      total_col: "TotalCharges"
+      component_cols: ["expected_min_total_from_contract"]
+      tolerance_abs: 50.0
+      tolerance_rel: 0.20
+    senior_citizen_pricing_consistency:
+      # Telco: SeniorCitizen rows should have TotalCharges consistent with their
+      # tenure and MonthlyCharges (no extreme under/over-billing).
+      # Upstream requirement:
+      #   expected_total_senior:
+      #       e.g. tenure * MonthlyCharges plus any known senior-specific adjustments,
+      #       NaN for non-senior rows (so they are excluded from this rule).
+      description: "Senior citizens' TotalCharges are consistent with expected billing"
+      total_col: "TotalCharges"
+      component_cols: ["expected_total_senior"]
+      tolerance_abs: 75.0
+      tolerance_rel: 0.25
+    payment_method_consistency:
+      # Telco: different PaymentMethod values (AutoPay vs mailed check, etc.)
+      # should not show wild discrepancies between expected vs actual totals.
+      # Upstream requirement:
+      #   expected_total_from_payment_profile:
+      #       expected charges given tenure, MonthlyCharges, and PaymentMethod,
+      #       capturing any known fees/discounts by method.
+      description: "TotalCharges align with payment-method-specific expected pattern"
+      total_col: "TotalCharges"
+      component_cols: ["expected_total_from_payment_profile"]
+      tolerance_abs: 40.0
+      tolerance_rel: 0.15
+
+CROSS_FIELD_TOLERANCES:
+  total_vs_mc_tenure:
+    tol_abs: 5.0
+    tol_rel: 0.02
+
+# =============================================================================
+# 9) ANOMALY CONTEXT + INTEGRITY INDEX
+# =============================================================================
+
+# ANOMALY CONTEXT
+ANOMALY_CONTEXT:
+    # If omitted/empty => include all severities
+  INCLUDE_SEVERITIES: ["warn", "fail"]   # or ["info", "warn", "fail"]
+  MAX_ROWS: 5000                         # optional
+  RUN_ID: null                           # optional; script will fallback if null
+
+  SOURCES:
+    dependency_rule_violation:
+      path: "dependency_violations.csv"
+      format: "csv"
+      row_key_col: "customerID"
+      rule_id_col: "rule_name"
+      anomaly_type: "dependency_violation"
+      feature_cols: ["columns_involved"]
+      severity_col: "severity"
+      magnitude_col: "n_violations"
+      section_ref: "2.5.4"
+
+    dependency_row_violation:
+      path: "dependency_row_violations.csv"
+      format: "csv"
+      row_key_col: "row_key"          # or "customerID" if you prefer
+      rule_id_col: "rule_id"
+      anomaly_type: "dependency_violation"
+      feature_cols: ["left_col", "right_col"]
+      severity_col: "severity"
+      magnitude_col: "magnitude"
+      section_ref: "2.5.test"
+
+    mutual_exclusion_violation:
+      path: "mutual_exclusion_report.csv"
+      format: "csv"
+      row_key_col: "customerID"
+      rule_id_col: "rule_id"
+      anomaly_type: "mutual_exclusion"
+      severity_col: "severity"
+      feature_cols: ["columns"]
+      section_ref: "2.5.3"
+
+    ratio_check_violation:
+      path: "ratio_consistency_report.csv"
+      row_key_col: "customerID"
+      rule_id_col: "ratio_rule"
+      anomaly_type: "ratio_violation"
+      severity_col: "severity"
+      feature_cols: ["lhs", "rhs_expr"]
+      section_ref: "2.5.5"
+
+    temporal_violation:
+      path: "temporal_logic_report.csv"
+      anomaly_type: "temporal_violation"
+      row_key_col: "customerID"
+      rule_id_col: "interval_name"
+      feature_cols: ["start_col", "end_col"]
+      severity_col: "severity"
+      section_ref: "2.5.6"
+
+    onehot_integrity_violation:
+      path: "onehot_integrity_report.csv"
+      anomaly_type: "onehot_violation"
+      row_key_col: "customerID"
+      rule_id_col: "group_id"
+      feature_cols: ["columns"]
+      severity_col: "severity"
+      section_ref: "2.5.8"
+
+    # 3.2 Numeric Drift (PSI per numeric feature)
+    drift_numeric_psi:
+      path: "numeric_drift_psi.csv"
+      format: "csv"
+      row_key_col: "feature"          # becomes row_key in 2.5.11
+      rule_id_col: "feature"          # reused as rule_id (you can also add a literal rule_id column if you want)
+      anomaly_type: "numeric_drift"   # will populate anomaly_type column
+      feature_cols: ["feature"]       # joined into feature_names
+      severity_col: "severity"
+      magnitude_col: "psi"            # PSI used as magnitude
+      section_ref: "3.2"
+
+    # 3.3 Categorical Drift (PSI per categorical feature)
+    drift_categorical_psi:
+      path: "categorical_drift_psi.csv"
+      format: "csv"
+      row_key_col: "feature"
+      rule_id_col: "feature"
+      anomaly_type: "categorical_drift"
+      feature_cols: ["feature"]
+      severity_col: "severity"
+      magnitude_col: "psi"
+      section_ref: "3.3"
+
+    # 3.4 Logic Drift (dependency rule violation deltas)
+    drift_logic_dependency:
+      path: "logic_drift_dependency.csv"
+      format: "csv"
+      row_key_col: "rule_name"                 # becomes row_key
+      rule_id_col: "rule_name"
+      anomaly_type: "logic_drift_dependency"
+      feature_cols: ["rule_name"]
+      severity_col: "severity"
+      magnitude_col: "delta_violations"        # how much the rule changed
+      section_ref: "3.4"
+
+    #
+    churn_logic_rules:
+      # Tip: keep these as absolute paths OR relative to section2 reports dir (script supports both)
+      path: "logic_anomalies/churn_rules.csv"
+      format: "csv"                      # "csv" or "parquet"
+      section_ref: "2.5.??"              # optional label for provenance
+      anomaly_type: "logic_rule_violation"
+
+      # Optional column mappings
+      row_key_col: "customerID"          # optional; fallback tries customerID then id then index
+      rule_id_col: "rule_id"             # default "rule_id"
+      severity_col: "severity"           # default "severity"
+      magnitude_col: "magnitude"         # optional
+      feature_cols: ["feature", "feature_2"]   # optional list of cols holding feature names
+
+INTEGRITY_INDEX:
+  # Optional: custom run ID label for 2.5.17
+  # If omitted, it will auto-generate like "sec2_20251119T123456Z"
+  RUN_ID: null
+
+  WEIGHTS:
+    # How much each sub-score contributes to the final 0–100 index.
+    # These are relative weights, *not* required to sum to 1.0
+    numeric: 0.30         # (placeholder until you wire numeric readiness)
+    categorical: 0.30     # from model_readiness_report.csv
+    logic: 0.30           # from logic_readiness_report.csv + 2.5.12
+    contract_modifier: 0.10  # how strongly contract penalties affect the score
+
+  CONTRACT_PENALTIES:
+    # Status → penalty in points (multiplied by contract_modifier)
+    OK: 0         # no change
+    WARN: -10     # mild downgrade
+    FAIL: -25     # strong downgrade
+
+# =============================================================================
+# 10) FLAGS + LOGGING
+# =============================================================================
+
+FLAGS:
+  RAISE_ON_CRITICAL: true
+  SAVE_LOGS: true
+  ENABLE_COLOR_OUTPUT: true
+
+LOGGING:
+  ENABLED: true
+  FORMAT: "%(asctime)s | %(levelname)s | %(message)s"
+  LEVEL: "INFO"
+  SAVE_TO: "Level_3/resources/reports/section2_data_quality_log.txt"
+
+# =============================================================================
+# 11) CONTRACTS + QUALITY BANDS
+# =============================================================================
+
+CONTRACTS:
+  - name: "no_high_null_for_key_features"
+    scope: "numeric_profile"
+    severity: "hard"        # "hard" or "soft"
+    target: "null_pct"
+    op: "<="
+    threshold: 5.0          # % null
+    where:
+      is_key_feature: True  # optional filters
+
+  - name: "non_negative_readiness"
+    scope: "readiness"
+    severity: "soft"
+    target: "readiness_score"
+    op: ">="
+    threshold: 0.0
+
+  - name: "limit_high_drift_low_readiness"
+    scope: "drift"
+    severity: "hard"
+    target: "high_drift_low_readiness"
+    op: "fraction_eq"
+    value: True
+    max_fraction: 0.05       # at most 5% of monitored features
+
+  - name: "no_hard_contract_failures"
+    scope: "contracts"
+    severity: "hard"
+    target: "hard_contract_failures"
+    op: "=="
+    value: 0
+
+# --------------------------------------------------------------------------
+# 1) BASIC NUMERIC HYGIENE (MISSINGNESS / INTEGRITY)
+# --------------------------------------------------------------------------
+DATA_CONTRACTS:
+  - name: "numeric_nulls_under_5pct_for_features"
+    description: "All numeric model features must have <= 5% missing values."
+    scope: "numeric_profile"          # uses numeric_profile_df.csv
+    severity: "hard"                  # failing this should FAIL the run
+    where:
+      role: "feature"                 # only real model features, not IDs/targets
+    target: "null_pct"                # column in numeric_profile_df
+    op: "<="
+    threshold: 5.0                    # percent
+
+  - name: "no_critical_numeric_integrity"
+    description: "No numeric column is allowed to have critical integrity status."
+    scope: "numeric_integrity"        # uses numeric_integrity_report.csv
+    severity: "hard"
+    target: "numeric_integrity_status"
+    op: "!="
+    value: "critical"                 # contract fails if ANY row == 'critical'
+
+  - name: "warn_if_many_warn_integrity"
+    description: "Warn if more than 30% of numeric columns are in 'warn' status."
+    scope: "numeric_integrity"
+    severity: "soft"                  # WARN but don't fail the run
+    target: "numeric_integrity_status"
+    op: "fraction_eq"                 # your evaluator can interpret this op
+    value: "warn"
+    max_fraction: 0.30                # <= 30% numeric columns may be 'warn'
+
+  # --------------------------------------------------------------------------
+  # 2) TELCO-SPECIFIC RANGES / SPECIAL CASES
+  # --------------------------------------------------------------------------
+
+  - name: "senior_citizen_is_binary"
+    description: "SeniorCitizen must only contain 0/1 values (no weird codes)."
+    scope: "numeric_profile"
+    severity: "hard"
+    where:
+      column: "SeniorCitizen"
+    target: "n_unique"
+    op: "<="
+    threshold: 2                      # allow up to 2 unique values (0 and 1)
+
+  - name: "total_charges_not_too_sparse"
+    description: "TotalCharges should not be missing for more than 2% of rows."
+    scope: "numeric_profile"
+    severity: "hard"
+    where:
+      column: "TotalCharges"
+    target: "null_pct"
+    op: "<="
+    threshold: 2.0
+
+  - name: "tenure_has_reasonable_nulls"
+    description: "tenure allowed small nulls but should be under 1%."
+    scope: "numeric_profile"
+    severity: "soft"
+    where:
+      column: "tenure"
+    target: "null_pct"
+    op: "<="
+    threshold: 1.0
+
+  # 3) MODEL READINESS CONTRACTS
+  - name: "most_features_readiness_above_0_7"
+    description: "At least 80% of model features must have readiness_score >= 0.7."
+    scope: "readiness"                # uses model_readiness_report.csv
+    severity: "hard"
+    where:
+      # use feature-level rows that represent model inputs, not targets
+      # (assumes you carry 'numeric_integrity_status' or 'role' alongside)
+      # If you only have features in this file, you can omit 'where'.
+      # role: "feature"
+    target: "readiness_score"
+    op: "fraction_ge"                 # “fraction with target >= threshold”
+    threshold: 0.7
+    min_fraction: 0.80                # ≥ 80% of features must meet threshold
+
+  - name: "no_feature_with_readiness_below_0_4"
+    description: "There should be no catastrophically bad features (readiness < 0.4)."
+    scope: "readiness"
+    severity: "hard"
+    target: "readiness_score"
+    op: ">="
+    threshold: 0.4                    # fails if any feature < 0.4
+
+  - name: "warn_if_many_low_readiness"
+    description: "Warn if more than 25% of features have readiness_score < 0.6."
+    scope: "readiness"
+    severity: "soft"
+    target: "readiness_score"
+    op: "fraction_lt"
+    threshold: 0.6
+    max_fraction: 0.25
+
+  # 4) DRIFT CONTRACTS (PSI / KS)
+  - name: "psi_under_0_25_for_features"
+    description: "No model feature should exhibit extreme drift (PSI ≥ 0.25)."
+    scope: "drift"                    # uses data_drift_metrics.csv
+    severity: "hard"
+    where:
+      # If you later add feature_group (e.g. model_feature vs aux), filter here
+      # feature_group: "model_feature"
+    target: "psi"
+    op: "<"
+    threshold: 0.25                   # typical “severe drift” PSI cut
+
+  - name: "psi_warn_if_many_features_above_0_1"
+    description: "Warn if more than 30% of features have PSI ≥ 0.1 (moderate drift)."
+    scope: "drift"
+    severity: "soft"
+    target: "psi"
+    op: "fraction_ge"
+    threshold: 0.10
+    max_fraction: 0.30
+
+  - name: "ks_under_0_2_for_features"
+    description: "No feature should have KS statistic ≥ 0.2 vs baseline."
+    scope: "drift"
+    severity: "hard"
+    target: "ks_stat"
+    op: "<"
+    threshold: 0.20
+
+  # 5) JOINT READINESS + DRIFT GUARDRAILS
+  - name: "no_high_drift_low_readiness_features"
+    description: "For safety, forbid features that are both high-drift and low-readiness."
+    scope: "drift"
+    severity: "hard"
+    # assumes data_drift_metrics.csv has:
+    #  - drift_severity ∈ {none, low, medium, high}
+    #  - readiness_score
+    target: "drift_severity"
+    op: "not_any_in"
+    values:
+      - "high_low_readiness"          # or you can encode this combo explicitly
+    # Alternative (if you use explicit columns instead of a combined label):
+    # where:
+    #   high_drift_low_readiness: true
+
+  # 6) GLOBAL RUN HEALTH CONTRACT (AGGREGATED VIEW)
+  - name: "run_overall_contract_health"
+    description: "Global health expectations: no hard contract should fail."
+    scope: "contracts"                # meta-level; evaluated using all other contract results
+    severity: "hard"
+    target: "hard_contract_failures"  # your evaluator can compute this meta-metric
+    op: "=="
+    value: 0
+
+QUALITY_BANDS:
+  ENABLED: true
+  BOUNDARIES:
+    EXCELLENT_MIN: 90
+    MODERATE_MIN: 70
+  LABELS:
+    EXCELLENT: "🟩 Excellent"
+    MODERATE: "🟨 Moderate"
+    POOR: "🟥 Poor"
+
+# =============================================================================
+# 12) STAGE 4/6/8/10/11 — INFERENTIAL + STABILITY + CORRELATIONS
+# =============================================================================
+
+# 2.7
+VARIANCE_HOMOGENEITY:
+  ENABLED: true
+  GROUP_BY: ["Contract", "InternetService", "PaymentMethod"]
+  TEST_METHOD: "levene"
+  P_VALUE_THRESHOLD: 0.05
+  OUTPUT_FILE: "variance_homogeneity_report.csv"
+
+# 2.7.1
+SAMPLING_REPRESENTATIVENESS:
+  ENABLED: true
+  TEST_METHOD: chi_square
+
+  # Existing (kept for backward compat; treated as WARN threshold)
+  P_VALUE_THRESHOLD: 0.05
+
+  # New: p-value thresholds
+  P_VALUE_WARN_THRESHOLD: 0.05
+  P_VALUE_FAIL_THRESHOLD: 0.01
+
+  # New: practical significance thresholds on max abs pct_delta
+  MAX_ABS_PCT_DELTA_WARN: 0.02     # 2 percentage points
+  MAX_ABS_PCT_DELTA_FAIL: 0.05     # 5 percentage points
+
+  # New: p-value display control
+  P_VALUE_DISPLAY_PRECISION: 18    # 18 is plenty
+  ADD_P_VALUE_STRING_COL: true
+
+  OUTPUT_FILE: sample_representativeness_report.csv
+
+  POPULATION_BENCHMARKS:
+    gender:
+      Male: 0.49
+      Female: 0.51
+    Contract:
+      Month-to-month: 0.55
+      One year: 0.20
+      Two year: 0.25
+
+# 2.7.4 | Correlation Matrix (Pearson, Spearman, Kendall)
+CORRELATION_MATRIX:
+  ENABLED: true
+  METHOD: "pearson"             # or "spearman", "kendall"
+  OUTPUT_FILE: "correlation_matrix_report.csv"
+
+# ADD AFTER VARIANCE_HOMOGENEITY (before CATNUM_ALIGNMENT)
+PROPORTION_CI:
+  ENABLED: true
+  METHOD: "wilson"              # or "clopper-pearson"
+  ALPHA: 0.05
+  TARGETS:
+    - "Churn"                   # Churn rate CI
+    - "Contract"                # Contract distribution CI
+    - "PaymentMethod"           # Payment method proportions
+    - "SeniorCitizen"           # Senior citizen %
+    - "Contract"                # Contract distribution CI
+    - "InternetService"         # Internet service distribution CI
+  OUTPUT_FILE: "proportion_ci_report.csv"
+
+# 2.7.5 Categorical-Numeric Relationships
+CAT_NUM_RELATIONSHIPS:
+  ENABLED: true
+  GROUP_BY:
+    - gender
+    - SeniorCitizen
+    - Partner
+    - Dependents
+    - PhoneService
+    - MultipleLines
+    - InternetService
+    - PaymentMethod
+  NUMERIC_TARGETS: "all_numeric"  # tenure, MonthlyCharges, TotalCharges
+  METHODS:
+    ANOVA: true
+    KRUSKAL: true
+  P_VALUE_THRESHOLD: 0.05
+  OUTPUT_FILE: anova_kruskal_results.csv
+
+# 2.7.6 - ADD AFTER INTERACTION_TESTS
+CAT_CAT_RELATIONSHIPS:
+  ENABLED: true
+  TEST_METHOD: "chi_square"
+  P_VALUE_THRESHOLD: 0.05
+  OUTPUT_FILE: "chi_square_results.csv"
+  PAIRS:
+    # Business-critical pairs for churn analysis
+    - ["Contract", "Churn"]
+    - ["PaymentMethod", "Churn"]
+    - ["InternetService", "Churn"]
+    - ["SeniorCitizen", "Churn"]
+    - ["Contract", "PaperlessBilling"]
+    - ["PaymentMethod", "PaperlessBilling"]
+
+# 2.7.8 - AFTER CAT_CAT_RELATIONSHIPS
+PARAMETRIC_TESTS:
+  ENABLED: true
+  USE_EQUAL_VAR: "auto"  # Levene test decides
+  P_VALUE_THRESHOLD: 0.05
+  OUTPUT_FILE: "t_test_results.csv"
+  TEST_CASES:
+    # Key business comparisons
+    - name: "Month_to_month_vs_Two_year_MonthlyCharges"
+      type: "independent"
+      group_col: "Contract"
+      groups: ["Month-to-month", "Two year"]
+      numeric_col: "MonthlyCharges"
+    - name: "Churner_vs_NonChurner_TotalCharges"
+      type: "independent"
+      group_col: "Churn"
+      groups: ["Yes", "No"]
+      numeric_col: "TotalCharges"
+    - name: "Senior_vs_NonSenior_tenure"
+      type: "independent"
+      group_col: "SeniorCitizen"
+      groups: ["1", "0"]
+      numeric_col: "tenure"
+
+# 2.7.9
+# ADD AFTER PARAMETRIC_TESTS
+NONPARAMETRIC_TESTS:
+  ENABLED: true
+  P_VALUE_THRESHOLD: 0.05
+  OUTPUT_FILE: "nonparametric_results.csv"
+  METHODS:
+    INDEPENDENT: "mannwhitney"
+    PAIRED: "wilcoxon"
+  TEST_CASES:
+    # Same key comparisons as t-tests (nonparam backup)
+    - name: "Month_to_month_vs_Two_year_MonthlyCharges_MWU"
+      type: "independent"
+      group_col: "Contract"
+      groups: ["Month-to-month", "Two year"]
+      numeric_col: "MonthlyCharges"
+    - name: "Churner_vs_NonChurner_TotalCharges_MWU"
+      type: "independent"
+      group_col: "Churn"
+      groups: ["Yes", "No"]
+      numeric_col: "TotalCharges"
+    - name: "Senior_vs_NonSenior_tenure_MWU"
+      type: "independent"
+      group_col: "SeniorCitizen"
+      groups: ["1", "0"]
+      numeric_col: "tenure"
+
+# 2.7.10
+PROPORTION_TESTS:
+  ENABLED: true
+  P_VALUE_THRESHOLD: 0.05
+  MIN_GROUP_SIZE: 30
+  OUTPUT_FILE: "proportion_tests.csv"
+  TEST_CASES:
+    - name: "Churn rate by Contract"
+      outcome_col: "Churn"
+      group_col: "Contract"
+      groups: ["Month-to-month", "Two year"]
+      method: "two_proportion_z"
+    - name: "TechSupport by SeniorCitizen"
+      outcome_col: "TechSupport"
+      group_col: "SeniorCitizen"
+      groups: [false, true]
+      method: "two_proportion_z"
+    - name: "OnlineBackup by PaymentMethod"
+      outcome_col: "OnlineBackup"
+      group_col: "PaymentMethod"
+      groups: ["Electronic check", "Mailed check"]
+      method: "two_proportion_z"
+
+# 2.7.11
+EFFECT_SIZE:
+  ENABLED: true
+  OUTPUT_FILE: "effect_size_report.csv"
+  SOURCES:
+    - "t_test_results.csv"
+    - "anova_kruskal_results.csv"
+    - "chi_square_results.csv"
+    - "point_biserial_results.csv"
+    - "proportion_tests.csv"
+  METRICS:
+    COHENS_D: true
+    ETA_SQUARED: true
+    PARTIAL_ETA_SQUARED: false
+    R_SQUARED: true
+    PHI_CRAMER_V: true
+
+# 2.7.12
+POWER_ANALYSIS:
+  ENABLED: true
+  TARGET_ALPHA: 0.05
+  TARGET_POWER: 0.80
+  OUTPUT_FILE: "power_analysis.csv"
+  TEST_SPEC:
+    # Scenario 1: Contract vs MonthlyCharges t-test power
+    - name: "Contract_MonthlyCharges_power"
+      test_type: "t_test_independent"
+      effect_size_source: "ttest_MonthlyCharges_by_Contract"  # from 2.7 t-tests
+    # Scenario 2: Churn proportion test power
+    - test_type: "two_proportion_z"
+      effect_size_source: "prop_Churn_Yes"
+
+# 2.7.13
+MULTICOLLINEARITY:
+  ENABLED: true
+  TARGET_COLUMNS: ["tenure", "MonthlyCharges"]  # Exclude TotalCharges (strings)
+  # TARGET_COLUMNS: ["tenure", "MonthlyCharges", "TotalCharges"]  # Avoid missingness
+  MAX_VIF_THRESHOLD: 10.0
+  MIN_ROWS: 50
+  # MIN_ROWS: 30  # Override strict <5 check
+  EXCLUDE_COLUMNS: ["customerID", "Churn_flag"]  # IDs/targets
+  # EXCLUDE_COLUMNS: ["customerID"]
+  OUTPUT_FILE: "vif_report.csv"
+
+# 2.8.5
+# ADD AFTER PROPORTION_CI (before CATNUM_ALIGNMENT)
+EFFECT_STABILITY:
+  ENABLED: true
+  N_BOOTSTRAPS: 500
+  ALPHA: 0.05
+  RANDOM_SEED: 42
+  OUTPUT_FILE: "effect_stability_metrics.csv"
+  EFFECT_DEFINITIONS:
+    # Cohen's d: Churn group difference in MonthlyCharges
+    - name: "Churn_vs_NoChurn_MonthlyCharges"
+      type: "cohens_d"
+      outcome: "MonthlyCharges"
+      group_col: "Churn"
+      groups: [0, 1]
+    # Eta squared: Contract effect on TotalCharges
+    - name: "Contract_TotalCharges"
+      type: "eta_squared"
+      outcome: "TotalCharges"
+      factor_col: "Contract"
+    # R-squared: tenure predicts MonthlyCharges
+    - name: "tenure_vs_MonthlyCharges"
+      type: "r_squared"
+      outcome: "MonthlyCharges"
+      predictor: "tenure"
+
+# 2.7.14
+# ADD AFTER EFFECT_STABILITY (before MULTIPLE_TESTING)
+INTERACTION_TESTS:
+  ENABLED: true
+  SIMPLE_SLOPES: true
+  OUTPUT_FILE: "interaction_effects.csv"
+  PAIRS:
+    # Contract × Churn → MonthlyCharges (key business interaction)
+    - outcome: "MonthlyCharges"
+      factor_a: "Contract"
+      factor_b: "Churn"
+
+    # InternetService × SeniorCitizen → TotalCharges
+    - outcome: "TotalCharges"
+      factor_a: "InternetService"
+      factor_b: "SeniorCitizen"
+
+    # PaymentMethod × Contract → tenure
+    - outcome: "tenure"
+      factor_a: "PaymentMethod"
+      factor_b: "Contract"
+
+# 2.7.15
+# ADD TO project_config.yaml (after EFFECT_STABILITY)
+MULTIPLE_TESTING:
+  ENABLED: true
+  MASTER_FILE: "inferential_statistics_master.csv"
+  PVAL_COLS: ["p_value", "pval", "p"]
+  FEATURE_COL: "feature"
+  ALPHA: 0.05
+  METHODS:
+    - "bonferroni"
+    - "fdr_bh"  # Benjamini-Hochberg (FDR control)
+  OUTPUT_FILE: "multiple_testing_corrections.csv"
+
+# 2.8.6
+MULTIPLE_TESTING:
+  ENABLED: true
+  METHOD: "fdr_bh"           # or "bonferroni", "holm"
+  ALPHA: 0.05
+  MAX_TESTS: 5000
+  OUTPUT_FILE: "multiple_testing_corrections.csv"
+  MASTER_FILE: "inferential_statistics_master.csv"
+  SOURCES:                    # Fallback files if master missing
+    - "variance_homogeneity_report.csv"
+    - "anova_kruskal_results.csv"
+    - "interaction_effects.csv"
+
+# 2.8.7
+TEST_REPRODUCIBILITY:
+  ENABLED: true
+  N_REPEAT: 10
+  RANDOM_SEEDS: [42, 123, 456, 789, 101112, 131415, 161718, 192021, 222324, 252627]
+  TOLERANCE:
+    P_VALUE_ABS_DIFF: 0.02
+    EFFECT_SIZE_REL_DIFF: 0.10
+  OUTPUT_FILE: "test_reproducibility_audit.csv"
+  TEST_SPECS:
+    - test_id: "ttest_MonthlyCharges_Contract"
+      test_type: "ttest_independent"
+      group_col: "Contract"
+      groups: ["Month-to-month", "Two year"]
+      numeric_col: "MonthlyCharges"
+      effect_type: "cohens_d"
+    - test_id: "chisq_Contract_Churn"
+      test_type: "chisq"
+      col_a: "Contract"
+      col_b: "Churn"
+      effect_type: "cramers_v"
+    - test_id: "prop_Churn_Contract"
+      test_type: "two_proportion_z"
+      outcome_col: "Churn"
+      group_col: "Contract"
+      groups: ["Month-to-month", "Two year"]
+      effect_type: "risk_difference"
+
+# 2.10
+NUMERIC_CORR_MATRIX:
+  ENABLED: true
+  DF_SOURCE: df_28          # df_28 | df_clean_final | df_clean_full | df_clean | df
+  MIN_NUMERIC_FEATURES: 2   # if <2, write empty outputs + WARN
+  METHODS: [pearson, spearman, kendall]
+  MULTICOLLINEARITY_THRESHOLD: 0.85
+  OUTPUT_MATRIX_FILE: numeric_correlation_matrix.csv
+  OUTPUT_HEATMAP_FILE: corr_heatmap.png
+
+# 2.11?
+CORR_CLUSTERING:
+  ENABLED: true
+  DF_SOURCE: df_28
+  REQUIRE_PEARSON: true     # if pearson missing/empty, WARN + skip
+  LINKAGE: average
+  MAX_CLUSTERS: 20
+  OUTPUT_CLUSTER_FILE: correlation_clusters.csv
+  OUTPUT_DENDROGRAM_FILE: corr_dendrogram.png
+
+# =============================================================================
+# 13) DASHBOARD
+# =============================================================================
+
+###########
+# STAGE 7 #
+###########
+#
+DASHBOARD:
+  LOGIC:
+    ENABLED: true
+
+    # Which high-level sections this dashboard is supposed to summarize
+    INCLUDE_SECTIONS: ["2.3", "2.4", "2.5"]
+
+    # Max rows to show in HTML tables (model/logic readiness, summary)
+    LIMITS:
+      MODEL_READINESS_ROWS: 20
+      LOGIC_READINESS_ROWS: 20
+      SECTION2_SUMMARY_ROWS: 40
+      CONTRACTS_ROWS: 50
+
+    # Panel toggles (future use – you can wire these into the HTML builder later)
+    PANELS:
+      SHOW_MODEL_READINESS: true
+      SHOW_LOGIC_READINESS: true
+      SHOW_CONTRACTS: true
+      SHOW_SECTION2_SUMMARY: true
+      SHOW_NUMERIC_DRIFT_KPI: true
+      SHOW_RARE_CATEGORY_KPI: true
+      # e.g. once you embed PNG from 2.5.10:
+      SHOW_LOGIC_GRAPH_IMAGE: false

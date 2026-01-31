@@ -1,0 +1,9 @@
+test_id,p_raw,feature_or_pair,source_file,p_corrected,method,alpha,reject_uncorrected,reject_corrected,inflation_flag
+0,6.609786308357949e-205,tenure,point_biserial_results.csv,5.2878290466863595e-204,fdr_bh,0.05,True,True,False
+5,4.3284940089826417e-134,expected_min_total_from_contract,point_biserial_results.csv,1.7313976035930567e-133,fdr_bh,0.05,True,True,False
+2,7.223420443598505e-64,TotalCharges,point_biserial_results.csv,1.926245451626268e-63,fdr_bh,0.05,True,True,False
+3,1.588104948130038e-63,expected_total_from_tenure_monthly,point_biserial_results.csv,2.540967917008061e-63,fdr_bh,0.05,True,True,False
+7,1.588104948130038e-63,expected_total_from_payment_profile,point_biserial_results.csv,2.540967917008061e-63,fdr_bh,0.05,True,True,False
+1,1.7934040905060079e-60,MonthlyCharges,point_biserial_results.csv,2.3912054540080105e-60,fdr_bh,0.05,True,True,False
+6,7.49889961950451e-33,expected_total_senior,point_biserial_results.csv,8.57017099371944e-33,fdr_bh,0.05,True,True,False
+8,2.6834433517515033e-10,total_charges_per_month,point_biserial_results.csv,2.6834433517515033e-10,fdr_bh,0.05,True,True,False

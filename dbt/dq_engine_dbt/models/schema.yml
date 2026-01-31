@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_telco
+    columns:
+      - name: customerID
+        tests:
+          - not_null
+          - unique
+
+  - name: mrt_telco_churn
+    columns:
+      - name: churn_flag
+        tests:
+          - accepted_values:
+              values: [0, 1]

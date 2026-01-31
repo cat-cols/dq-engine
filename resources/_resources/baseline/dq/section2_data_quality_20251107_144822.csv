@@ -1,0 +1,82 @@
+check,column,current_dtype,dtype,empty_strings,examples,has_suspect_tokens,has_unexpected_values,high_cardinality,is_binary,is_numeric,is_possible_numeric,kurtosis,max,mean,median,min,missing_pct,n_blank,n_levels,n_null,n_rows,n_suspect,n_total,n_unique,n_violations,nulls,pct_blank,pct_missing,pct_null,pct_suspect,pct_unique,q1,q3,rule,run_ts,section,skew,std,suggested_type,threshold,timestamp,total_issues,whitespace_only
+,TotalCharges,,,0.0,,,,,,,,,,,,,,,,,,,,,,11.0,0.0,0.16,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,11.0,0.0
+,gender,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,customerID,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Partner,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Dependents,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,tenure,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,SeniorCitizen,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,PhoneService,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,MultipleLines,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,OnlineSecurity,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,InternetService,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,DeviceProtection,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,TechSupport,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,StreamingTV,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,OnlineBackup,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,StreamingMovies,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Contract,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,PaymentMethod,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,PaperlessBilling,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,MonthlyCharges,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Churn,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Churn_flag,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+,Senior_flag,,,0.0,,,,,,,,,,,,,,,,,,,,,,0.0,0.0,0.0,,,,,,missing_null_blank,2025-11-07T20:04:09,2.1_missing_null_blank,,,,,,0.0,0.0
+missingness_blank_suspect,TotalCharges,,float64,,,,,,,,,,,,,,,0.0,,11.0,,0.0,,,,,0.0,,0.0016,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,customerID,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,gender,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,SeniorCitizen,,category,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Partner,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Dependents,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,tenure,,int64,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,PhoneService,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,MultipleLines,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,InternetService,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,OnlineSecurity,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,OnlineBackup,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,DeviceProtection,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,TechSupport,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,StreamingTV,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,StreamingMovies,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Contract,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,PaperlessBilling,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,PaymentMethod,,object,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,MonthlyCharges,,float64,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Churn,,category,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Churn_flag,,Int8,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+missingness_blank_suspect,Senior_flag,,category,,,,,,,,,,,,,,,0.0,,0.0,,0.0,,,,,0.0,,0.0,0.0,,,,,,2.2.5,,,,,2025-11-07 20:04:14.871703,,
+type_recommendation,Churn,category,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,Contract,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,Dependents,object,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,DeviceProtection,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,InternetService,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,MultipleLines,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,OnlineBackup,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,OnlineSecurity,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,PaperlessBilling,object,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,Partner,object,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,PaymentMethod,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,4.0,,,,,,,0.0006,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,PhoneService,object,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,SeniorCitizen,category,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,Senior_flag,category,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,StreamingMovies,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,StreamingTV,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,TechSupport,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,3.0,,,,,,,0.0004,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,gender,object,,,,0.0,0.0,0.0,1.0,0.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,categorical,,2025-11-07 20:04:30.545304,,
+type_recommendation,customerID,object,,,,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,0.0,,,,,,,7043.0,,,,,,,1.0,,,,,2.2.6,,,id,,2025-11-07 20:04:30.545304,,
+type_recommendation,MonthlyCharges,float64,,,,0.0,0.0,0.0,0.0,1.0,0.0,,,,,,0.0,,,,,,,1585.0,,,,,,,0.225,,,,,2.2.6,,,numeric,,2025-11-07 20:04:30.545304,,
+type_recommendation,TotalCharges,float64,,,,0.0,0.0,0.0,0.0,1.0,0.0,,,,,,0.0016,,,,,,,6530.0,,,,,,,0.9272,,,,,2.2.6,,,numeric,,2025-11-07 20:04:30.545304,,
+type_recommendation,tenure,int64,,,,0.0,0.0,0.0,0.0,1.0,0.0,,,,,,0.0,,,,,,,73.0,,,,,,,0.0104,,,,,2.2.6,,,numeric,,2025-11-07 20:04:30.545304,,
+type_recommendation,Churn_flag,Int8,,,,0.0,0.0,0.0,1.0,1.0,0.0,,,,,,0.0,,,,,,,2.0,,,,,,,0.0003,,,,,2.2.6,,,target,,2025-11-07 20:04:30.545304,,
+,Churn_flag,,Int8,,[],,,,,,,-0.8702113423319808,1.0,0.2653698707936959,0.0,0.0,,,,,7043.0,,,,0.0,,,,,,,0.0,1.0,distribution_summary,2025-11-07T20:04:54,2.8_numeric_distribution_outliers,1.063031444575135,0.441561305121947,,,,,
+,MonthlyCharges,,float64,,[],,,,,,,-1.2572596945495056,118.75,64.76169246059918,70.35,18.25,,,,,7043.0,,,,0.0,,,,,,,35.5,89.85,distribution_summary,2025-11-07T20:04:54,2.8_numeric_distribution_outliers,-0.2205244339439803,30.090047097678493,,,,,
+,TotalCharges,,float64,,[],,,,,,,-0.2317987608693794,8684.8,2283.300440841866,1397.475,18.8,,,,,7043.0,,,,0.0,,,,,,,401.45,3794.7375,distribution_summary,2025-11-07T20:04:54,2.8_numeric_distribution_outliers,0.9616424997242504,2266.771361883145,,,,,
+,tenure,,int64,,[],,,,,,,-1.387371635971685,72.0,32.37114865824223,29.0,0.0,,,,,7043.0,,,,0.0,,,,,,,9.0,55.0,distribution_summary,2025-11-07T20:04:54,2.8_numeric_distribution_outliers,0.2395397495619829,24.55948102309446,,,,,
+,"MonthlyCharges,tenure,TotalCharges,customerID",,,,"[{'MonthlyCharges': 56.95, 'tenure': 34, 'TotalCharges': 1889.5, 'customerID': '5575-GNVDE'}, {'MonthlyCharges': 42.3, 'tenure': 45, 'TotalCharges': 1840.75, 'customerID': '7795-CFOCW'}, {'MonthlyCharges': 70.7, 'tenure': 2, 'TotalCharges': 151.65, 'customerID': '9237-HQITU'}, {'MonthlyCharges': 99.65, 'tenure': 8, 'TotalCharges': 820.5, 'customerID': '9305-CDSKC'}, {'MonthlyCharges': 104.8, 'tenure': 28, 'TotalCharges': 3046.05, 'customerID': '7892-POOKP'}]",,,,,,,,,,,,,,,,7043.0,,,,2961.0,,,,,,,,,total_vs_monthly_times_tenure,2025-11-07T20:06:16,2.4_crossfield_logic,,,,"{'tol_abs': 5.0, 'tol_rel': 0.02}",,,
+,"InternetService,OnlineSecurity,customerID",,,,"[{'InternetService': 'No', 'OnlineSecurity': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'OnlineSecurity': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'OnlineSecurity': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'OnlineSecurity': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'OnlineSecurity': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__OnlineSecurity,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"InternetService,OnlineBackup,customerID",,,,"[{'InternetService': 'No', 'OnlineBackup': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'OnlineBackup': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'OnlineBackup': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'OnlineBackup': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'OnlineBackup': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__OnlineBackup,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"InternetService,DeviceProtection,customerID",,,,"[{'InternetService': 'No', 'DeviceProtection': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'DeviceProtection': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'DeviceProtection': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'DeviceProtection': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'DeviceProtection': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__DeviceProtection,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"InternetService,TechSupport,customerID",,,,"[{'InternetService': 'No', 'TechSupport': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'TechSupport': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'TechSupport': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'TechSupport': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'TechSupport': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__TechSupport,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"InternetService,StreamingTV,customerID",,,,"[{'InternetService': 'No', 'StreamingTV': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'StreamingTV': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'StreamingTV': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'StreamingTV': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'StreamingTV': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__StreamingTV,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"InternetService,StreamingMovies,customerID",,,,"[{'InternetService': 'No', 'StreamingMovies': 'No internet service', 'customerID': '7469-LKBCI'}, {'InternetService': 'No', 'StreamingMovies': 'No internet service', 'customerID': '8191-XWSZG'}, {'InternetService': 'No', 'StreamingMovies': 'No internet service', 'customerID': '1680-VDCWW'}, {'InternetService': 'No', 'StreamingMovies': 'No internet service', 'customerID': '1066-JKSGK'}, {'InternetService': 'No', 'StreamingMovies': 'No internet service', 'customerID': '7310-EGVHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,1526.0,,,,,,,,,addon_requires_internet__StreamingMovies,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,
+,"PhoneService,MultipleLines,customerID",,,,"[{'PhoneService': 'No', 'MultipleLines': 'No phone service', 'customerID': '7590-VHVEG'}, {'PhoneService': 'No', 'MultipleLines': 'No phone service', 'customerID': '7795-CFOCW'}, {'PhoneService': 'No', 'MultipleLines': 'No phone service', 'customerID': '6713-OKOMC'}, {'PhoneService': 'No', 'MultipleLines': 'No phone service', 'customerID': '8779-QRDMV'}, {'PhoneService': 'No', 'MultipleLines': 'No phone service', 'customerID': '8665-UTDHZ'}]",,,,,,,,,,,,,,,,7043.0,,,,682.0,,,,,,,,,multiple_lines_requires_phone,2025-11-07T20:06:16,2.4_crossfield_logic,,,,,,,

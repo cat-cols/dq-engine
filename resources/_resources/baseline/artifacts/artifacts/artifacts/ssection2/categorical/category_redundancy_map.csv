@@ -1,0 +1,19 @@
+feature_i,feature_j,redundancy_score,suggest_drop,notes,role_i,role_j,feature_group_i,feature_group_j
+customerID,gender,1.0,gender,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,Partner,1.0,Partner,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,Dependents,1.0,Dependents,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,PhoneService,1.0,PhoneService,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,MultipleLines,1.0,MultipleLines,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,InternetService,1.0,InternetService,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,OnlineSecurity,1.0,OnlineSecurity,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,OnlineBackup,1.0,OnlineBackup,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,DeviceProtection,1.0,DeviceProtection,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,TechSupport,1.0,TechSupport,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,StreamingTV,1.0,StreamingTV,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,StreamingMovies,1.0,StreamingMovies,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,Contract,1.0,Contract,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,PaperlessBilling,1.0,PaperlessBilling,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,PaymentMethod,1.0,PaymentMethod,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,Churn,1.0,Churn,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+customerID,SeniorCitizen_flag_text,1.0,SeniorCitizen_flag_text,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown
+PhoneService,MultipleLines,1.0,PhoneService,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown

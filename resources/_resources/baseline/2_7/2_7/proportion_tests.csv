@@ -1,0 +1,4 @@
+test_name,outcome_col,group_col,group_A_label,group_B_label,n_A,success_A,rate_A,n_B,success_B,rate_B,method,z_statistic,p_value,absolute_diff,relative_risk,significant,underpowered,notes
+Churn rate by Contract,Churn,Contract,Month-to-month,Two year,3875,1655,0.4270967741935484,1695,48,0.02831858407079646,two_proportion_z,29.72249688587788,0.0,0.39877819012275195,15.08185483870968,True,False,
+TechSupport by SeniorCitizen,TechSupport,SeniorCitizen,False,True,5901,1784,0.3023216403999322,1142,260,0.2276707530647986,two_proportion_z,5.087772266935232,3.622940467629121e-07,0.07465088733513361,1.3278896666797022,True,False,
+OnlineBackup by PaymentMethod,OnlineBackup,PaymentMethod,Electronic check,Mailed check,2365,815,0.34460887949260044,1612,311,0.19292803970223324,two_proportion_z,10.424105721508294,0.0,0.1516808397903672,1.7862042242510352,True,False,

@@ -1,0 +1,6 @@
+test_id,p_raw,feature_or_pair,source_file,p_corrected,method,alpha,reject_uncorrected,reject_corrected,inflation_flag
+anova_Contract_Total,1.2e-06,Contract_TotalCharges,anova_kruskal_results.csv,6e-06,fdr_bh,0.05,True,True,False
+levene_Contract_MonthlyCharges,0.0012,MonthlyCharges,variance_homogeneity_report.csv,0.0029999999999999996,fdr_bh,0.05,True,True,False
+interaction_Contract_Churn,0.0021,Contract:Churn,interaction_effects.csv,0.0034999999999999996,fdr_bh,0.05,True,True,False
+levene_Internet_TotalCharges,0.0456,TotalCharges,variance_homogeneity_report.csv,0.057,fdr_bh,0.05,True,False,True
+kruskal_gender_tenure,0.0876,gender_tenure,anova_kruskal_results.csv,0.0876,fdr_bh,0.05,False,False,False

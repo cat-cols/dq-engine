@@ -1,0 +1,988 @@
+{
+  "PATHS": {
+    "RAW_DATA_DIR": "data/_raw/",
+    "PROCESSED_DIR": "data/processed/",
+    "ARTIFACTS": "Level_3/resources/artifacts/",
+    "REPORTS": "Level_3/resources/reports/",
+    "FIGURES": "Level_3/resources/figures/",
+    "MODELS": "Level_3/resources/models/",
+    "OUTPUTS": "Level_3/outputs/"
+  },
+  "DATASETS": {
+    "TELCO": {
+      "RAW_FILE": "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+    }
+  },
+  "META": {
+    "PROJECT_NAME": "Telco Customer Churn",
+    "VERSION": "1.0",
+    "LAST_UPDATED": "2025-11-11"
+  },
+  "READ_OPTS": {
+    "encoding": "utf-8",
+    "na_values": [
+      "",
+      " ",
+      "NA",
+      "NaN"
+    ],
+    "keep_default_na": true,
+    "low_memory": false
+  },
+  "SCHEMA_EXPECTED_DTYPES": {
+    "customerID": "string",
+    "Churn_flag": "Int64",
+    "SeniorCitizen": "Int64",
+    "tenure": "Int64",
+    "MonthlyCharges": "float64",
+    "TotalCharges": "float64",
+    "gender": "string",
+    "Partner": "string",
+    "Dependents": "string",
+    "PhoneService": "string",
+    "MultipleLines": "string",
+    "InternetService": "string",
+    "OnlineSecurity": "string",
+    "OnlineBackup": "string",
+    "DeviceProtection": "string",
+    "TechSupport": "string",
+    "StreamingTV": "string",
+    "StreamingMovies": "string",
+    "Contract": "string",
+    "PaperlessBilling": "string",
+    "PaymentMethod": "string",
+    "Churn": "string"
+  },
+  "SCHEMA_EXPECTED_DTYPES_STRICT": {
+    "customerID": "object",
+    "tenure": "int64",
+    "MonthlyCharges": "float64",
+    "TotalCharges": "float64",
+    "Churn": "object",
+    "Churn_flag": "Int64",
+    "SeniorCitizen": "int64"
+  },
+  "SCHEMA_EXPECTED_DTYPES_SEMANTIC": {
+    "customerID": "string",
+    "gender": "category",
+    "SeniorCitizen": "int",
+    "Partner": "category",
+    "Dependents": "category",
+    "PhoneService": "category",
+    "PaperlessBilling": "category",
+    "MultipleLines": "category",
+    "DeviceProtection": "category",
+    "OnlineBackup": "category",
+    "OnlineSecurity": "category",
+    "TechSupport": "category",
+    "StreamingMovies": "category",
+    "StreamingTV": "category",
+    "tenure": "int",
+    "MonthlyCharges": "float",
+    "TotalCharges": "float"
+  },
+  "TARGET": {
+    "COLUMN": "Churn_flag",
+    "RAW_COLUMN": "Churn",
+    "POSITIVE_CLASS": "Yes",
+    "NEGATIVE_CLASS": "No"
+  },
+  "KEYS": {
+    "PRIMARY_KEYS": {
+      "telco_customer": [
+        "customerID"
+      ]
+    },
+    "FOREIGN_KEYS": {
+      "fk_customer_to_dim": {
+        "fk_col": "customerID",
+        "ref_table": "CUSTOMER_DIM",
+        "ref_col": "customerID",
+        "max_unmatched_pct": 0.01
+      }
+    }
+  },
+  "DRIFT": {
+    "BASELINE_NUMERIC_PROFILE": "Level_3/resources/artifacts/baseline/numeric_profile_baseline.csv",
+    "PSI_WARN": 0.1,
+    "PSI_FAIL": 0.25,
+    "KS_WARN": 0.1,
+    "KS_FAIL": 0.2
+  },
+  "TEMPORAL": {
+    "FUTURE_GRACE_DAYS": 0,
+    "MIN_DATE": "1999-01-01",
+    "INTERVALS": {
+      "tenure_interval": {
+        "start_col": "pseudo_start",
+        "end_col": "pseudo_end",
+        "min_duration": 0,
+        "max_duration": 3650,
+        "unit": "days"
+      },
+      "call_duration": {
+        "start_col": "call_start_ts",
+        "end_col": "call_end_ts",
+        "min_duration": 0,
+        "max_duration": 360,
+        "unit": "minutes"
+      },
+      "contract_lifetime": {
+        "start_col": "contract_start_date",
+        "end_col": "contract_end_date",
+        "min_duration": 0,
+        "max_duration": 3650,
+        "unit": "days"
+      }
+    }
+  },
+  "LOGIC_RULES": {
+    "MUTUAL_EXCLUSION": {
+      "no_multiple_lines_without_phone": {
+        "description": "Cannot have MultipleLines when PhoneService == 'No'.",
+        "columns": [
+          "PhoneService",
+          "MultipleLines"
+        ],
+        "violation_expr": "PhoneService == 'No' and MultipleLines != 'No phone service'"
+      },
+      "no_no_phone_service_when_phone_yes": {
+        "description": "If PhoneService == 'Yes', MultipleLines cannot be 'No phone service'.",
+        "columns": [
+          "PhoneService",
+          "MultipleLines"
+        ],
+        "violation_expr": "PhoneService == 'Yes' and MultipleLines == 'No phone service'"
+      },
+      "no_internet_addons_without_internet": {
+        "description": "If InternetService == 'No', all internet add-ons must be 'No internet service'.",
+        "columns": [
+          "InternetService",
+          "OnlineSecurity",
+          "OnlineBackup",
+          "DeviceProtection",
+          "TechSupport",
+          "StreamingTV",
+          "StreamingMovies"
+        ],
+        "violation_expr": "InternetService == 'No' and (\n  OnlineSecurity != 'No internet service' or\n  OnlineBackup != 'No internet service' or\n  DeviceProtection != 'No internet service' or\n  TechSupport != 'No internet service' or\n  StreamingTV != 'No internet service' or\n  StreamingMovies != 'No internet service'\n)\n"
+      },
+      "no_no_internet_flag_when_internet_present": {
+        "description": "If InternetService is DSL/Fiber, add-ons cannot say 'No internet service'.",
+        "columns": [
+          "InternetService",
+          "OnlineSecurity",
+          "OnlineBackup",
+          "DeviceProtection",
+          "TechSupport",
+          "StreamingTV",
+          "StreamingMovies"
+        ],
+        "violation_expr": "InternetService != 'No' and (\n  OnlineSecurity == 'No internet service' or\n  OnlineBackup == 'No internet service' or\n  DeviceProtection == 'No internet service' or\n  TechSupport == 'No internet service' or\n  StreamingTV == 'No internet service' or\n  StreamingMovies == 'No internet service'\n)\n"
+      }
+    },
+    "DEPENDENCIES": {
+      "tenure_requires_total_charges": {
+        "description": "If tenure > 0, TotalCharges should not be null",
+        "columns": [
+          "tenure",
+          "TotalCharges"
+        ],
+        "if": "tenure > 0",
+        "then": "TotalCharges.notna()"
+      },
+      "zero_monthly_implies_no_services": {
+        "description": "If MonthlyCharges == 0, customer should have no phone or internet service.",
+        "columns": [
+          "MonthlyCharges",
+          "PhoneService",
+          "InternetService"
+        ],
+        "if": "MonthlyCharges == 0",
+        "then": "(PhoneService == 'No') and (InternetService == 'No')"
+      },
+      "contract_implies_positive_tenure": {
+        "description": "If Contract is not 'Month-to-month', tenure should be > 0.",
+        "columns": [
+          "Contract",
+          "tenure"
+        ],
+        "if": "Contract != 'Month-to-month'",
+        "then": "tenure > 0"
+      },
+      "total_charges_requires_monthly": {
+        "description": "If TotalCharges > 0, MonthlyCharges should also be > 0.",
+        "columns": [
+          "TotalCharges",
+          "MonthlyCharges"
+        ],
+        "if": "TotalCharges > 0",
+        "then": "MonthlyCharges > 0"
+      }
+    },
+    "RATIO_CHECKS": {
+      "total_vs_mc_tenure": {
+        "description": "TotalCharges \u2248 MonthlyCharges * tenure",
+        "lhs": "TotalCharges",
+        "rhs_expr": "MonthlyCharges * tenure",
+        "max_rel_error": 0.2,
+        "max_abs_error": 20.0
+      }
+    }
+  },
+  "ANOMALY_CONTEXT": {
+    "INCLUDE_SEVERITIES": [
+      "warn",
+      "fail"
+    ],
+    "MAX_ROWS": 500,
+    "RUN_ID": null,
+    "SOURCES": {
+      "dependency_rule_violation": {
+        "path": "dependency_violations.csv",
+        "format": "csv",
+        "row_key_col": "customerID",
+        "rule_id_col": "rule_name",
+        "anomaly_type": "dependency_violation",
+        "feature_cols": [
+          "columns_involved"
+        ],
+        "severity_col": "severity",
+        "magnitude_col": "n_violations",
+        "section_ref": "2.5.4"
+      },
+      "dependency_row_violation": {
+        "path": "dependency_row_violations.csv",
+        "format": "csv",
+        "row_key_col": "row_key",
+        "rule_id_col": "rule_id",
+        "anomaly_type": "dependency_violation",
+        "feature_cols": [
+          "left_col",
+          "right_col"
+        ],
+        "severity_col": "severity",
+        "magnitude_col": "magnitude",
+        "section_ref": "2.5.test"
+      },
+      "mutual_exclusion_violation": {
+        "path": "mutual_exclusion_report.csv",
+        "format": "csv",
+        "row_key_col": "customerID",
+        "rule_id_col": "rule_id",
+        "anomaly_type": "mutual_exclusion",
+        "severity_col": "severity",
+        "feature_cols": [
+          "columns"
+        ],
+        "section_ref": "2.5.3"
+      },
+      "ratio_check_violation": {
+        "path": "ratio_consistency_report.csv",
+        "format": "csv",
+        "row_key_col": "customerID",
+        "rule_id_col": "ratio_rule",
+        "anomaly_type": "ratio_violation",
+        "severity_col": "severity",
+        "feature_cols": [
+          "lhs",
+          "rhs_expr"
+        ],
+        "section_ref": "2.5.5"
+      },
+      "temporal_violation": {
+        "path": "temporal_logic_report.csv",
+        "anomaly_type": "temporal_violation",
+        "row_key_col": "customerID",
+        "rule_id_col": "interval_name",
+        "feature_cols": [
+          "start_col",
+          "end_col"
+        ],
+        "severity_col": "severity",
+        "section_ref": "2.5.6"
+      },
+      "onehot_integrity_violation": {
+        "path": "onehot_integrity_report.csv",
+        "anomaly_type": "onehot_violation",
+        "row_key_col": "customerID",
+        "rule_id_col": "group_id",
+        "feature_cols": [
+          "columns"
+        ],
+        "severity_col": "severity",
+        "section_ref": "2.5.8"
+      },
+      "drift_numeric_psi": {
+        "path": "numeric_drift_psi.csv",
+        "format": "csv",
+        "row_key_col": "feature",
+        "rule_id_col": "feature",
+        "anomaly_type": "numeric_drift",
+        "feature_cols": [
+          "feature"
+        ],
+        "severity_col": "severity",
+        "magnitude_col": "psi",
+        "section_ref": "3.2"
+      },
+      "drift_categorical_psi": {
+        "path": "categorical_drift_psi.csv",
+        "format": "csv",
+        "row_key_col": "feature",
+        "rule_id_col": "feature",
+        "anomaly_type": "categorical_drift",
+        "feature_cols": [
+          "feature"
+        ],
+        "severity_col": "severity",
+        "magnitude_col": "psi",
+        "section_ref": "3.3"
+      },
+      "drift_logic_dependency": {
+        "path": "logic_drift_dependency.csv",
+        "format": "csv",
+        "row_key_col": "rule_name",
+        "rule_id_col": "rule_name",
+        "anomaly_type": "logic_drift_dependency",
+        "feature_cols": [
+          "rule_name"
+        ],
+        "severity_col": "severity",
+        "magnitude_col": "delta_violations",
+        "section_ref": "3.4"
+      }
+    }
+  },
+  "DASHBOARD": {
+    "LOGIC": {
+      "ENABLED": true,
+      "INCLUDE_SECTIONS": [
+        "2.3",
+        "2.4",
+        "2.5"
+      ],
+      "LIMITS": {
+        "MODEL_READINESS_ROWS": 20,
+        "LOGIC_READINESS_ROWS": 20,
+        "SECTION2_SUMMARY_ROWS": 40,
+        "CONTRACTS_ROWS": 50
+      },
+      "PANELS": {
+        "SHOW_MODEL_READINESS": true,
+        "SHOW_LOGIC_READINESS": true,
+        "SHOW_CONTRACTS": true,
+        "SHOW_SECTION2_SUMMARY": true,
+        "SHOW_NUMERIC_DRIFT_KPI": true,
+        "SHOW_RARE_CATEGORY_KPI": true,
+        "SHOW_LOGIC_GRAPH_IMAGE": false
+      }
+    }
+  },
+  "INTEGRITY_INDEX": {
+    "RUN_ID": null,
+    "WEIGHTS": {
+      "numeric": 0.3,
+      "categorical": 0.3,
+      "logic": 0.3,
+      "contract_modifier": 0.1
+    },
+    "CONTRACT_PENALTIES": {
+      "OK": 0,
+      "WARN": -10,
+      "FAIL": -25
+    }
+  },
+  "CATNUM_ALIGNMENT": {
+    "ENABLED": true,
+    "THRESHOLDS": {
+      "max_violating_pairs_pct": 0.2,
+      "min_group_size": 50
+    },
+    "RULES": {
+      "contract_vs_monthly": {
+        "group_col": "Contract",
+        "numeric_col": "MonthlyCharges",
+        "expectation": "monotonic_decreasing",
+        "group_order": [
+          "Month-to-month",
+          "One year",
+          "Two year"
+        ],
+        "category_order": [
+          "Month-to-month",
+          "One year",
+          "Two year"
+        ]
+      },
+      "senior_discount": {
+        "group_col": "SeniorCitizen",
+        "numeric_col": "MonthlyCharges",
+        "expectation": "group_1 <= group_0"
+      },
+      "internet_vs_monthly": {
+        "group_col": "InternetService",
+        "numeric_col": "MonthlyCharges",
+        "expectation": "monotonic_increasing",
+        "group_order": [
+          "No",
+          "DSL",
+          "Fiber optic"
+        ]
+      },
+      "tenure_bucket_vs_monthly": {
+        "group_col": "tenure_bucket",
+        "numeric_col": "MonthlyCharges",
+        "expectation": "monotonic_increasing",
+        "group_order": [
+          "0-12",
+          "13-24",
+          "25-48",
+          "49-72"
+        ]
+      },
+      "paymentmethod_vs_monthly": {
+        "group_col": "PaymentMethod",
+        "numeric_col": "MonthlyCharges",
+        "expectation": "monotonic_increasing",
+        "group_order": [
+          "Mailed check",
+          "Electronic check",
+          "Bank transfer (automatic)",
+          "Credit card (automatic)"
+        ]
+      }
+    }
+  },
+  "ONEHOT": {
+    "GROUPS": {
+      "contract_type": {
+        "mode": "mutually_exclusive",
+        "columns": [
+          "ContractType_Month-to-month",
+          "ContractType_One year",
+          "ContractType_Two year"
+        ]
+      },
+      "internet_service": {
+        "mode": "mutually_exclusive",
+        "columns": [
+          "InternetService_No",
+          "InternetService_DSL",
+          "InternetService_Fiber optic"
+        ]
+      },
+      "payment_method": {
+        "mode": "mutually_exclusive",
+        "columns": [
+          "PaymentMethod_Mailed check",
+          "PaymentMethod_Electronic check",
+          "PaymentMethod_Bank transfer (automatic)",
+          "PaymentMethod_Credit card (automatic)"
+        ]
+      }
+    }
+  },
+  "TOTALS": {
+    "RULES": {
+      "total_vs_expected_from_tenure_monthly": {
+        "description": "TotalCharges \u2248 expected_total_from_tenure_monthly (tenure \u00d7 MonthlyCharges)",
+        "total_col": "TotalCharges",
+        "component_cols": [
+          "expected_total_from_tenure_monthly"
+        ],
+        "tolerance_abs": 50.0,
+        "tolerance_rel": 0.2
+      },
+      "zero_tenure_zero_total": {
+        "description": "Rows with tenure \u2248 0 should have near-zero TotalCharges",
+        "total_col": "TotalCharges",
+        "component_cols": [
+          "expected_total_for_zero_tenure"
+        ],
+        "tolerance_abs": 5.0,
+        "tolerance_rel": 0.25
+      },
+      "contract_bounded_total": {
+        "description": "TotalCharges should not fall below contract-implied minimum",
+        "total_col": "TotalCharges",
+        "component_cols": [
+          "expected_min_total_from_contract"
+        ],
+        "tolerance_abs": 50.0,
+        "tolerance_rel": 0.2
+      },
+      "senior_citizen_pricing_consistency": {
+        "description": "Senior citizens' TotalCharges are consistent with expected billing",
+        "total_col": "TotalCharges",
+        "component_cols": [
+          "expected_total_senior"
+        ],
+        "tolerance_abs": 75.0,
+        "tolerance_rel": 0.25
+      },
+      "payment_method_consistency": {
+        "description": "TotalCharges align with payment-method-specific expected pattern",
+        "total_col": "TotalCharges",
+        "component_cols": [
+          "expected_total_from_payment_profile"
+        ],
+        "tolerance_abs": 40.0,
+        "tolerance_rel": 0.15
+      }
+    }
+  },
+  "ID_COLUMNS": [
+    "customerID"
+  ],
+  "FLAGS": {
+    "RAISE_ON_CRITICAL": true,
+    "SAVE_LOGS": true,
+    "ENABLE_COLOR_OUTPUT": true
+  },
+  "RANGES": {
+    "tenure": {
+      "min": 0,
+      "max": 120
+    },
+    "MonthlyCharges": {
+      "min": 0,
+      "max": 1000
+    },
+    "TotalCharges": {
+      "min": 0,
+      "max": 100000
+    }
+  },
+  "DATA_QUALITY": {
+    "NUMERIC_LIKE_THRESHOLD": 0.95,
+    "RARE_PCT_THRESHOLD": 0.5,
+    "RARE_MIN_COUNT": 5,
+    "HIGH_CARD_THRESHOLD": 50,
+    "NEARLY_CONST_THRESHOLD": 0.98,
+    "SUSPECT_TOKENS": [
+      "?",
+      "unknown",
+      "unk",
+      "n/a",
+      "na",
+      "n.a.",
+      "null",
+      "none",
+      "missing",
+      "-",
+      "--",
+      "_",
+      "tbd"
+    ]
+  },
+  "MISSING_VALUES": {
+    "MAX_NULL_FRACTION_TO_IMPUTE": 0.4,
+    "STRATEGIES": {
+      "NUMERIC": {
+        "default": "median",
+        "overrides": {
+          "TotalCharges": "zero"
+        }
+      }
+    }
+  },
+  "LOGIC_REPAIR": {
+    "ENABLED": true,
+    "TAG_COLUMN": "_logic_repair_applied",
+    "DEFAULT_STRATEGY": "flag_only",
+    "RULES": {
+      "tenure_requires_totalcharges_fill_zero": {
+        "description": "If tenure > 0 and TotalCharges is null, fill TotalCharges with 0.",
+        "if": "(tenure > 0) & (TotalCharges.isna())",
+        "action": "set_zero",
+        "columns_to_fix": [
+          "TotalCharges"
+        ]
+      },
+      "tenure_zero_total_zero": {
+        "description": "If tenure == 0 and TotalCharges is non-null and non-zero, force it to 0.",
+        "if": "(tenure == 0) & (TotalCharges.notna()) & (TotalCharges != 0)",
+        "action": "set_zero",
+        "columns_to_fix": [
+          "TotalCharges"
+        ]
+      }
+    }
+  },
+  "DERIVED_FEATURES": {
+    "ENABLED": true,
+    "FEATURES": {
+      "tenure_months_bucket": {
+        "expr": "pd.cut(tenure, bins=[0,12,24,36,60,999], labels=['0-12','12-24','24-36','36-60','60+'])"
+      },
+      "total_charges_per_month": {
+        "expr": "TotalCharges / (tenure.replace({0: np.nan}))"
+      },
+      "avg_streaming_spend": {
+        "expr": "(StreamingMoviesCharges + StreamingTVCharges) / max(1, StreamingServicesCount)"
+      }
+    }
+  },
+  "ENCODING_PLAN": {
+    "ENABLED": true,
+    "GLOBAL_DEFAULT": "one_hot",
+    "STRATEGIES": {
+      "LOW_CARDINALITY_MAX": 10,
+      "HIGH_CARDINALITY_THRESHOLD": 50,
+      "METHODS": {
+        "ONE_HOT": [
+          "Contract",
+          "InternetService",
+          "Partner",
+          "Dependents"
+        ],
+        "ORDINAL": [
+          "tenure_bucket"
+        ],
+        "TARGET": [
+          "PaymentMethod"
+        ]
+      },
+      "EXCLUDE": [
+        "customerID"
+      ]
+    }
+  },
+  "EXPECTED_LEVELS": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "SeniorCitizen": [
+      "0",
+      "1"
+    ],
+    "Partner": [
+      "Yes",
+      "No"
+    ],
+    "Dependents": [
+      "Yes",
+      "No"
+    ],
+    "PhoneService": [
+      "Yes",
+      "No"
+    ],
+    "MultipleLines": [
+      "Yes",
+      "No",
+      "No phone service"
+    ],
+    "InternetService": [
+      "DSL",
+      "Fiber optic",
+      "No"
+    ],
+    "OnlineSecurity": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "OnlineBackup": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "DeviceProtection": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "TechSupport": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "StreamingTV": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "StreamingMovies": [
+      "Yes",
+      "No",
+      "No internet service"
+    ],
+    "Contract": [
+      "Month-to-month",
+      "One year",
+      "Two year"
+    ],
+    "PaperlessBilling": [
+      "Yes",
+      "No"
+    ],
+    "PaymentMethod": [
+      "Electronic check",
+      "Mailed check",
+      "Bank transfer (automatic)",
+      "Credit card (automatic)"
+    ],
+    "Churn": [
+      "Yes",
+      "No"
+    ]
+  },
+  "CATEGORICAL": {
+    "VALID_DOMAINS": {
+      "gender": [
+        "Female",
+        "Male"
+      ],
+      "SeniorCitizen": [
+        "0",
+        "1"
+      ],
+      "Partner": [
+        "Yes",
+        "No"
+      ],
+      "Dependents": [
+        "Yes",
+        "No"
+      ],
+      "PhoneService": [
+        "Yes",
+        "No"
+      ],
+      "MultipleLines": [
+        "Yes",
+        "No",
+        "No phone service"
+      ],
+      "InternetService": [
+        "DSL",
+        "Fiber optic",
+        "No"
+      ],
+      "OnlineSecurity": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "OnlineBackup": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "DeviceProtection": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "TechSupport": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "StreamingTV": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "StreamingMovies": [
+        "Yes",
+        "No",
+        "No internet service"
+      ],
+      "Contract": [
+        "Month-to-month",
+        "One year",
+        "Two year"
+      ],
+      "PaperlessBilling": [
+        "Yes",
+        "No"
+      ],
+      "PaymentMethod": [
+        "Electronic check",
+        "Mailed check",
+        "Bank transfer (automatic)",
+        "Credit card (automatic)"
+      ],
+      "Churn": [
+        "Yes",
+        "No"
+      ]
+    }
+  },
+  "CROSS_FIELD_TOLERANCES": {
+    "total_vs_mc_tenure": {
+      "tol_abs": 5.0,
+      "tol_rel": 0.02
+    }
+  },
+  "LOGGING": {
+    "ENABLED": true,
+    "FORMAT": "%(asctime)s | %(levelname)s | %(message)s",
+    "LEVEL": "INFO",
+    "SAVE_TO": "Level_3/resources/reports/section2_data_quality_log.txt"
+  },
+  "DATA_CONTRACTS": [
+    {
+      "name": "numeric_nulls_under_5pct_for_features",
+      "description": "All numeric model features must have <= 5% missing values.",
+      "scope": "numeric_profile",
+      "severity": "hard",
+      "where": {
+        "role": "feature"
+      },
+      "target": "null_pct",
+      "op": "<=",
+      "threshold": 5.0
+    },
+    {
+      "name": "no_critical_numeric_integrity",
+      "description": "No numeric column is allowed to have critical integrity status.",
+      "scope": "numeric_integrity",
+      "severity": "hard",
+      "target": "numeric_integrity_status",
+      "op": "!=",
+      "value": "critical"
+    },
+    {
+      "name": "warn_if_many_warn_integrity",
+      "description": "Warn if more than 30% of numeric columns are in 'warn' status.",
+      "scope": "numeric_integrity",
+      "severity": "soft",
+      "target": "numeric_integrity_status",
+      "op": "fraction_eq",
+      "value": "warn",
+      "max_fraction": 0.3
+    },
+    {
+      "name": "senior_citizen_is_binary",
+      "description": "SeniorCitizen must only contain 0/1 values (no weird codes).",
+      "scope": "numeric_profile",
+      "severity": "hard",
+      "where": {
+        "column": "SeniorCitizen"
+      },
+      "target": "n_unique",
+      "op": "<=",
+      "threshold": 2
+    },
+    {
+      "name": "total_charges_not_too_sparse",
+      "description": "TotalCharges should not be missing for more than 2% of rows.",
+      "scope": "numeric_profile",
+      "severity": "hard",
+      "where": {
+        "column": "TotalCharges"
+      },
+      "target": "null_pct",
+      "op": "<=",
+      "threshold": 2.0
+    },
+    {
+      "name": "tenure_has_reasonable_nulls",
+      "description": "tenure allowed small nulls but should be under 1%.",
+      "scope": "numeric_profile",
+      "severity": "soft",
+      "where": {
+        "column": "tenure"
+      },
+      "target": "null_pct",
+      "op": "<=",
+      "threshold": 1.0
+    },
+    {
+      "name": "most_features_readiness_above_0_7",
+      "description": "At least 80% of model features must have readiness_score >= 0.7.",
+      "scope": "readiness",
+      "severity": "hard",
+      "where": null,
+      "target": "readiness_score",
+      "op": "fraction_ge",
+      "threshold": 0.7,
+      "min_fraction": 0.8
+    },
+    {
+      "name": "no_feature_with_readiness_below_0_4",
+      "description": "There should be no catastrophically bad features (readiness < 0.4).",
+      "scope": "readiness",
+      "severity": "hard",
+      "target": "readiness_score",
+      "op": ">=",
+      "threshold": 0.4
+    },
+    {
+      "name": "warn_if_many_low_readiness",
+      "description": "Warn if more than 25% of features have readiness_score < 0.6.",
+      "scope": "readiness",
+      "severity": "soft",
+      "target": "readiness_score",
+      "op": "fraction_lt",
+      "threshold": 0.6,
+      "max_fraction": 0.25
+    },
+    {
+      "name": "psi_under_0_25_for_features",
+      "description": "No model feature should exhibit extreme drift (PSI \u2265 0.25).",
+      "scope": "drift",
+      "severity": "hard",
+      "where": null,
+      "target": "psi",
+      "op": "<",
+      "threshold": 0.25
+    },
+    {
+      "name": "psi_warn_if_many_features_above_0_1",
+      "description": "Warn if more than 30% of features have PSI \u2265 0.1 (moderate drift).",
+      "scope": "drift",
+      "severity": "soft",
+      "target": "psi",
+      "op": "fraction_ge",
+      "threshold": 0.1,
+      "max_fraction": 0.3
+    },
+    {
+      "name": "ks_under_0_2_for_features",
+      "description": "No feature should have KS statistic \u2265 0.2 vs baseline.",
+      "scope": "drift",
+      "severity": "hard",
+      "target": "ks_stat",
+      "op": "<",
+      "threshold": 0.2
+    },
+    {
+      "name": "no_high_drift_low_readiness_features",
+      "description": "For safety, forbid features that are both high-drift and low-readiness.",
+      "scope": "drift",
+      "severity": "hard",
+      "target": "drift_severity",
+      "op": "not_any_in",
+      "values": [
+        "high_low_readiness"
+      ]
+    },
+    {
+      "name": "run_overall_contract_health",
+      "description": "Global health expectations: no hard contract should fail.",
+      "scope": "contracts",
+      "severity": "hard",
+      "target": "hard_contract_failures",
+      "op": "==",
+      "value": 0
+    }
+  ],
+  "QUALITY_BANDS": {
+    "ENABLED": true,
+    "BOUNDARIES": {
+      "EXCELLENT_MIN": 90,
+      "MODERATE_MIN": 70
+    },
+    "LABELS": {
+      "EXCELLENT": "\ud83d\udfe9 Excellent",
+      "MODERATE": "\ud83d\udfe8 Moderate",
+      "POOR": "\ud83d\udfe5 Poor"
+    }
+  }
+}

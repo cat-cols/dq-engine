@@ -1,0 +1,22 @@
+{
+  "run_ts_utc": "2025-12-11T00:27:00.964355+00:00",
+  "python_version": "3.12.6 (v3.12.6:a4a2d2b0d85, Sep  6 2024, 16:08:03) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "pandas_version": "2.3.3",
+  "config_hash_sha256": "f7f15a4c8341a450a5747fbb0f5ad7cd1760372710a27f5002cde23cdb87294e",
+  "schema_version": null,
+  "dataset_identifier": "/Users/b/DATA/PROJECTS/Telco",
+  "n_rows": 7043,
+  "n_columns": 24,
+  "numeric_artifacts": [
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/numeric_profile_df.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/range_violation_report.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/outlier_report_iqr_z.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/rule_confidence_scores.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/model_readiness_report.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/time_series_outliers.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/global_temporal_anomalies.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/correlation_anomalies.csv",
+    "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric/dashboard_alerts.json"
+  ],
+  "notes": "Numeric data-quality audit metadata for Section 2.3."
+}

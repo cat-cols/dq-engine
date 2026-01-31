@@ -1,0 +1,42 @@
+generated_at_utc: '2025-12-30T05:24:31+00:00'
+protected_columns:
+- Churn
+- Churn_flag
+- customerID
+groups:
+  id:
+  - customerID
+  numeric_continuous:
+  - MonthlyCharges
+  - TotalCharges
+  - tenure
+  numeric_flag:
+  - SeniorCitizen
+  other:
+  - Contract
+  - Dependents
+  - DeviceProtection
+  - InternetService
+  - MultipleLines
+  - OnlineBackup
+  - OnlineSecurity
+  - PaperlessBilling
+  - Partner
+  - PaymentMethod
+  - PhoneService
+  - StreamingMovies
+  - StreamingTV
+  - TechSupport
+  - gender
+  target:
+  - Churn_flag
+  target_aux:
+  - Churn
+source_sections:
+- 2.1.1
+- 2.1.2
+- 2.1.3
+- 2.1.4
+- 2.1.5
+- 2.1.6
+- 2.1.9

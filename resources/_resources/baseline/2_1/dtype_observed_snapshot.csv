@@ -1,0 +1,1 @@
+column,original_dtype,post_enforcement_dtype,coercion_attempted,coercion_ok,n_coercion_fail,sample_fail_values

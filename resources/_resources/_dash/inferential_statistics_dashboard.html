@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Section 2.7 – Inferential Statistics Dashboard</title>
+  <style>
+  
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f7fb;
+        color: #222;
+    }
+    header {
+        background: linear-gradient(135deg, #297be7, #4f7ad1);
+        color: white;
+        padding: 16px 24px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    h2 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+    .meta {
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    .container {
+        padding: 20px 24px 40px 24px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .card h2 {
+        margin-bottom: 8px;
+    }
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        margin-right: 4px;
+    }
+    .pill-ok {
+        background: #e2f8e6;
+        color: #256029;
+    }
+    .pill-warn {
+        background: #fff4e5;
+        color: #8a4b0f;
+    }
+    .pill-fail {
+        background: #fde2e1;
+        color: #8a1f17;
+    }
+    details {
+        margin-top: 6px;
+        margin-bottom: 4px;
+    }
+    summary {
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 4px 6px;
+    }
+    th {
+        background-color: #f0f3ff;
+    }
+    caption {
+        text-align: left;
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Section 2.7 – Inferential Statistics Dashboard</h1>
+    <p class="meta">Generated: 2025-12-12 14:02:03</p>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>Overview</h2>
+      <p>This dashboard summarizes key inferential diagnostics from Section 2.7,
+      including representativeness, distribution shape, group differences, effect sizes,
+      multicollinearity, interactions, and power.</p>
+      <p>Panels included: <strong>3</strong></p>
+    </div>
+    
+        <div class="card">
+          <h2>2.7.2 – Distribution Normality</h2>
+          <p>Numeric features tested: <strong>8</strong> | Non-normal / heavy-tailed: <strong>24</strong></p>
+          <details>
+            <summary>Preview normality results</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>method</th>
+      <th>statistic</th>
+      <th>p_value</th>
+      <th>normality_label</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tenure</td>
+      <td>shapiro</td>
+      <td>0.902357</td>
+      <td>8.255933e-49</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>dagostino</td>
+      <td>59755.796899</td>
+      <td>0.000000e+00</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>anderson</td>
+      <td>146.705560</td>
+      <td>NaN</td>
+      <td>Non-normal</td>
+      <td>critical_5pct=0.786</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>shapiro</td>
+      <td>0.919973</td>
+      <td>1.554318e-45</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>dagostino</td>
+      <td>7334.521666</td>
+      <td>0.000000e+00</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>anderson</td>
+      <td>121.609268</td>
+      <td>NaN</td>
+      <td>Non-normal</td>
+      <td>critical_5pct=0.786</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>shapiro</td>
+      <td>0.857543</td>
+      <td>2.374228e-55</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>dagostino</td>
+      <td>578.023790</td>
+      <td>3.045992e-126</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.4 – Correlation & Multivariate Structure</h2>
+          <p>Correlation methods and top relationships (by |r|).</p>
+          <p><img src="correlation_heatmap.png" alt="Correlation heatmap"></p>
+          <details>
+            <summary>Top correlation pairs</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>method</th>
+      <th>correlation_value</th>
+      <th>abs_corr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tenure</td>
+      <td>tenure</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>MonthlyCharges</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_min_total_from_contract</td>
+      <td>expected_min_total_from_contract</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>MonthlyCharges</td>
+      <td>spearman</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_total_senior</td>
+      <td>expected_total_senior</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>tenure</td>
+      <td>spearman</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>total_charges_per_month</td>
+      <td>total_charges_per_month</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.11 – Effect Sizes</h2>
+          <p>Tests with computed effect sizes: <strong>8</strong> | Large/very large effects: <strong>0</strong></p>
+          <details>
+            <summary>Top effect sizes</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>source_file</th>
+      <th>test_name</th>
+      <th>test_type</th>
+      <th>outcome_col</th>
+      <th>group_col</th>
+      <th>effect_type</th>
+      <th>effect_value</th>
+      <th>magnitude_label</th>
+      <th>p_value</th>
+      <th>statistic</th>
+      <th>notes</th>
+      <th>abs_val</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>tenure</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.352296</td>
+      <td>medium</td>
+      <td>6.609786e-205</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.352296</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>expected_total_senior</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.342875</td>
+      <td>medium</td>
+      <td>7.498900e-33</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.342875</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>expected_min_total_from_contract</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.287476</td>
+      <td>small</td>
+      <td>4.328494e-134</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.287476</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>TotalCharges</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.199063</td>
+      <td>small</td>
+      <td>7.223420e-64</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.199063</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.198525</td>
+      <td>small</td>
+      <td>1.588105e-63</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.198525</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>-0.198525</td>
+      <td>small</td>
+      <td>1.588105e-63</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.198525</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>MonthlyCharges</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r</td>
+      <td>0.193646</td>
+      <td>small</td>
+      <td>1.793404e-60</td>
+      <td>NaN</td>
+      <td>Point-biserial correlation</td>
+      <td>0.193646</td>
+    </tr>
+    <tr>
+      <td>point_biserial_results.csv</td>
+      <td>tenure</td>
+      <td>point_biserial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>r_squared</td>
+      <td>0.124112</td>
+      <td>medium</td>
+      <td>6.609786e-205</td>
+      <td>NaN</td>
+      <td>Variance explained (r^2)</td>
+      <td>0.124112</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+  </div>
+</body>
+</html>

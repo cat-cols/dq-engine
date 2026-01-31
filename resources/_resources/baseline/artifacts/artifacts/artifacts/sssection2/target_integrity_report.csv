@@ -1,0 +1,4 @@
+metric,value,timestamp
+has_raw_target,True,2025-11-14 23:59:29.531394+00:00
+has_flag,True,2025-11-14 23:59:29.531394+00:00
+unmapped_values,False,2025-11-14 23:59:29.531394+00:00

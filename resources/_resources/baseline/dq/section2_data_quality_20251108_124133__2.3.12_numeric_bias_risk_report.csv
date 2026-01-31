@@ -1,0 +1,6 @@
+column,target_col,bias_from_missing,bias_from_outliers,bias_potential,section,check,run_ts
+Churn_flag,Churn_flag,0.0,0.0,0.0,2.3.12,numeric_bias_diagnostics,2025-11-09T21:04:34
+MonthlyCharges,Churn_flag,0.0,0.0,0.0,2.3.12,numeric_bias_diagnostics,2025-11-09T21:04:34
+SeniorCitizen,Churn_flag,0.0,0.0,0.0,2.3.12,numeric_bias_diagnostics,2025-11-09T21:04:34
+TotalCharges,Churn_flag,0.26578498293515357,0.0,0.26578498293515357,2.3.12,numeric_bias_diagnostics,2025-11-09T21:04:34
+tenure,Churn_flag,0.0,0.0,0.0,2.3.12,numeric_bias_diagnostics,2025-11-09T21:04:34

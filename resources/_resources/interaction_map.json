@@ -1,0 +1,510 @@
+{
+  "target": "Churn",
+  "target_encoding": {
+    "No": 1.0,
+    "Yes": 0.0
+  },
+  "n_candidate_interactions": 50,
+  "pairs": [
+    {
+      "id": 1,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "tenure",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02436231349149076,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__tenure_interaction.png"
+    },
+    {
+      "id": 2,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "TotalCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.010697671897754241,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__TotalCharges_interaction.png"
+    },
+    {
+      "id": 3,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "Churn_flag",
+      "raw_score": 14.0,
+      "interaction_strength": 0.004417646458776729,
+      "n_nonempty_cells": 2,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__Churn_flag_interaction.png"
+    },
+    {
+      "id": 4,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "expected_total_from_tenure_monthly",
+      "raw_score": 14.0,
+      "interaction_strength": 0.010556735595579939,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__expected_total_from_tenure_monthly_interaction.png"
+    },
+    {
+      "id": 5,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.022378852095115583,
+      "n_nonempty_cells": 6,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 6,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "expected_total_senior",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03155405287797111,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__expected_total_senior_interaction.png"
+    },
+    {
+      "id": 7,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Partner",
+      "feature_2": "expected_total_from_payment_profile",
+      "raw_score": 14.0,
+      "interaction_strength": 0.010556735595579939,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Partner__vs__expected_total_from_payment_profile_interaction.png"
+    },
+    {
+      "id": 8,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Dependents",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.00626385466268631,
+      "n_nonempty_cells": 2,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Dependents__vs__SeniorCitizen_interaction.png"
+    },
+    {
+      "id": 9,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Dependents",
+      "feature_2": "tenure",
+      "raw_score": 14.0,
+      "interaction_strength": 0.024762258465361637,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Dependents__vs__tenure_interaction.png"
+    },
+    {
+      "id": 10,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Dependents",
+      "feature_2": "Churn_flag",
+      "raw_score": 14.0,
+      "interaction_strength": 0.00626385466268631,
+      "n_nonempty_cells": 2,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Dependents__vs__Churn_flag_interaction.png"
+    },
+    {
+      "id": 11,
+      "pair_type": "categorical_numeric",
+      "feature_1": "Dependents",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02025816658158817,
+      "n_nonempty_cells": 6,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__Dependents__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 12,
+      "pair_type": "categorical_numeric",
+      "feature_1": "PhoneService",
+      "feature_2": "MonthlyCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.016431116639252227,
+      "n_nonempty_cells": 8,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__PhoneService__vs__MonthlyCharges_interaction.png"
+    },
+    {
+      "id": 13,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.00029215219161223883,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__SeniorCitizen_interaction.png"
+    },
+    {
+      "id": 14,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "tenure",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03945999139335387,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__tenure_interaction.png"
+    },
+    {
+      "id": 15,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "MonthlyCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.01708945084352287,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__MonthlyCharges_interaction.png"
+    },
+    {
+      "id": 16,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "TotalCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03196738180463158,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__TotalCharges_interaction.png"
+    },
+    {
+      "id": 17,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "expected_total_from_tenure_monthly",
+      "raw_score": 14.0,
+      "interaction_strength": 0.031064266564363632,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__expected_total_from_tenure_monthly_interaction.png"
+    },
+    {
+      "id": 18,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02955100954585907,
+      "n_nonempty_cells": 8,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 19,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "expected_total_senior",
+      "raw_score": 14.0,
+      "interaction_strength": 0.05096290558472017,
+      "n_nonempty_cells": 14,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__expected_total_senior_interaction.png"
+    },
+    {
+      "id": 20,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "expected_total_from_payment_profile",
+      "raw_score": 14.0,
+      "interaction_strength": 0.031064266564363632,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__expected_total_from_payment_profile_interaction.png"
+    },
+    {
+      "id": 21,
+      "pair_type": "categorical_numeric",
+      "feature_1": "MultipleLines",
+      "feature_2": "total_charges_per_month",
+      "raw_score": 14.0,
+      "interaction_strength": 0.020305351255625777,
+      "n_nonempty_cells": 14,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__MultipleLines__vs__total_charges_per_month_interaction.png"
+    },
+    {
+      "id": 22,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.020542864090443775,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__SeniorCitizen_interaction.png"
+    },
+    {
+      "id": 23,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "MonthlyCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03913818776947913,
+      "n_nonempty_cells": 10,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__MonthlyCharges_interaction.png"
+    },
+    {
+      "id": 24,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "TotalCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.05859944856779337,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__TotalCharges_interaction.png"
+    },
+    {
+      "id": 25,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "Churn_flag",
+      "raw_score": 14.0,
+      "interaction_strength": 0.020542864090443775,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__Churn_flag_interaction.png"
+    },
+    {
+      "id": 26,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "expected_total_from_tenure_monthly",
+      "raw_score": 14.0,
+      "interaction_strength": 0.05866844904992387,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__expected_total_from_tenure_monthly_interaction.png"
+    },
+    {
+      "id": 27,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.027555323344875992,
+      "n_nonempty_cells": 8,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 28,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "expected_total_from_payment_profile",
+      "raw_score": 14.0,
+      "interaction_strength": 0.05866844904992387,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__expected_total_from_payment_profile_interaction.png"
+    },
+    {
+      "id": 29,
+      "pair_type": "categorical_numeric",
+      "feature_1": "InternetService",
+      "feature_2": "total_charges_per_month",
+      "raw_score": 14.0,
+      "interaction_strength": 0.08491001461750763,
+      "n_nonempty_cells": 12,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__InternetService__vs__total_charges_per_month_interaction.png"
+    },
+    {
+      "id": 30,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.021889797181420766,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__SeniorCitizen_interaction.png"
+    },
+    {
+      "id": 31,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "tenure",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03245048291825626,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__tenure_interaction.png"
+    },
+    {
+      "id": 32,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "MonthlyCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02611761166884077,
+      "n_nonempty_cells": 11,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__MonthlyCharges_interaction.png"
+    },
+    {
+      "id": 33,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "TotalCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.032311053686310036,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__TotalCharges_interaction.png"
+    },
+    {
+      "id": 34,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "Churn_flag",
+      "raw_score": 14.0,
+      "interaction_strength": 0.021889797181420766,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__Churn_flag_interaction.png"
+    },
+    {
+      "id": 35,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "expected_total_from_tenure_monthly",
+      "raw_score": 14.0,
+      "interaction_strength": 0.032453765246576644,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__expected_total_from_tenure_monthly_interaction.png"
+    },
+    {
+      "id": 36,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.023775310227684004,
+      "n_nonempty_cells": 8,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 37,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "expected_total_senior",
+      "raw_score": 14.0,
+      "interaction_strength": 0.04427847999977467,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__expected_total_senior_interaction.png"
+    },
+    {
+      "id": 38,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "expected_total_from_payment_profile",
+      "raw_score": 14.0,
+      "interaction_strength": 0.032453765246576644,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__expected_total_from_payment_profile_interaction.png"
+    },
+    {
+      "id": 39,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineSecurity",
+      "feature_2": "total_charges_per_month",
+      "raw_score": 14.0,
+      "interaction_strength": 0.030541222872753435,
+      "n_nonempty_cells": 12,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineSecurity__vs__total_charges_per_month_interaction.png"
+    },
+    {
+      "id": 40,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.017731262946263253,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__SeniorCitizen_interaction.png"
+    },
+    {
+      "id": 41,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "tenure",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03643218006346683,
+      "n_nonempty_cells": 15,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__tenure_interaction.png"
+    },
+    {
+      "id": 42,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "MonthlyCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02180086971998699,
+      "n_nonempty_cells": 11,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__MonthlyCharges_interaction.png"
+    },
+    {
+      "id": 43,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "TotalCharges",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03211317690618966,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__TotalCharges_interaction.png"
+    },
+    {
+      "id": 44,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "Churn_flag",
+      "raw_score": 14.0,
+      "interaction_strength": 0.017731262946263253,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__Churn_flag_interaction.png"
+    },
+    {
+      "id": 45,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "expected_total_from_tenure_monthly",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03183225229499624,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__expected_total_from_tenure_monthly_interaction.png"
+    },
+    {
+      "id": 46,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "expected_min_total_from_contract",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02669295343340264,
+      "n_nonempty_cells": 8,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__expected_min_total_from_contract_interaction.png"
+    },
+    {
+      "id": 47,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "expected_total_senior",
+      "raw_score": 14.0,
+      "interaction_strength": 0.04665538621514371,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__expected_total_senior_interaction.png"
+    },
+    {
+      "id": 48,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "expected_total_from_payment_profile",
+      "raw_score": 14.0,
+      "interaction_strength": 0.03183225229499624,
+      "n_nonempty_cells": 13,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__expected_total_from_payment_profile_interaction.png"
+    },
+    {
+      "id": 49,
+      "pair_type": "categorical_numeric",
+      "feature_1": "OnlineBackup",
+      "feature_2": "total_charges_per_month",
+      "raw_score": 14.0,
+      "interaction_strength": 0.02703253688353055,
+      "n_nonempty_cells": 12,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__OnlineBackup__vs__total_charges_per_month_interaction.png"
+    },
+    {
+      "id": 50,
+      "pair_type": "categorical_numeric",
+      "feature_1": "DeviceProtection",
+      "feature_2": "SeniorCitizen",
+      "raw_score": 14.0,
+      "interaction_strength": 0.01678508240033201,
+      "n_nonempty_cells": 3,
+      "heatmap_path": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps/categorical_numeric__DeviceProtection__vs__SeniorCitizen_interaction.png"
+    }
+  ]
+}

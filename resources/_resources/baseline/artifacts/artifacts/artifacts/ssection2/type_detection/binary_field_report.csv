@@ -1,0 +1,23 @@
+column,role,feature_group,raw_dtype,type_group,n_unique,unique_values_sample,is_binary_candidate,binary_kind,recommended_storage,is_id,is_target,is_protected,source_sections
+Dependents,feature,categorical_low_card,object,boolean,2,"[""No"", ""Yes""]",True,yes_no,boolean,False,False,False,"[""2.2.3""]"
+PaperlessBilling,feature,categorical_low_card,object,boolean,2,"[""Yes"", ""No""]",True,yes_no,boolean,False,False,False,"[""2.2.3""]"
+Partner,feature,categorical_low_card,object,boolean,2,"[""Yes"", ""No""]",True,yes_no,boolean,False,False,False,"[""2.2.3""]"
+PhoneService,feature,categorical_low_card,object,boolean,2,"[""No"", ""Yes""]",True,yes_no,boolean,False,False,False,"[""2.2.3""]"
+SeniorCitizen,feature,numeric_flag,int64,numeric,2,"[""0"", ""1""]",True,boolean_01,boolean,False,False,False,"[""2.1.3"", ""2.2.3""]"
+gender,feature,categorical_low_card,object,categorical,2,"[""Female"", ""Male""]",True,other_binary,category,False,False,False,"[""2.2.3""]"
+Churn_flag,target,target,Int64,numeric,2,"[""0"", ""1""]",True,boolean_01,boolean,False,False,True,"[""2.2.3""]"
+Churn,target_aux,target_aux,object,boolean,2,"[""No"", ""Yes""]",True,yes_no,boolean,False,False,True,"[""2.2.3""]"
+Contract,feature,categorical_low_card,object,categorical,3,"[""Month-to-month"", ""One year"", ""Two year""]",False,not_binary,category,False,False,False,[]
+DeviceProtection,feature,categorical_low_card,object,categorical,3,"[""No"", ""Yes"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+InternetService,feature,categorical_low_card,object,categorical,3,"[""DSL"", ""Fiber optic"", ""No""]",False,not_binary,category,False,False,False,[]
+MonthlyCharges,feature,numeric_continuous,float64,numeric,1585,"[""29.85"", ""56.95"", ""53.85"", ""42.3"", ""70.7""]",False,not_binary,category,False,False,False,[]
+MultipleLines,feature,categorical_low_card,object,categorical,3,"[""No phone service"", ""No"", ""Yes""]",False,not_binary,category,False,False,False,[]
+OnlineBackup,feature,categorical_low_card,object,categorical,3,"[""Yes"", ""No"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+OnlineSecurity,feature,categorical_low_card,object,categorical,3,"[""No"", ""Yes"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+PaymentMethod,feature,categorical_low_card,object,categorical,4,"[""Electronic check"", ""Mailed check"", ""Bank transfer (automatic)"", ""Credit card (automatic)""]",False,not_binary,category,False,False,False,[]
+StreamingMovies,feature,categorical_low_card,object,categorical,3,"[""No"", ""Yes"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+StreamingTV,feature,categorical_low_card,object,categorical,3,"[""No"", ""Yes"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+TechSupport,feature,categorical_low_card,object,categorical,3,"[""No"", ""Yes"", ""No internet service""]",False,not_binary,category,False,False,False,[]
+TotalCharges,feature,numeric_continuous,float64,numeric,6530,"[""29.85"", ""1889.5"", ""108.15"", ""1840.75"", ""151.65""]",False,not_binary,category,False,False,False,[]
+tenure,feature,numeric_continuous,int64,numeric,73,"[""1"", ""34"", ""2"", ""45"", ""8""]",False,not_binary,category,False,False,False,[]
+customerID,id,id,object,categorical,7043,"[""7590-VHVEG"", ""5575-GNVDE"", ""3668-QPYBK"", ""7795-CFOCW"", ""9237-HQITU""]",False,not_binary,category,False,False,True,[]

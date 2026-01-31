@@ -1,0 +1,132 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dq-engine"
+version = "0.1.0"
+description = "Config-driven data quality engine with audit artifacts, drift checks, and quality rollups."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11,<3.15"
+authors = [{ name = "Brandon Hardison", email = "brandon.hardison@gmail.com" }]
+keywords = ["data-quality", "analytics-engineering", "data-observability", "dq", "duckdb"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+# ---- Runtime dependencies (keep this lean; installs fast everywhere) ----
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "pyyaml>=6.0",
+  "joblib>=1.2",
+  "duckdb>=0.10.0",
+  "pyarrow>=14",
+]
+
+[project.urls]
+Homepage = "https://github.com/cat-cols/dq-engine"
+Repository = "https://github.com/cat-cols/dq-engine"
+Issues = "https://github.com/cat-cols/dq-engine/issues"
+Documentation = "https://cat-cols.github.io/dq-engine/"
+
+[project.scripts]
+dq = "dq_engine.cli:main"
+
+[project.optional-dependencies]
+# ---- Notebook tooling ----
+notebooks = [
+  "ipykernel>=6.20",
+  "jupyter>=1.0",
+  "nbformat>=5.10",
+]
+
+# ---- Visualization ----
+viz = [
+  "matplotlib>=3.7",
+  "seaborn>=0.12",
+  "tabulate>=0.9",
+  "graphviz>=0.21",
+]
+
+# ---- Statistical analysis ----
+stats = [
+  "scipy>=1.11",
+  "statsmodels>=0.14",
+]
+
+# ---- ML ----
+ml = [
+  "scikit-learn>=1.2",
+]
+
+# ---- Explainability (heavier; may require system deps on macOS) ----
+xai = [
+  "shap>=0.42.1",
+]
+
+# ---- Development / QA ----
+dev = [
+  "ruff>=0.6",
+  "black>=23.3",
+  "mypy>=1.7",
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+]
+
+# ---- Docs ----
+docs = [
+  "sphinx>=5.0",
+  "sphinx-rtd-theme>=1.2",
+]
+
+# ✅ Portable: everything most contributors need (no xai)
+all = [
+  "ipykernel>=6.20",
+  "jupyter>=1.0",
+  "nbformat>=5.10",
+  "matplotlib>=3.7",
+  "seaborn>=0.12",
+  "tabulate>=0.9",
+  "graphviz>=0.21",
+  "scipy>=1.11",
+  "statsmodels>=0.14",
+  "scikit-learn>=1.2",
+  "ruff>=0.6",
+  "black>=23.3",
+  "mypy>=1.7",
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "rich>=13",
+  "sphinx>=5.0",
+  "sphinx-rtd-theme>=1.2",
+]
+
+# 🧨 Full install including SHAP (may trigger llvmlite/LLVM build issues)
+brave = ["shap>=0.42.1"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dq_engine"]

@@ -1,0 +1,6 @@
+source_column,target_column,edge_weight,n_rules,max_severity,rules_contributing
+InternetService,MonthlyCharges,3.0,3,fail,internet_vs_monthly
+MonthlyCharges,PaymentMethod,4.0,4,fail,paymentmethod_vs_monthly
+TotalCharges,expected_total_from_tenure_monthly,19.0,1,warn,total_vs_expected_from_tenure_monthly
+TotalCharges,expected_min_total_from_contract,6669.0,1,fail,contract_bounded_total
+TotalCharges,expected_total_from_payment_profile,51.0,1,warn,payment_method_consistency

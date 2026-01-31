@@ -1,0 +1,1449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Section 2.8 – Statistical Validation Dashboard</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7fb;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #4f7ad1, #6295ff);
+      color: #fff;
+      padding: 16px 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    header p {
+      margin: 4px 0 0 0;
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+    main {
+      padding: 20px 24px 40px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    nav {
+      margin: 12px 0 20px 0;
+      padding: 8px 12px;
+      background-color: #e7ecff;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+    nav a {
+      margin-right: 12px;
+      color: #2456b3;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-bottom: 32px;
+      padding: 16px 18px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      border: 1px solid #e2e6f5;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    section h2 {
+      margin-top: 0;
+      border-bottom: 1px solid #e5e8f5;
+      padding-bottom: 6px;
+      font-size: 1.2rem;
+    }
+    section h3 {
+      margin-top: 12px;
+      font-size: 1rem;
+    }
+    .data-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 6px;
+      font-size: 0.85rem;
+    }
+    .data-table th, .data-table td {
+      padding: 4px 6px;
+      border: 1px solid #e0e3f0;
+    }
+    .data-table th {
+      background-color: #f0f2ff;
+      font-weight: 600;
+    }
+    .muted {
+      color: #777;
+      font-size: 0.85rem;
+    }
+    .card {
+      padding: 12px 14px;
+      border-radius: 8px;
+      background-color: #f6f7ff;
+      border: 1px solid #dde2ff;
+    }
+    .sri-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .sri-score {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2f55d1;
+    }
+    .sri-label {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #334;
+    }
+    footer {
+      text-align: center;
+      padding: 8px 0 16px 0;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Section 2.8 – Statistical Validation &amp; Modeling Readiness</h1>
+    <p>Integrated dashboard for inferential diagnostics, uncertainty, stability, and Statistical Readiness Index (SRI).</p>
+  </header>
+  <main>
+    <nav>
+      <a href="#overview">Overview &amp; SRI</a>
+      <a href="#sampling">Sampling</a>
+      <a href="#assumptions">Assumptions</a>
+      <a href="#inference">Inference</a>
+      <a href="#stability">Stability</a>
+      <a href="#visuals">Visuals</a>
+    </nav>
+    
+    <section id="sampling">
+      <h2>Sampling &amp; Representativeness</h2>
+      <h3>Sampling adequacy (KMO / Bartlett)</h3>
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>scope</th>
+      <th>n_rows</th>
+      <th>n_features</th>
+      <th>kmo_overall</th>
+      <th>kmo_threshold</th>
+      <th>bartlett_statistic</th>
+      <th>bartlett_df</th>
+      <th>bartlett_p_value</th>
+      <th>bartlett_p_threshold</th>
+      <th>adequacy_label</th>
+      <th>status</th>
+      <th>feature</th>
+      <th>kmo_feature</th>
+      <th>adequacy_label_feature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>overall</td>
+      <td>1142.0</td>
+      <td>11.0</td>
+      <td>NaN</td>
+      <td>0.6</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>NaN</td>
+      <td>0.05</td>
+      <td>Indeterminate</td>
+      <td>WARN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>SeniorCitizen</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>tenure</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>MonthlyCharges</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>TotalCharges</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Churn_flag</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Senior_flag</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>expected_min_total_from_contract</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>expected_total_senior</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+    <tr>
+      <td>per_feature</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>total_charges_per_month</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+    </tr>
+  </tbody>
+</table>
+      <h3>Summary statistic stability (resampling)</h3>
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metric_id</th>
+      <th>metric_type</th>
+      <th>target</th>
+      <th>n_resamples</th>
+      <th>sample_fraction</th>
+      <th>estimate_mean</th>
+      <th>estimate_std</th>
+      <th>estimate_min</th>
+      <th>estimate_max</th>
+      <th>p05</th>
+      <th>p95</th>
+      <th>relative_std</th>
+      <th>stability_label</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mean_SeniorCitizen</td>
+      <td>mean</td>
+      <td>SeniorCitizen</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.161908</td>
+      <td>0.001997</td>
+      <td>0.154775</td>
+      <td>0.168264</td>
+      <td>0.158679</td>
+      <td>0.165096</td>
+      <td>0.012337</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_SeniorCitizen</td>
+      <td>std</td>
+      <td>SeniorCitizen</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.368389</td>
+      <td>0.001834</td>
+      <td>0.361722</td>
+      <td>0.374134</td>
+      <td>0.365409</td>
+      <td>0.371300</td>
+      <td>0.004977</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_SeniorCitizen</td>
+      <td>median</td>
+      <td>SeniorCitizen</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>mean_tenure</td>
+      <td>mean</td>
+      <td>tenure</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>32.384856</td>
+      <td>0.146170</td>
+      <td>32.037629</td>
+      <td>32.746894</td>
+      <td>32.158094</td>
+      <td>32.613747</td>
+      <td>0.004514</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_tenure</td>
+      <td>std</td>
+      <td>tenure</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>24.554772</td>
+      <td>0.055786</td>
+      <td>24.396473</td>
+      <td>24.681750</td>
+      <td>24.461894</td>
+      <td>24.638060</td>
+      <td>0.002272</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_tenure</td>
+      <td>median</td>
+      <td>tenure</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>28.900000</td>
+      <td>0.325669</td>
+      <td>28.000000</td>
+      <td>30.000000</td>
+      <td>28.000000</td>
+      <td>29.000000</td>
+      <td>0.011269</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_MonthlyCharges</td>
+      <td>mean</td>
+      <td>MonthlyCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>64.720966</td>
+      <td>0.175855</td>
+      <td>64.254590</td>
+      <td>65.155077</td>
+      <td>64.415741</td>
+      <td>64.995101</td>
+      <td>0.002717</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_MonthlyCharges</td>
+      <td>std</td>
+      <td>MonthlyCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>30.069020</td>
+      <td>0.063922</td>
+      <td>29.910889</td>
+      <td>30.253542</td>
+      <td>29.969106</td>
+      <td>30.165251</td>
+      <td>0.002126</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_MonthlyCharges</td>
+      <td>median</td>
+      <td>MonthlyCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>70.329750</td>
+      <td>0.129231</td>
+      <td>70.050000</td>
+      <td>70.750000</td>
+      <td>70.150000</td>
+      <td>70.552500</td>
+      <td>0.001838</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_TotalCharges</td>
+      <td>mean</td>
+      <td>TotalCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2279.415617</td>
+      <td>12.979211</td>
+      <td>2249.014309</td>
+      <td>2310.059163</td>
+      <td>2259.419954</td>
+      <td>2300.547100</td>
+      <td>0.005694</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_TotalCharges</td>
+      <td>std</td>
+      <td>TotalCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2258.345232</td>
+      <td>7.828561</td>
+      <td>2239.382759</td>
+      <td>2275.277303</td>
+      <td>2246.132635</td>
+      <td>2270.625821</td>
+      <td>0.003467</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_TotalCharges</td>
+      <td>median</td>
+      <td>TotalCharges</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>1397.626250</td>
+      <td>9.883707</td>
+      <td>1366.025000</td>
+      <td>1423.925000</td>
+      <td>1382.350000</td>
+      <td>1414.725000</td>
+      <td>0.007072</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_Churn_flag</td>
+      <td>mean</td>
+      <td>Churn_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.265158</td>
+      <td>0.003010</td>
+      <td>0.258076</td>
+      <td>0.272275</td>
+      <td>0.260543</td>
+      <td>0.270696</td>
+      <td>0.011353</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_Churn_flag</td>
+      <td>std</td>
+      <td>Churn_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.441443</td>
+      <td>0.001600</td>
+      <td>0.437615</td>
+      <td>0.445170</td>
+      <td>0.438970</td>
+      <td>0.444359</td>
+      <td>0.003624</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_Churn_flag</td>
+      <td>median</td>
+      <td>Churn_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>mean_Senior_flag</td>
+      <td>mean</td>
+      <td>Senior_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.161908</td>
+      <td>0.001997</td>
+      <td>0.154775</td>
+      <td>0.168264</td>
+      <td>0.158679</td>
+      <td>0.165096</td>
+      <td>0.012337</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_Senior_flag</td>
+      <td>std</td>
+      <td>Senior_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.368389</td>
+      <td>0.001834</td>
+      <td>0.361722</td>
+      <td>0.374134</td>
+      <td>0.365409</td>
+      <td>0.371300</td>
+      <td>0.004977</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_Senior_flag</td>
+      <td>median</td>
+      <td>Senior_flag</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>mean_expected_total_from_tenure_monthly</td>
+      <td>mean</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2277.548564</td>
+      <td>12.943171</td>
+      <td>2247.089137</td>
+      <td>2308.878568</td>
+      <td>2258.229724</td>
+      <td>2298.855010</td>
+      <td>0.005683</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_expected_total_from_tenure_monthly</td>
+      <td>std</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2258.846430</td>
+      <td>7.773408</td>
+      <td>2240.155356</td>
+      <td>2276.643330</td>
+      <td>2246.891929</td>
+      <td>2271.539298</td>
+      <td>0.003441</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_expected_total_from_tenure_monthly</td>
+      <td>median</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>1392.165500</td>
+      <td>11.965066</td>
+      <td>1360.800000</td>
+      <td>1419.650000</td>
+      <td>1372.620000</td>
+      <td>1408.717500</td>
+      <td>0.008595</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_expected_min_total_from_contract</td>
+      <td>mean</td>
+      <td>expected_min_total_from_contract</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>28.159232</td>
+      <td>0.207529</td>
+      <td>27.622915</td>
+      <td>28.616152</td>
+      <td>27.726773</td>
+      <td>28.483186</td>
+      <td>0.007370</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_expected_min_total_from_contract</td>
+      <td>std</td>
+      <td>expected_min_total_from_contract</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>38.411203</td>
+      <td>0.127786</td>
+      <td>38.135863</td>
+      <td>38.747214</td>
+      <td>38.202724</td>
+      <td>38.598472</td>
+      <td>0.003327</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_expected_min_total_from_contract</td>
+      <td>median</td>
+      <td>expected_min_total_from_contract</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>Indeterminate</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>mean_expected_total_senior</td>
+      <td>mean</td>
+      <td>expected_total_senior</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2812.362173</td>
+      <td>36.630385</td>
+      <td>2728.043139</td>
+      <td>2926.615421</td>
+      <td>2747.644307</td>
+      <td>2867.463380</td>
+      <td>0.013025</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_expected_total_senior</td>
+      <td>std</td>
+      <td>expected_total_senior</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2359.093626</td>
+      <td>16.444348</td>
+      <td>2309.601779</td>
+      <td>2404.077557</td>
+      <td>2331.558700</td>
+      <td>2383.952247</td>
+      <td>0.006971</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_expected_total_senior</td>
+      <td>median</td>
+      <td>expected_total_senior</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2264.435500</td>
+      <td>49.077651</td>
+      <td>2171.700000</td>
+      <td>2443.700000</td>
+      <td>2203.296250</td>
+      <td>2338.245000</td>
+      <td>0.021673</td>
+      <td>Stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_expected_total_from_payment_profile</td>
+      <td>mean</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2277.548564</td>
+      <td>12.943171</td>
+      <td>2247.089137</td>
+      <td>2308.878568</td>
+      <td>2258.229724</td>
+      <td>2298.855010</td>
+      <td>0.005683</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_expected_total_from_payment_profile</td>
+      <td>std</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>2258.846430</td>
+      <td>7.773408</td>
+      <td>2240.155356</td>
+      <td>2276.643330</td>
+      <td>2246.891929</td>
+      <td>2271.539298</td>
+      <td>0.003441</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>median_expected_total_from_payment_profile</td>
+      <td>median</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>1392.165500</td>
+      <td>11.965066</td>
+      <td>1360.800000</td>
+      <td>1419.650000</td>
+      <td>1372.620000</td>
+      <td>1408.717500</td>
+      <td>0.008595</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>mean_total_charges_per_month</td>
+      <td>mean</td>
+      <td>total_charges_per_month</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>66.813650</td>
+      <td>0.387916</td>
+      <td>65.798882</td>
+      <td>67.665941</td>
+      <td>66.148833</td>
+      <td>67.472321</td>
+      <td>0.005806</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>std_total_charges_per_month</td>
+      <td>std</td>
+      <td>total_charges_per_month</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>60.485683</td>
+      <td>3.449674</td>
+      <td>49.729990</td>
+      <td>66.115711</td>
+      <td>52.941074</td>
+      <td>66.054273</td>
+      <td>0.057033</td>
+      <td>Moderately variable</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>median_total_charges_per_month</td>
+      <td>median</td>
+      <td>total_charges_per_month</td>
+      <td>100</td>
+      <td>0.8</td>
+      <td>70.407604</td>
+      <td>0.230655</td>
+      <td>69.937924</td>
+      <td>71.100000</td>
+      <td>70.078071</td>
+      <td>70.832495</td>
+      <td>0.003276</td>
+      <td>Highly stable</td>
+      <td>OK</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+    
+    <section id="assumptions">
+      <h2>Assumption Checks &amp; Multiple Testing</h2>
+      <h3>Normality diagnostics</h3>
+      <p class="muted">No normality tests table found.</p>
+      <h3>Variance homogeneity</h3>
+      <p class="muted">No variance homogeneity report found.</p>
+      <h3>Multiple-testing correction layer</h3>
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test_id</th>
+      <th>p_raw</th>
+      <th>feature_or_pair</th>
+      <th>source_file</th>
+      <th>p_corrected</th>
+      <th>method</th>
+      <th>alpha</th>
+      <th>reject_uncorrected</th>
+      <th>reject_corrected</th>
+      <th>inflation_flag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>6.609786e-205</td>
+      <td>tenure</td>
+      <td>point_biserial_results.csv</td>
+      <td>5.287829e-204</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>4.328494e-134</td>
+      <td>expected_min_total_from_contract</td>
+      <td>point_biserial_results.csv</td>
+      <td>1.731398e-133</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>7.223420e-64</td>
+      <td>TotalCharges</td>
+      <td>point_biserial_results.csv</td>
+      <td>1.926245e-63</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1.588105e-63</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>point_biserial_results.csv</td>
+      <td>2.540968e-63</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>1.588105e-63</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>point_biserial_results.csv</td>
+      <td>2.540968e-63</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1.793404e-60</td>
+      <td>MonthlyCharges</td>
+      <td>point_biserial_results.csv</td>
+      <td>2.391205e-60</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>7.498900e-33</td>
+      <td>expected_total_senior</td>
+      <td>point_biserial_results.csv</td>
+      <td>8.570171e-33</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>2.683443e-10</td>
+      <td>total_charges_per_month</td>
+      <td>point_biserial_results.csv</td>
+      <td>2.683443e-10</td>
+      <td>fdr_bh</td>
+      <td>0.05</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+    </section>
+    
+    <section id="inference">
+      <h2>Inference &amp; Effect Sizes</h2>
+      <h3>Effect size catalog</h3>
+      <p class="muted">No effect size catalog found.</p>
+      <h3>Effect size stability across bootstraps</h3>
+      <p class="muted">No effect stability metrics table found.</p>
+    </section>
+    
+    <section id="stability">
+      <h2>Stability &amp; Modeling Readiness</h2>
+      <h3>Signal-to-noise ratio (feature-level)</h3>
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>dtype</th>
+      <th>snr_score</th>
+      <th>f_stat</th>
+      <th>signal_label</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SeniorCitizen</td>
+      <td>numeric</td>
+      <td>164.041424</td>
+      <td>164.041424</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>numeric</td>
+      <td>997.703173</td>
+      <td>997.703173</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>numeric</td>
+      <td>274.315827</td>
+      <td>274.315827</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>numeric</td>
+      <td>290.520194</td>
+      <td>290.520194</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Churn_flag</td>
+      <td>numeric</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>numeric</td>
+      <td>288.885374</td>
+      <td>288.885374</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>expected_total_for_zero_tenure</td>
+      <td>numeric</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>low</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>expected_min_total_from_contract</td>
+      <td>numeric</td>
+      <td>634.304938</td>
+      <td>634.304938</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>expected_total_senior</td>
+      <td>numeric</td>
+      <td>151.877782</td>
+      <td>151.877782</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_payment_profile</td>
+      <td>numeric</td>
+      <td>288.885374</td>
+      <td>288.885374</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>total_charges_per_month</td>
+      <td>numeric</td>
+      <td>40.008478</td>
+      <td>40.008478</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>customerID</td>
+      <td>categorical</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>low</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>categorical</td>
+      <td>0.522257</td>
+      <td>0.522257</td>
+      <td>low</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Partner</td>
+      <td>categorical</td>
+      <td>163.060036</td>
+      <td>163.060036</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Dependents</td>
+      <td>categorical</td>
+      <td>195.149314</td>
+      <td>195.149314</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>PhoneService</td>
+      <td>categorical</td>
+      <td>1.004266</td>
+      <td>1.004266</td>
+      <td>low</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MultipleLines</td>
+      <td>categorical</td>
+      <td>5.671932</td>
+      <td>5.671932</td>
+      <td>medium</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>InternetService</td>
+      <td>categorical</td>
+      <td>408.470324</td>
+      <td>408.470324</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>OnlineSecurity</td>
+      <td>categorical</td>
+      <td>483.125443</td>
+      <td>483.125443</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>OnlineBackup</td>
+      <td>categorical</td>
+      <td>328.880523</td>
+      <td>328.880523</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>DeviceProtection</td>
+      <td>categorical</td>
+      <td>303.124642</td>
+      <td>303.124642</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>TechSupport</td>
+      <td>categorical</td>
+      <td>469.082240</td>
+      <td>469.082240</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>StreamingTV</td>
+      <td>categorical</td>
+      <td>197.516594</td>
+      <td>197.516594</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>StreamingMovies</td>
+      <td>categorical</td>
+      <td>198.329274</td>
+      <td>198.329274</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Contract</td>
+      <td>categorical</td>
+      <td>711.760463</td>
+      <td>711.760463</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>PaperlessBilling</td>
+      <td>categorical</td>
+      <td>268.985218</td>
+      <td>268.985218</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>PaymentMethod</td>
+      <td>categorical</td>
+      <td>237.809507</td>
+      <td>237.809507</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Churn</td>
+      <td>categorical</td>
+      <td>inf</td>
+      <td>inf</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>SeniorCitizen_flag_text</td>
+      <td>categorical</td>
+      <td>164.041424</td>
+      <td>164.041424</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Senior_flag</td>
+      <td>categorical</td>
+      <td>164.041424</td>
+      <td>164.041424</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>_logic_repair_applied</td>
+      <td>categorical</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>low</td>
+      <td>insufficient data</td>
+    </tr>
+    <tr>
+      <td>tenure_months_bucket</td>
+      <td>categorical</td>
+      <td>247.824598</td>
+      <td>247.824598</td>
+      <td>high</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+      <h3>Predictive correlation consistency</h3>
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>n_splits</th>
+      <th>sign_flipped</th>
+      <th>corr_mean</th>
+      <th>corr_std</th>
+      <th>corr_range</th>
+      <th>stability_label</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SeniorCitizen</td>
+      <td>5</td>
+      <td>False</td>
+      <td>0.150939</td>
+      <td>2.922843e-02</td>
+      <td>7.300162e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.351849</td>
+      <td>3.301368e-02</td>
+      <td>8.316695e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>5</td>
+      <td>False</td>
+      <td>0.193373</td>
+      <td>3.293343e-02</td>
+      <td>7.296100e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.198670</td>
+      <td>3.872403e-02</td>
+      <td>9.981048e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>Churn_flag</td>
+      <td>5</td>
+      <td>False</td>
+      <td>1.000000</td>
+      <td>5.551115e-17</td>
+      <td>1.110223e-16</td>
+      <td>stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.198175</td>
+      <td>3.822002e-02</td>
+      <td>9.913069e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>expected_total_for_zero_tenure</td>
+      <td>5</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>unstable</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>expected_min_total_from_contract</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.287406</td>
+      <td>1.544028e-02</td>
+      <td>3.852494e-02</td>
+      <td>stable</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>expected_total_senior</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.342366</td>
+      <td>7.800177e-02</td>
+      <td>2.146463e-01</td>
+      <td>unstable</td>
+      <td>WARN</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_payment_profile</td>
+      <td>5</td>
+      <td>False</td>
+      <td>-0.198175</td>
+      <td>3.822002e-02</td>
+      <td>9.913069e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>total_charges_per_month</td>
+      <td>5</td>
+      <td>False</td>
+      <td>0.078976</td>
+      <td>2.541038e-02</td>
+      <td>5.131039e-02</td>
+      <td>moderate</td>
+      <td>OK</td>
+    </tr>
+  </tbody>
+</table>
+      <h3>Test reproducibility audit</h3>
+      <p class="muted">No test reproducibility audit table found.</p>
+    </section>
+    
+        <section id="visuals">
+          <h2>Visuals – Confidence Bands &amp; Stability</h2>
+          <figure>
+            <img src="confidence_band_plots.png" alt="Confidence band plots" style="max-width:100%;height:auto;border:1px solid #ddd;border-radius:6px;">
+            <figcaption>2.8.11 – Confidence band visuals for key numeric, proportion, and effect metrics.</figcaption>
+          </figure>
+        </section>
+        
+  </main>
+  <footer>
+    Section 2.8 – Statistical Validation &amp; Confidence Analysis · Generated via pipeline
+  </footer>
+</body>
+</html>

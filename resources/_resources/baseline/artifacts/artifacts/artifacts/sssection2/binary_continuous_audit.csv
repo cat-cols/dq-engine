@@ -1,0 +1,4 @@
+column,unique,kind
+MonthlyCharges,1585,continuous
+TotalCharges,6530,continuous
+tenure,73,continuous

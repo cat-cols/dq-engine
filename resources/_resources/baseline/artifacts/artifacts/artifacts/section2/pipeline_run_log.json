@@ -1,0 +1,19 @@
+{
+  "alerts": {
+    "contract_breach": false,
+    "enabled": true,
+    "low_integrity": false,
+    "revalidation_failed": true
+  },
+  "ci_provider": "none",
+  "contract_status": null,
+  "end_time_utc": "2025-12-27 18:00:20.908705+00:00",
+  "environment": "dev",
+  "git_commit": null,
+  "integrity_index": null,
+  "revalidation_status": "FAIL",
+  "run_id": "sec2_apply_20251227T180004Z",
+  "severity": "high",
+  "start_time_utc": null,
+  "status": "failed"
+}

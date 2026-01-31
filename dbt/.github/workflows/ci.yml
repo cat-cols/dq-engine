@@ -1,0 +1,71 @@
+name: dbt + DQ CI
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+      SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ${{ secrets.SNOWFLAKE_PRIVATE_KEY_PASSPHRASE }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          pip install -U pip
+          pip install -e ".[snowflake]"
+
+      - name: Write private key file
+        shell: bash
+        run: |
+          mkdir -p .secrets
+          printf "%s" "${{ secrets.SNOWFLAKE_PRIVATE_KEY_P8 }}" > .secrets/snowflake_key.p8
+          echo "SNOWFLAKE_PRIVATE_KEY_PATH=$GITHUB_WORKSPACE/.secrets/snowflake_key.p8" >> $GITHUB_ENV
+
+      - name: Write dbt profile
+        shell: bash
+        run: |
+          mkdir -p dbt/profiles
+          cat > dbt/profiles/profiles.yml << 'EOF'
+          dq_engine_dbt:
+            target: ci
+            outputs:
+              ci:
+                type: snowflake
+                account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+                user: "{{ env_var('SNOWFLAKE_USER') }}"
+                role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+                database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
+                warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+                schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'ANALYTICS') }}"
+                threads: 4
+                authenticator: "snowflake_jwt"
+                private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH') }}"
+                private_key_passphrase: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE', '') }}"
+          EOF
+
+      - name: dbt build
+        working-directory: dbt/dq_engine_dbt
+        run: dbt build --profiles-dir ../profiles
+
+      - name: Run DQ (skip dbt)
+        run: dq run --config configs/dq_project.yml --skip-dbt
+
+      - name: Upload dbt artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-target
+          path: dbt/dq_engine_dbt/target

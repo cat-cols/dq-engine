@@ -1,0 +1,2 @@
+key_name,key_cols,n_rows,n_null_key_rows,n_duplicate_keys,n_conflicting_key_groups,severity,notes
+telco_customer,['customerID'],7043,0,0,0,ok,

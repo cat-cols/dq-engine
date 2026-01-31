@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: telco
+        freshness:
+          warn_after: {count: 2, period: day}
+          error_after: {count: 7, period: day}
+        loaded_at_field: "CURRENT_TIMESTAMP"  # for files; in real ELT you'd use an ingest_ts column

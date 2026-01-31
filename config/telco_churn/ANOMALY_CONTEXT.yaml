@@ -1,0 +1,208 @@
+# V1
+# FULL W/ prev rules (MAX OVERLOAD!)
+# ANOMALY_CONTEXT:
+#   INCLUDE_SEVERITIES: ["warn","fail"]
+#   MAX_ROWS: 5000
+#   SOURCES:
+
+#     dependency_rule_violation:
+#       path: "dependency_violations.csv"
+#       format: "csv"
+#       row_key_col: "customerID"
+#       rule_id_col: "rule_name"
+#       anomaly_type: "dependency_violation"
+#       feature_cols: ["columns_involved"]
+#       severity_col: "severity"
+#       magnitude_col: "n_violations"
+#       section_ref: "2.5.4"
+
+#       #
+#       path: "dependency_row_violations.csv"
+#       format: "csv"
+#       row_key_col: "row_key"          # or "customerID" if you prefer
+#       rule_id_col: "rule_id"
+#       anomaly_type: "dependency_violation"
+#       feature_cols: ["left_col", "right_col"]
+#       severity_col: "severity"
+#       magnitude_col: "magnitude"
+#       section_ref: "2.5.test"
+
+
+#     mutual_exclusion_violation:
+#       path: "mutual_exclusion_report.csv"
+#       format: "csv"
+#       row_key_col: "customerID"
+#       rule_id_col: "rule_id"
+#       anomaly_type: "mutual_exclusion"
+#       severity_col: "severity"
+#       feature_cols: ["columns"]
+#       section_ref: "2.5.3"
+
+#     ratio_check_violation:
+#       path: "ratio_consistency_report.csv"
+#       format: "csv"
+#       row_key_col: "customerID"
+#       rule_id_col: "ratio_rule"
+#       anomaly_type: "ratio_violation"
+#       severity_col: "severity"
+#       feature_cols: ["lhs", "rhs_expr"]
+#       section_ref: "2.5.5"
+
+#     temporal_violation:
+#       path: "temporal_logic_report.csv"
+#       anomaly_type: "temporal_violation"
+#       row_key_col: "customerID"
+#       rule_id_col: "interval_name"
+#       feature_cols: ["start_col", "end_col"]
+#       severity_col: "severity"
+#       section_ref: "2.5.6"
+
+#     onehot_integrity_violation:
+#       path: "onehot_integrity_report.csv"
+#       anomaly_type: "onehot_violation"
+#       row_key_col: "customerID"
+#       rule_id_col: "group_id"
+#       feature_cols: ["columns"]
+#       severity_col: "severity"
+#       section_ref: "2.5.8"
+
+# V2
+# FULL W/ prev rules (MAX OVERLOAD!)
+  # ANOMALY_CONTEXT:
+  #   INCLUDE_SEVERITIES: ["warn","fail"]
+  #   MAX_ROWS: 5000
+  #   SOURCES:
+
+  #     dependency_rule_violation:
+  #       path: "dependency_violations.csv"
+  #       format: "csv"
+  #       row_key_col: "customerID"
+  #       rule_id_col: "rule_name"
+  #       anomaly_type: "dependency_violation"
+  #       feature_cols: ["columns_involved"]
+  #       severity_col: "severity"
+  #       magnitude_col: "n_violations"
+  #       section_ref: "2.5.4"
+
+  #       #
+  #       path: "dependency_row_violations.csv"
+  #       format: "csv"
+  #       row_key_col: "row_key"          # or "customerID" if you prefer
+  #       rule_id_col: "rule_id"
+  #       anomaly_type: "dependency_violation"
+  #       feature_cols: ["left_col", "right_col"]
+  #       severity_col: "severity"
+  #       magnitude_col: "magnitude"
+  #       section_ref: "2.5.test"
+
+  #     mutual_exclusion_violation:
+  #       path: "mutual_exclusion_report.csv"
+  #       format: "csv"
+  #       row_key_col: "customerID"
+  #       rule_id_col: "rule_id"
+  #       anomaly_type: "mutual_exclusion"
+  #       severity_col: "severity"
+  #       feature_cols: ["columns"]
+  #       section_ref: "2.5.3"
+
+  #     ratio_check_violation:
+  #       path: "ratio_consistency_report.csv"
+  #       format: "csv"
+  #       row_key_col: "customerID"
+  #       rule_id_col: "ratio_rule"
+  #       anomaly_type: "ratio_violation"
+  #       severity_col: "severity"
+  #       feature_cols: ["lhs", "rhs_expr"]
+  #       section_ref: "2.5.5"
+
+  #     temporal_violation:
+  #       path: "temporal_logic_report.csv"
+  #       anomaly_type: "temporal_violation"
+  #       row_key_col: "customerID"
+  #       rule_id_col: "interval_name"
+  #       feature_cols: ["start_col", "end_col"]
+  #       severity_col: "severity"
+  #       section_ref: "2.5.6"
+
+  #     onehot_integrity_violation:
+  #       path: "onehot_integrity_report.csv"
+  #       anomaly_type: "onehot_violation"
+  #       row_key_col: "customerID"
+  #       rule_id_col: "group_id"
+  #       feature_cols: ["columns"]
+  #       severity_col: "severity"
+  #       section_ref: "2.5.8"
+
+# V3
+# ANOMALY_CONTEXT:
+#   INCLUDE_SEVERITIES: ["warn", "fail"]
+#   MAX_ROWS: 500
+#   RUN_ID: null
+#   SOURCES:
+    # ... your existing sources here ...
+    # e.g.
+    # dependency_violation:
+    #   path: "dependency_row_violations.csv"
+    #   format: "csv"
+    #   row_key_col: "row_key"
+    #   rule_id_col: "rule_id"
+    #   anomaly_type: "dependency_violation"
+    #   feature_cols: ["feature_names"]
+    #   severity_col: "severity"
+    #   magnitude_col: "magnitude"
+    #   section_ref: "2.5.4"
+    # 3.2 Numeric Drift (PSI per numeric feature)
+    # drift_numeric_psi:
+    #   path: "numeric_drift_psi.csv"
+    #   format: "csv"
+    #   row_key_col: "feature"          # becomes row_key in 2.5.11
+    #   rule_id_col: "feature"          # reused as rule_id (you can also add a literal rule_id column if you want)
+    #   anomaly_type: "numeric_drift"   # will populate anomaly_type column
+    #   feature_cols: ["feature"]       # joined into feature_names
+    #   severity_col: "severity"
+    #   magnitude_col: "psi"            # PSI used as magnitude
+    #   section_ref: "3.2"
+
+    # # 3.3 Categorical Drift (PSI per categorical feature)
+    # drift_categorical_psi:
+    #   path: "categorical_drift_psi.csv"
+    #   format: "csv"
+    #   row_key_col: "feature"
+    #   rule_id_col: "feature"
+    #   anomaly_type: "categorical_drift"
+    #   feature_cols: ["feature"]
+    #   severity_col: "severity"
+    #   magnitude_col: "psi"
+    #   section_ref: "3.3"
+
+    # # 3.4 Logic Drift (dependency rule violation deltas)
+    # drift_logic_dependency:
+    #   path: "logic_drift_dependency.csv"
+    #   format: "csv"
+    #   row_key_col: "rule_name"                 # becomes row_key
+    #   rule_id_col: "rule_name"
+    #   anomaly_type: "logic_drift_dependency"
+    #   feature_cols: ["rule_name"]
+    #   severity_col: "severity"
+    #   magnitude_col: "delta_violations"        # how much the rule changed
+    #   section_ref: "3.4"
+
+# V4
+# ANOMALY_CONTEXT:
+  # INCLUDE_SEVERITIES: ["warn","fail"]
+  # MAX_ROWS: 5000
+  # SOURCES:
+  #   dependency_rule_summary:
+  #     path: "dependency_violations.csv"      # ✅ matches 2.5.4 output
+  #     format: "csv"
+  #     # Let 2.5.11 use the row index as row_key
+  #     row_key_col: ""
+  #     # Use rule_name as a stand-in for rule_id
+  #     rule_id_col: "rule_name"
+  #     anomaly_type: "dependency_rule_violation"
+
+  #     # Treat columns_involved as the "features" for context
+  #     feature_cols: ["columns_involved"]
+  #     severity_col: "severity"
+  #     magnitude_col: "n_violations"
+  #     section_ref: "2.5.4"

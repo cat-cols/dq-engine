@@ -1,0 +1,21 @@
+{
+  "run_ts": "20260103_183251",
+  "run_id": "20260103_183251_3233fc5",
+  "timestamp_utc": "2026-01-04T21:47:17Z",
+  "git_hash": "3233fc51116df2a954b3dc0a0764b5ffb53c6fd1",
+  "script_or_notebook": "interactive_notebook",
+  "dataset_version_id": "1",
+  "project_root": "/Users/b/DATA/PROJECTS/Telco",
+  "level_name": "Level_3",
+  "level_root": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3",
+  "reports_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/resources/reports",
+  "section2_reports_dir": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20260103_183251/reports",
+  "section2_report_path": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/runs/20260103_183251/reports/section2_unified.csv",
+  "user": "b",
+  "hostname": "Brandons-iMac.local",
+  "python_version": "3.12.6",
+  "platform": "macOS-12.7.6-x86_64-i386-64bit",
+  "pid": 18178,
+  "config_path": "/Users/b/DATA/PROJECTS/Telco/_T2/Level_3/config/project_config.yaml",
+  "raw_data": "/Users/b/DATA/PROJECTS/Telco/data/_raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+}

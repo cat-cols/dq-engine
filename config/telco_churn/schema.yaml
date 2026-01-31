@@ -1,0 +1,74 @@
+# Telco Customer Churn Schema Definition (Level 3)
+# ------------------------------------------------
+# Defines expected columns, dtypes, and optional validation rules
+# Used by 02_Data_Validation_and_Cleaning.ipynb
+
+expected_columns:
+  customerID: string
+  gender: category
+  SeniorCitizen: int64
+  Partner: category
+  Dependents: category
+  tenure: int64
+  PhoneService: category
+  MultipleLines: category
+  InternetService: category
+  OnlineSecurity: category
+  OnlineBackup: category
+  DeviceProtection: category
+  TechSupport: category
+  StreamingTV: category
+  StreamingMovies: category
+  Contract: category
+  PaperlessBilling: category
+  PaymentMethod: category
+  MonthlyCharges: float64
+  TotalCharges: float64
+  Churn: category
+
+# Columns required for all downstream steps
+required_columns:
+  - customerID
+  - tenure
+  - MonthlyCharges
+  - TotalCharges
+  - Churn
+
+# Columns allowed to contain missing values
+allow_missing:
+  - TotalCharges      # blanks for tenure = 0 allowed
+  - Dependents
+  - PhoneService
+  - MultipleLines
+  - OnlineSecurity
+  - OnlineBackup
+  - DeviceProtection
+  - TechSupport
+  - StreamingTV
+  - StreamingMovies
+
+# Expected unique label sets (for validation)
+expected_categories:
+  gender: ["Male", "Female"]
+  Partner: ["Yes", "No"]
+  Dependents: ["Yes", "No"]
+  InternetService: ["DSL", "Fiber optic", "No"]
+  Contract: ["Month-to-month", "One year", "Two year"]
+  PaperlessBilling: ["Yes", "No"]
+  Churn: ["Yes", "No"]
+
+# Numeric constraints
+numeric_bounds:
+  tenure:
+    min: 0
+    max: 100
+  MonthlyCharges:
+    min: 0
+    max: 150
+  TotalCharges:
+    min: 0
+    max: 10000
+
+# Primary key and target
+primary_key: customerID
+target_column: Churn

@@ -1,0 +1,101 @@
+cell_index,cell_type,source,title
+7,markdown,md:# heading,==========================================
+8,markdown,md:# heading,--- 2.0 Setup (one time) ---
+9,markdown,md:# heading,What’s great
+10,markdown,md:# heading,✅ Section 1 should already be doing:
+11,markdown,md:# heading,🧭 High-level flow (just before preprocessing)
+12,markdown,md:# heading,🧭 Section 1 — Exploratory Data Analysis (EDA) Roadmap
+13,markdown,md:# heading,==========================================
+14,markdown,md:# heading,🧭 IBM Telco Churn Project — Robust Outline
+15,markdown,md:# heading,2.0 Setup & Column Inventory
+16,markdown,md:# heading,🚨 Biggest blockers (these will crash)
+18,markdown,md:# heading,🧭 1. Context & Setup
+20,code,code:# comment,📦 Imports & Environment Settings
+22,code,code:# comment,Resolve project root
+24,markdown,md:# heading,Why it’s fine
+25,code,code:# comment,1.2: Data Loading
+27,markdown,md:# heading,**2.🧐 Data Quality Overview Initial Diagnostics + OUTLINE**
+29,markdown,md:# heading,Where to put it
+30,code,code:# comment,2.0.2 🔒 Dataset Guard (Auto-Load + Target + Schema Consistency Check)
+31,code,code:# comment,2.0.1: Schema check TODO: FIX
+32,code,code:# comment,2.0.3 Here are two drop-in options you can use **right after the guard cell**.
+33,markdown,md:# heading,🧭 Precise placement in your project outline
+34,code,code:# comment,2.1.0 Reporting setup (shared across 2.1–2.6)
+35,code,code:# comment,"2.0.3 Identify column types (lightweight, we’ll refine later)"
+36,code,code:# comment,2.0.2 Detect numeric-like object columns / IS this a prepass?
+37,markdown,md:# heading,⚙️ Why Order Matters
+38,markdown,md:# heading,2.1 🔎🧼 Missing/Null/Blank Checks
+39,code,code:# comment,2.1 🔎 Missing / Null / Blank Scan / no dupes / append to report
+40,markdown,md:# heading,2.2 📎 “Constant / Nearly Constant” Checks
+41,code,code:# comment,---2.2---  📎 Constant / Nearly-Constant Columns - FINAL VERSION
+42,code,code:# comment,"Preview a few rows, showing rule + key fields if present"
+43,code,code:# comment,---2.2--- 💡 Optional Enhancement
+44,markdown,md:# heading,2.3 🚦🚧 Invalid / Out-of-Range Checks
+45,code,code:# comment,----- 2.3 Invalid / Out of range Checks-----
+46,markdown,md:# heading,2.3 🔗 Cross-Field Consistency & Logic Checks
+47,code,code:# comment,2.3 🔗 Cross-Field Consistency & Logic Checks - (functions) — append to unified report (atomic)
+48,markdown,md:# heading,2.4 🏷️ Examine Categorical Variables for Unexpected Values
+49,code,code:# comment,2.4 🏷️Examine Categorical Variables for Unexpected Values
+50,markdown,md:# heading,2.4 🧼 Categorical Value Hygiene(also called categorical validity checks or category cleaning)
+51,code,code:# comment,"2.4 🧼 Categorical Value Hygiene — trim/case, unknowns, and allowed-set checks (report-only)"
+52,markdown,md:# heading,2.5 🧮 Numeric-Like Object Columns (Type Probe) ← *your `THRESH` snippet*
+53,code,code:# comment,"🔍🔢  2.5.2 Numeric-like object detection (so blanks get scanned), (e.g., 'TotalCharges')"
+54,markdown,md:# heading,2.6 📈🧮 Numeric Distribution & Outliers / Verify Numeric Columns are truly numeric
+55,code,code:# comment,2.6 📈🧮 Numeric Distribution & Outliers — append to unified report (atomic)
+56,code,code:# comment,L3: 2.6 🧮 Verify Numeric Columns Are Truly Numeric — inline version (λ allowed)
+57,markdown,md:# heading,What this gives you
+58,code,code:# comment,2.7.2 🔎 Validate categorical cleaning (post-apply)(allowlist)
+60,code,code:# comment,2.7.3 👀 Visual Sanity Checks (post-coercion)
+61,markdown,md:# heading,"✅ Consistency check (with flags, summary, and sample)"
+62,code,code:# comment,Expectation & residuals (assumes numerics from 2.6)
+63,code,code:# comment,"Example: apply only to ""gender"" and ""Contract"""
+64,markdown,md:# heading,🚀 **Column Type Summary**
+65,code,code:# comment,🧹 **2.7? Common Cleaning / Preprocessing Summary
+66,markdown,md:# heading,"🧩 The Clean, Professional Convention"
+67,code,code:# comment,--- Feature group definitions (base schema) ---
+68,markdown,md:# heading,2.8? ⚖️ Class Imbalance Analysis NEW OUTLINE</summary>
+69,markdown,md:# heading,🧩 1. Why You Handle **Class Imbalance** First Before **Binary vs Continuous Analysis**
+71,markdown,md:# heading,⛳️🗺🎯 Create `Churn_flag` **before** univariate exploration.
+73,markdown,md:# heading,🧭 The short answer
+75,code,code:# comment,SeniorCitizen:Either cast it to **category** early for clarity:
+77,markdown,md:# heading,📊**Section 3: Descriptive Statistics Outline**
+78,markdown,md:# heading,3️⃣ DESCRIPTIVE STATISTICS
+79,code,code:# comment,3️⃣.1 Descriptive Statistics
+80,markdown,md:# heading,**“One Variable at a Time”**
+81,markdown,md:# heading,3.1.1) 🧮 Numeric Features Distribution
+82,code,code:# comment,3.2 Analysis of ALL Univariate
+83,markdown,md:# heading,📊 **1. Include in Numerical Skew & Kurtosis Analysis**
+84,markdown,md:# heading,📊 **Expected Summary Statistics — IBM Telco Churn Dataset**
+85,code,code:# comment,3.2.1 Numeric Analysis with Skew & Kurtosis -- # ADD: TotalCharges (No functions)
+86,markdown,md:# heading,Notes:
+87,markdown,md:# heading,🧾 **Dataset context recap**
+88,markdown,md:# heading,6.3 Bar charts for distribution (per categorical)
+89,code,code:# comment,3.2.2 Univariate: Categorical: Bar charts for distribution
+90,markdown,md:# heading,3.3 🔗 **Bivariate Exploration** **(logical flow)** between your exploratory and statistical notebooks.
+91,code,code:# comment,# Complete Bivariate Analysis Code
+93,markdown,md:# heading,🧱 **Continuous × Categorical Explorer**
+94,markdown,md:# heading,🧱 **Categorical × Categorical Interaction Explorer**
+95,markdown,md:# heading,🧭 Placement in Your Outline
+96,code,code:# comment,3.3.3 Churn vs. Category / distribution of churn within each category
+97,code,code:# comment,4.1.1 Compute absolute counts of each target class.
+98,markdown,md:# heading,**7️⃣ Target Variable (Churn) — Class Imbalance Analysis**
+99,code,code:# comment,"4.2.1 Bar and Pie, Donut, Annotated"
+100,code,code:# comment,Unique Values in Categorical Columns
+103,code,code:# comment,7.3 Evaluate imbalance impact on modeling
+104,markdown,md:# heading,**5.5 Apply and Compare Resampling (Optional)**
+107,markdown,md:# heading,**8: Binary vs Continuous Feature Analysis**
+108,code,code:# comment,6️⃣ Binary vs Continuous Analysis
+109,markdown,md:# heading,🧭 Recommended Placement
+110,markdown,md:# heading,🌐 9. **Feature Relationships & Trends**
+111,markdown,md:# heading,🔗 **Section 9 — Feature Relationships & Trends**
+112,markdown,md:# heading,🔗 **Section 9 — Feature Relationships & Trends**
+113,markdown,md:# heading,🧭 10. **Preliminary Insights & Hypotheses** /# Key observations & notes (quick bullets you can edit)
+115,markdown,md:# heading,What it does:
+117,markdown,md:<title>,Data Validation — Report Index
+118,markdown,md:# heading,[💻 Code snippet if needed]
+119,markdown,md:# heading,📁 Suggested repo layout
+120,markdown,md:# heading,📦 `requirements.txt` (minimal but comfy)
+121,markdown,md:# heading,-*- coding: utf-8 -*-
+122,code,code:# comment,0.0 🧩 Extract and Save All Code Cells From This Notebook
+123,code,code:# comment,🧾 Inline Script (no functions)
+124,code,code:# comment,## 🧠 Optional — Run inside a notebook instead of CLI

@@ -1,0 +1,2 @@
+dataset_id,sri_score,global_sampling_score,avg_snr_topk,avg_snr_all,frac_high_readiness_effects,n_effects
+default,0.5108775928015556,0.7,0.4713497820322858,0.45067567261804253,0.0,14

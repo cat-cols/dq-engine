@@ -1,0 +1,12 @@
+scope,n_rows,n_features,kmo_overall,kmo_threshold,bartlett_statistic,bartlett_df,bartlett_p_value,bartlett_p_threshold,adequacy_label,status,feature,kmo_feature,adequacy_label_feature
+overall,1142.0,10.0,,0.6,,45.0,,0.05,Indeterminate,WARN,,,
+per_feature,,,,,,,,,,,SeniorCitizen,,Indeterminate
+per_feature,,,,,,,,,,,tenure,,Indeterminate
+per_feature,,,,,,,,,,,MonthlyCharges,,Indeterminate
+per_feature,,,,,,,,,,,TotalCharges,,Indeterminate
+per_feature,,,,,,,,,,,Churn_flag,,Indeterminate
+per_feature,,,,,,,,,,,Senior_flag,,Indeterminate
+per_feature,,,,,,,,,,,expected_total_from_tenure_monthly,,Indeterminate
+per_feature,,,,,,,,,,,expected_min_total_from_contract,,Indeterminate
+per_feature,,,,,,,,,,,expected_total_senior,,Indeterminate
+per_feature,,,,,,,,,,,expected_total_from_payment_profile,,Indeterminate

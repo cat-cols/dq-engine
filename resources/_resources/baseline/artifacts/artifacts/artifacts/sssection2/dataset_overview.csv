@@ -1,0 +1,2 @@
+dataset_path,n_rows,n_cols,mem_mb,n_numeric,n_categorical,n_datetime,n_bool,timestamp_utc
+/Users/b/DATA/PROJECTS/Telco/resources/data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv,7043,22,0.772,5,17,0,0,2025-11-15 01:36:54.305382+00:00

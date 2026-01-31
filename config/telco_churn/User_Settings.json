@@ -1,0 +1,20 @@
+{
+  "symbols.hidesExplorerArrows": false,
+  "workbench.iconTheme": "material-icon-theme",
+  //
+  "workbench.colorTheme": "Default Light+",
+  "material-icon-theme.folders.associations": {
+    "raw": "../../../../icons/folder-broccoli",
+    "glossary": "font",
+    "bookmarks": "bibliography",
+    "interim":  "temp",  // if you have an interim layer
+    "processed": "gulp", // analysis-ready data
+    "artifacts": "expo", //
+    "diagnostics": "controller",   // diagnose
+    "dataframe": "enum",    //
+    "registry": "keys",     //
+    "outputs": "review",       //
+    "results": "results",    //
+  },
+  "explorer.confirmDragAndDrop": false
+}

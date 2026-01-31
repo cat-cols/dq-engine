@@ -1,0 +1,2 @@
+rule_name,description,lhs,rhs_expression,tolerance_desc,n_rows_checked,n_violations,pct_violations,mean_rel_error,p95_rel_error,max_rel_error,severity,notes
+total_vs_mc_tenure,TotalCharges ≈ MonthlyCharges * tenure,TotalCharges,MonthlyCharges * tenure,"max_rel_error=0.2, max_abs_error=20.0",7032,4202,0.5975540386803185,0.03201747433206252,0.10324874255001794,0.573453608232643,fail,

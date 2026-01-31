@@ -1,0 +1,13 @@
+column,method,params,min_before,max_before,min_after,max_after,n_treated,n_rows_dropped,status
+SeniorCitizen,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",0.0,1.0,0.0,1.0,0,0,ok
+tenure,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",1.0,72.0,1.0,72.0,0,0,ok
+MonthlyCharges,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",19.2,114.71682,19.2,114.7097556,71,0,ok
+TotalCharges,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",19.9,8037.867479999999,19.9,8037.0621384,71,0,ok
+Churn_flag,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",0.0,1.0,0.0,1.0,0,0,ok
+Senior_flag,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99, ""error"": ""numpy boolean subtract, the `-` operator, is not supported, use the bitwise_xor, the `^` operator, or the logical_xor function instead.""}",0.0,1.0,0.0,1.0,0,0,error
+expected_total_from_tenure_monthly,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",19.2,8259.61104,19.871,8030.1774,140,0,ok
+expected_total_for_zero_tenure,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",,,,,7043,0,ok
+expected_min_total_from_contract,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",0.0,114.71682,0.0,114.62899999999999,71,0,ok
+expected_total_senior,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",19.45,8259.61104,37.249500000000005,8114.039999999997,5925,0,ok
+expected_total_from_payment_profile,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",19.2,8259.61104,19.871,8030.1774,140,0,ok
+total_charges_per_month,winsorize,"{""ZSCORE_THRESHOLD"": 4.0, ""LOWER_QUANTILE"": 0.01, ""UPPER_QUANTILE"": 0.99}",13.775,1397.475,17.623475,113.20940112676055,138,0,ok

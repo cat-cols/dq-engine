@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Section 2.7 – Inferential Statistics Dashboard</title>
+  <style>
+  
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f7fb;
+        color: #222;
+    }
+    header {
+        background: linear-gradient(135deg, #297be7, #4f7ad1);
+        color: white;
+        padding: 16px 24px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    h2 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+    .meta {
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    .container {
+        padding: 20px 24px 40px 24px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .card h2 {
+        margin-bottom: 8px;
+    }
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        margin-right: 4px;
+    }
+    .pill-ok {
+        background: #e2f8e6;
+        color: #256029;
+    }
+    .pill-warn {
+        background: #fff4e5;
+        color: #8a4b0f;
+    }
+    .pill-fail {
+        background: #fde2e1;
+        color: #8a1f17;
+    }
+    details {
+        margin-top: 6px;
+        margin-bottom: 4px;
+    }
+    summary {
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 4px 6px;
+    }
+    th {
+        background-color: #f0f3ff;
+    }
+    caption {
+        text-align: left;
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Section 2.7 – Inferential Statistics Dashboard</h1>
+    <p class="meta">Generated: 2025-12-29 10:42:11</p>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>Overview</h2>
+      <p>This dashboard summarizes key inferential diagnostics from Section 2.7,
+      including representativeness, distribution shape, group differences, effect sizes,
+      multicollinearity, interactions, and power.</p>
+      <p>Panels included: <strong>1</strong></p>
+    </div>
+    
+        <div class="card">
+          <h2>2.7.14 – Interaction Effects</h2>
+          <p>Scenarios tested: <strong>3</strong> | Significant interactions: <strong>0</strong></p>
+          <details>
+            <summary>Interaction details</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>outcome</th>
+      <th>factor_a</th>
+      <th>factor_b</th>
+      <th>interaction_F</th>
+      <th>p_value</th>
+      <th>significant_interaction</th>
+      <th>simple_slopes_summary</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>Contract</td>
+      <td>Churn</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>InternetService</td>
+      <td>SeniorCitizen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: Cannot interpret 'Int64Dtype()' as a data type</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>PaymentMethod</td>
+      <td>Contract</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+  </div>
+</body>
+</html>

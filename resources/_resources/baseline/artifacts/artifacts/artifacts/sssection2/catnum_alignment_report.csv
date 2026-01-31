@@ -1,0 +1,14 @@
+rule_id,group_col,group_value,numeric_col,mean_value,median_value,count,expected_relation,violation_flag,violation_gap,rule_severity,notes
+contract_vs_monthly,Contract,Month-to-month,MonthlyCharges,66.39849032258064,73.25,3875,monotonic_decreasing,False,0.0,ok,
+contract_vs_monthly,Contract,One year,MonthlyCharges,65.04860828241684,68.75,1473,monotonic_decreasing,False,0.0,ok,
+contract_vs_monthly,Contract,Two year,MonthlyCharges,60.770412979351036,64.35,1695,monotonic_decreasing,False,0.0,ok,
+senior_discount,SeniorCitizen,0,MonthlyCharges,61.847441111675984,65.8,5901,group_1 <= group_0,False,0.0,ok,
+senior_discount,SeniorCitizen,1,MonthlyCharges,79.82035901926446,84.85,1142,group_1 <= group_0,False,0.0,ok,
+internet_vs_monthly,InternetService,No,MonthlyCharges,21.079193971166447,20.15,1526,monotonic_increasing,False,0.0,ok,
+internet_vs_monthly,InternetService,DSL,MonthlyCharges,58.10216852540273,56.15,2421,monotonic_increasing,False,0.0,ok,
+internet_vs_monthly,InternetService,Fiber optic,MonthlyCharges,91.50012919896642,91.67500000000001,3096,monotonic_increasing,False,0.0,ok,
+tenure_bucket_vs_monthly,tenure_bucket,,MonthlyCharges,,,0,monotonic_increasing,False,,info,group_col or numeric_col not found in df; rule skipped
+paymentmethod_vs_monthly,PaymentMethod,Mailed check,MonthlyCharges,43.91705955334988,34.7,1612,monotonic_increasing,False,0.0,fail,
+paymentmethod_vs_monthly,PaymentMethod,Electronic check,MonthlyCharges,76.25581395348837,80.55,2365,monotonic_increasing,False,0.0,fail,
+paymentmethod_vs_monthly,PaymentMethod,Bank transfer (automatic),MonthlyCharges,67.19264896373056,73.1,1544,monotonic_increasing,True,9.063164989757809,fail,
+paymentmethod_vs_monthly,PaymentMethod,Credit card (automatic),MonthlyCharges,66.5123850197109,73.025,1522,monotonic_increasing,True,0.6802639440196572,fail,

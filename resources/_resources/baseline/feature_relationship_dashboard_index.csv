@@ -1,0 +1,23 @@
+section,artifact_type,artifact_name,description,path
+2.11.1,csv,numeric_correlation_matrix.csv,Long-form numeric correlation matrix (Pearson/Spearman/Kendall) with collinearity flags.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/numeric_correlation_matrix.csv
+2.11.1,figure,corr_heatmap.png,Heatmap of numeric correlations.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/corr_heatmap.png
+2.11.2,csv,correlation_clusters.csv,Cluster assignments for numeric features based on correlation distance.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/correlation_clusters.csv
+2.11.2,figure,corr_dendrogram.png,Dendrogram of correlation-based feature clustering.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/corr_dendrogram.png
+2.11.3,csv,category_association_matrix.csv,Cramér’s V association matrix for categorical features.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/category_association_matrix.csv
+2.11.3,csv,theils_u_matrix.csv,Theil’s U directional predictive power matrix for categorical features.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/theils_u_matrix.csv
+2.11.4,csv,chi2_association_results.csv,χ² independence test results for categorical feature pairs.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/chi2_association_results.csv
+2.11.5,figure,association_heatmap.png,Heatmap of categorical associations.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/association_heatmap.png
+2.11.5,figure,association_graph.png,Graph network visualization of categorical associations.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/association_graph.png
+2.11.6,json,interaction_map.json,Global interaction map with key feature pairs and target-rate grids.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/interaction_map.json
+2.11.6,dir,interaction_heatmaps/,2D heatmaps of target rate across interaction grids.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/interaction_heatmaps
+2.11.7,csv,continuous_interactions.csv,Continuous×continuous interaction metrics (target-rate variance over 2D bins).,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/continuous_interactions.csv
+2.11.7,figure,pairplots.png,Scatter matrix of top numeric–numeric pairs colored by target.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/pairplots.png
+2.11.8,csv,cat_num_interaction_summary.csv,Summary of numeric behavior (mean/median) and target rate across categories.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/cat_num_interaction_summary.csv
+2.11.8,dir,cat_num_boxplots/,Boxplots of numeric features by categories.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/cat_num_boxplots
+2.11.9,csv,cat_cat_interaction_summary.csv,Cross-tab summary of category×category segments with target rate.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/cat_cat_interaction_summary.csv
+2.11.9,dir,cat_cat_heatmaps/,Heatmaps for categorical×categorical interactions vs target.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/cat_cat_heatmaps
+2.11.10,csv,temporal_trend_summary.csv,Time-indexed summary of churn and key metrics.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/temporal_trend_summary.csv
+2.11.10,dir,trend_plots/,Temporal trend plots for churn and key metrics.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/trend_plots
+2.11.11,csv,feature_drift_summary.csv,"Feature-level drift metrics (e.g., PSI/KS) across time periods.",/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/feature_drift_summary.csv
+2.11.11,dir,feature_drift_plots/,Drift plots for selected predictors.,/Users/b/DATA/PROJECTS/Telco/Level_3/resources/figures/2_11_interactions/feature_drift_plots
+2.11.13,csv,feature_relationship_readiness.csv,"Per-feature relationship readiness score combining association, interactions, and drift.",/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports/section2/feature_relationship_readiness.csv

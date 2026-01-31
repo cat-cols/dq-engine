@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "timestamp_utc": "2025-11-13T05:45:12Z",
+
+  "project": {
+    "project_name": "Data Quality Engine",
+    "project_version": "1.0",
+    "project_root_marker": "pyproject.toml",
+    "config_path": "config/project_config.yaml"
+  },
+
+  "paths": {
+    "raw_data": "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv",
+    "processed_dir": "data/processed",
+
+    "resources_dir": "resources",
+    "runs_dir": "runs"
+  },
+
+  "target_and_ids": {
+    "target_column": "Churn_flag",
+    "raw_target_column": "Churn",
+    "positive_class": "Yes",
+    "negative_class": "No",
+    "id_columns": ["customerID"]
+  },
+
+  "data_quality_config": {
+    "ranges": {
+      "tenure": { "min": 0, "max": 120 },
+      "MonthlyCharges": { "min": 0, "max": 1000 },
+      "TotalCharges": { "min": 0, "max": 100000 }
+    },
+    "data_quality_thresholds": {
+      "NUMERIC_LIKE_THRESHOLD": 0.95,
+      "RARE_PCT_THRESHOLD": 0.5,
+      "RARE_MIN_COUNT": 5,
+      "HIGH_CARD_THRESHOLD": 50,
+      "NEARLY_CONST_THRESHOLD": 0.98,
+      "SUSPECT_TOKENS": ["?", "unknown", "unk", "n/a", "na", "n.a.", "null", "none", "missing", "-", "--", "_", "tbd"]
+    },
+    "flags": {
+      "RAISE_ON_CRITICAL": true,
+      "SAVE_LOGS": true,
+      "ENABLE_COLOR_OUTPUT": true
+    }
+  }
+}

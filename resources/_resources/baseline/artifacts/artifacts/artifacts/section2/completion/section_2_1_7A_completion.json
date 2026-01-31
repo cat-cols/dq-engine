@@ -1,0 +1,8 @@
+{
+  "section": "2.1.7",
+  "status": "WARN",
+  "checked": 22,
+  "mismatched": 1,
+  "timestamp_utc": "2025-12-25T00:51:06Z",
+  "detail": "Baseline: dtype_baseline_report.csv; Enforcement: dtype_enforcement_report.csv"
+}

@@ -1,0 +1,42 @@
+# local machine-specific config
+env/setup_summary.json
+
+# personal notes/docs
+_docs/
+_TODO/
+notebooks/tmp
+src/packages
+src/dq_engine/_dq_engine/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+
+# local env
+.venv/
+.env
+.DS_Store
+
+# run outputs / scratch
+runs/
+var/
+logs/
+tmp/
+_scratch/
+
+# generated outputs (pick what you actually generate)
+resources/outputs/
+resources/artifacts/
+resources/reports/
+resources/figures/
+dashboards/
+
+# data (usually local & usually NOT committed)
+data/_raw/
+data/processed/
+data/warehouse/

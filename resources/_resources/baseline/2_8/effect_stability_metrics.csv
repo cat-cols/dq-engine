@@ -1,0 +1,4 @@
+effect_name,effect_type,n_bootstraps,effect_mean,effect_std,ci_lower,ci_upper,ci_width,relative_std,stability_label,status
+Churn_vs_NoChurn_MonthlyCharges,cohens_d,500,,,,,,,Indeterminate,WARN
+Contract_TotalCharges,eta_squared,500,0.20756716684311502,0.009049313434906194,0.1913608988827099,0.2273867107945978,0.03602581191188789,0.04359703691357851,High stability,OK
+tenure_vs_MonthlyCharges,r_squared,500,0.061283842587944434,0.0057962003510349065,0.049630973153066506,0.07265416383488355,0.02302319068181704,0.09457958421450414,Moderate stability,WARN

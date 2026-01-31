@@ -1,0 +1,6 @@
+column,drift_score
+Churn_flag,0.0
+MonthlyCharges,0.0
+SeniorCitizen,0.0
+TotalCharges,0.0
+tenure,0.0

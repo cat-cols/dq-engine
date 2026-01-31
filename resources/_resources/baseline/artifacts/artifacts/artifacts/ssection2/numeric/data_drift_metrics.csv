@@ -1,0 +1,6 @@
+feature,psi,ks_stat,delta_null_pct,delta_mean,delta_std,drift_severity,readiness_score,high_drift_low_readiness
+Churn_flag,0.0,0.0,0.0,0.0,0.0,none,1.0,False
+MonthlyCharges,0.0,0.0,0.0,0.0,0.0,none,0.95,False
+SeniorCitizen,0.0,0.0,0.0,0.0,0.0,none,0.836495,False
+TotalCharges,0.0,0.0,0.0,0.0,0.0,none,0.948908,False
+tenure,0.0,0.0,0.0,0.0,0.0,none,0.95,False

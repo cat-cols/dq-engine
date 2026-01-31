@@ -1,0 +1,25 @@
+preview_kind,customerID,gender,SeniorCitizen,Partner,Dependents,tenure,PhoneService,MultipleLines,InternetService,OnlineSecurity,OnlineBackup,DeviceProtection,TechSupport,StreamingTV,StreamingMovies,Contract,PaperlessBilling,PaymentMethod,MonthlyCharges,TotalCharges,Churn,Churn_flag,SeniorCitizen_flag_text,Senior_flag,expected_total_from_tenure_monthly,expected_total_for_zero_tenure,expected_min_total_from_contract,expected_total_senior,expected_total_from_payment_profile,_preview_kind
+full_row,Other,Male,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,20.15,20.15,Yes,1,No,False,20.15,,0.0,,20.15,
+full_row,Other,Male,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,20.2,20.2,No,0,No,False,20.2,,0.0,,20.2,
+full_row,Other,Female,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,19.2,19.9,No,0,No,False,19.2,,0.0,,19.2,
+full_row,Other,Male,0,Yes,Yes,72,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Credit card (automatic),114.05,8037.867479999999,No,0,No,False,8211.6,,114.05,,8211.6,
+full_row,Other,Female,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,19.55,19.9,No,0,No,False,19.55,,0.0,,19.55,
+full_row,Other,Female,0,Yes,Yes,72,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Bank transfer (automatic),114.71682,8037.867479999999,No,0,No,False,8259.61104,,114.71682,,8259.61104,
+full_row,Other,Male,0,No,No,1,Yes,No,DSL,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,45.7,45.7,Yes,1,No,False,45.7,,0.0,,45.7,
+full_row,Other,Male,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,No,Mailed check,20.05,20.05,No,0,No,False,20.05,,0.0,,20.05,
+full_row,Other,Male,0,No,No,1,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Month-to-month,Yes,Mailed check,20.45,20.45,No,0,No,False,20.45,,0.0,,20.45,
+full_row,Other,Female,0,Yes,Yes,72,Yes,Yes,Fiber optic,Yes,Yes,Yes,Yes,Yes,Yes,Two year,Yes,Bank transfer (automatic),114.71682,8037.867479999999,No,0,No,False,8259.61104,,114.71682,,8259.61104,
+full_row,Other,Male,0,No,No,1,Yes,No,DSL,No,No,No,No,No,No,Month-to-month,Yes,Mailed check,45.7,45.7,Yes,1,No,False,45.7,,0.0,,45.7,
+full_row,Other,Male,0,No,No,1,Yes,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Electronic check,69.9,69.9,Yes,1,No,False,69.9,,0.0,,69.9,
+,Other,Female,0,Yes,No,1,No,No phone service,DSL,No,Yes,No,No,No,No,Month-to-month,Yes,Electronic check,29.85,29.85,No,0,No,False,29.85,,0.0,,29.85,id:customerID
+,Other,Male,0,No,No,34,Yes,No,DSL,Yes,No,Yes,No,No,No,One year,No,Mailed check,56.95,1889.5,No,0,No,False,1936.3000000000002,,56.95,,1936.3000000000002,id:customerID
+,Other,Male,0,No,No,2,Yes,No,DSL,Yes,Yes,No,No,No,No,Month-to-month,Yes,Mailed check,53.85,108.15,Yes,1,No,False,107.7,,0.0,,107.7,id:customerID
+,Other,Male,0,No,No,45,No,No phone service,DSL,Yes,No,Yes,Yes,No,No,One year,No,Bank transfer (automatic),42.3,1840.75,No,0,No,False,1903.4999999999998,,42.3,,1903.4999999999998,id:customerID
+,Other,Female,0,No,No,2,Yes,No,Fiber optic,No,No,No,No,No,No,Month-to-month,Yes,Electronic check,70.7,151.65,Yes,1,No,False,141.4,,0.0,,141.4,id:customerID
+,Other,Female,0,No,No,8,Yes,Yes,Fiber optic,No,No,Yes,No,Yes,Yes,Month-to-month,Yes,Electronic check,99.65,820.5,Yes,1,No,False,797.2,,0.0,,797.2,id:customerID
+,Other,Male,0,No,Yes,22,Yes,Yes,Fiber optic,No,Yes,No,No,Yes,No,Month-to-month,Yes,Credit card (automatic),89.1,1949.4,No,0,No,False,1960.1999999999998,,0.0,,1960.1999999999998,id:customerID
+,Other,Female,0,No,No,10,No,No phone service,DSL,Yes,No,No,No,No,No,Month-to-month,No,Mailed check,29.75,301.9,No,0,No,False,297.5,,0.0,,297.5,id:customerID
+,Other,Female,0,Yes,No,28,Yes,Yes,Fiber optic,No,No,Yes,Yes,Yes,Yes,Month-to-month,Yes,Electronic check,104.8,3046.05,Yes,1,No,False,2934.4,,0.0,,2934.4,id:customerID
+,Other,Male,0,No,Yes,62,Yes,No,DSL,Yes,Yes,No,No,No,No,One year,No,Bank transfer (automatic),56.15,3487.95,No,0,No,False,3481.2999999999997,,56.15,,3481.2999999999997,id:customerID
+,Other,Male,0,Yes,Yes,13,Yes,No,DSL,Yes,No,No,No,No,No,Month-to-month,Yes,Mailed check,49.95,587.45,No,0,No,False,649.35,,0.0,,649.35,id:customerID
+,Other,Male,0,No,No,16,Yes,No,No,No internet service,No internet service,No internet service,No internet service,No internet service,No internet service,Two year,No,Credit card (automatic),19.2,326.8,No,0,No,False,307.2,,19.2,,307.2,id:customerID

@@ -1,0 +1,8 @@
+{
+  "section": "2.1.7",
+  "status": "OK",
+  "checked": 22,
+  "mismatched": 0,
+  "timestamp_utc": "2025-12-28T23:50:35Z",
+  "detail": "Baseline: dtype_baseline_report.csv; Enforcement: dtype_enforcement_report.csv"
+}

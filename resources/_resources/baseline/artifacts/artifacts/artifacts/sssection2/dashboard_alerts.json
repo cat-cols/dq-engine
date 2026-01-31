@@ -1,0 +1,29 @@
+{
+  "alerts": [],
+  "created_at_utc": "2025-11-22T23:26:52.329975",
+  "run_id": "sec2_20251122T225453Z",
+  "section2_overall_status": "WARN",
+  "summary_tiles": {
+    "categorical_health": {
+      "metrics": {
+        "n_categorical_critical_features": 0,
+        "n_critical_issue_types": 0,
+        "n_high_drift_categorical_columns": 0
+      },
+      "status": "OK"
+    },
+    "model_readiness": {
+      "metrics": {
+        "n_low_readiness_features": 0
+      },
+      "status": "OK"
+    },
+    "numeric_health": {
+      "metrics": {
+        "contracts_hard_fail": 0,
+        "n_high_drift_columns": 0
+      },
+      "status": "WARN"
+    }
+  }
+}

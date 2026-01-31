@@ -1,0 +1,6 @@
+feature,column,role,feature_group,numeric_integrity_status,pct_rows_impacted,readiness_score,n_rules,n_hard_rules,n_soft_rules,avg_confidence,hard_rule_violations
+Churn_flag,Churn_flag,target,target,ok,0.0,1.0,0,0,0,,False
+MonthlyCharges,MonthlyCharges,feature,numeric_continuous,ok,0.0,1.0,0,0,0,,False
+SeniorCitizen,SeniorCitizen,feature,binary,warn,16.215,0.886495,0,0,0,,False
+TotalCharges,TotalCharges,feature,numeric_continuous,warn,0.156,0.998908,0,0,0,,False
+tenure,tenure,feature,numeric_continuous,ok,0.0,1.0,0,0,0,,False

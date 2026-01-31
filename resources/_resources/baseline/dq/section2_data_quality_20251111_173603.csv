@@ -1,0 +1,36 @@
+check,count_0,count_1,detail,full_row_dupes,imbalance_ratio,label,level,max_null_pct,mem_mb,n_auto_detected_ids,n_binary,n_categorical,n_cols,n_cols_all_null,n_cols_any_null,n_cols_constant,n_expected,n_extra,n_flags,n_id_from_config,n_ids,n_missing,n_non_unique,n_numeric,n_protected_columns,n_required,n_rows,section,status,timestamp
+Section 2 overview,,,Initial Section 2 setup and dataset shape,,,,info,,,,,,22.0,,,,,,,,,,,,,,7043.0,2.0.1,INFO,2025-11-11 17:36:03.527966
+Config & constants validation for Section 2,,,All required config roots present and Section 2 constants registered.,,,,info,,,,,,,,,,,,,,,0.0,,,,4.0,,2.0.2,OK,2025-11-11 17:44:08.686905
+Dataset ingestion & preview,,,"Dataset already loaded in Section 1; recorded shape, memory footprint, and dtype counts for Section 2.",,,,info,,6.482,,,,22.0,,,,,,,,,,,,,,7043.0,2.0.4,OK,2025-11-11 18:26:50.475637
+Row/column baseline summary,,,"Computed baseline per-column stats (null %, unique counts, constant flags) and saved to baseline_summary.csv.",,,,info,,,,,,22.0,0.0,1.0,0.0,,,,,,,,,,,7043.0,2.0.5,OK,2025-11-11 18:26:59.211885
+Identifier detection & registration,,,"Auto-detected potential ID columns (high uniqueness, name hints) and merged with config-driven IDs into protected_columns.yaml.",,,,info,,,1.0,,,,,,,,,,1.0,,,,,2.0,,,2.0.6,OK,2025-11-11 18:27:26.503485
+Dependency registry build,,,Registered Section 2 nodes (2.0.x infra + 2.1–2.9 pipeline) into section2_registry.json.,,,,info,,,,,,,,,,,,,,,,,,,,,2.0.7,OK,2025-11-11 18:36:36.427393
+Sanity preview printout,,,Printed Section 2 execution map and wrote section2_execution_map.md for documentation.,,,,info,,,,,,,,,,,,,,,,,,,,,2.0.8,OK,2025-11-11 18:36:40.180721
+Sanity preview printout,,,Printed Section 2 execution map and wrote section2_execution_map.md for documentation.,,,,info,,,,,,,,,,,,,,,,,,,,,2.0.8,OK,2025-11-11 18:36:40.930032
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 18:54:20.648251
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 18:54:20.730977
+Special-case numeric flags,,,,,,,info,,,,,,,,,,,,1.0,,,,,,,,,2.1.3,OK,2025-11-11 18:54:20.748575
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-11 18:54:20.774481
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 19:00:07.051557
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 19:00:07.072927
+Special-case numeric flags,,,,,,,info,,,,,,,,,,,,1.0,,,,,,,,,2.1.3,OK,2025-11-11 19:00:07.081231
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-11 19:00:07.103568
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 19:09:12.012519
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 19:09:12.052076
+Special-case numeric flags,,,,,,,info,,,,,,,,,,,,1.0,,,,,,,,,2.1.3,OK,2025-11-11 19:09:12.062239
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-11 19:09:12.096071
+Dtype enforcement check,,,,,,,info,,,,,,,,,,0.0,,,,,,,,,,,2.1.5,SKIP,2025-11-11 19:22:49.889930
+Schema drift,,,,,,,info,,,,,,,,,,,22.0,,,,0.0,,,,,,2.1.6,OK,2025-11-11 19:23:18.253038
+Feature role classification,,,,,,,info,,,,1.0,16.0,,,,,,,,,,,,3.0,,,,2.1.7,OK,2025-11-11 19:24:06.904389
+Missingness baseline,,,,,,,info,0.156,,,,,,,,,,,,,,,,,,,,2.1.8,OK,2025-11-11 19:24:29.010274
+Schema drift,,,,,,,info,,,,,,,,,,0.0,0.0,,,,0.0,,,,,,2.1.6,SKIP,2025-11-11 19:25:50.594662
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 19:37:54.872193
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 19:37:54.935697
+Special-case numeric flags,,,,,,,info,,,,,,,,,,,,1.0,,,,,,,,,2.1.3,OK,2025-11-11 19:37:54.969835
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-11 19:37:54.996525
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 19:41:33.718309
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 19:41:33.770312
+Special-case numeric flags,,,,,,,info,,,,,,,,,,,,1.0,,,,,,,,,2.1.3,OK,2025-11-11 19:41:33.784509
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-11 19:41:33.813745
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-11 19:42:49.052847
+ID & key field verification,,,,,,,info,,,,,,,,,,,,,,1.0,,0.0,,,,,2.1.2,OK,2025-11-11 19:43:22.951342

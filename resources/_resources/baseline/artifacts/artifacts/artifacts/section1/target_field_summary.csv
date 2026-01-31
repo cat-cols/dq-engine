@@ -1,0 +1,5 @@
+column,kind,value,count,pct,target_name,timestamp_utc
+Churn,raw_label,No,5174,0.7346301292063041,Churn_flag,2025-11-20T21:59:23Z
+Churn,raw_label,Yes,1869,0.2653698707936959,Churn_flag,2025-11-20T21:59:23Z
+Churn_flag,flag,0,5174,0.7346301292063041,Churn_flag,2025-11-20T21:59:23Z
+Churn_flag,flag,1,1869,0.2653698707936959,Churn_flag,2025-11-20T21:59:23Z

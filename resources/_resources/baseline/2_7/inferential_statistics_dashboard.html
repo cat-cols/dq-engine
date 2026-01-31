@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Section 2.7 – Inferential Statistics Dashboard</title>
+  <style>
+  
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f7fb;
+        color: #222;
+    }
+    header {
+        background: linear-gradient(135deg, #297be7, #4f7ad1);
+        color: white;
+        padding: 16px 24px;
+    }
+    h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    h2 {
+        margin-top: 0;
+        font-size: 18px;
+    }
+    .meta {
+        font-size: 12px;
+        opacity: 0.9;
+    }
+    .container {
+        padding: 20px 24px 40px 24px;
+    }
+    .card {
+        background: white;
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .card h2 {
+        margin-bottom: 8px;
+    }
+    .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        margin-right: 4px;
+    }
+    .pill-ok {
+        background: #e2f8e6;
+        color: #256029;
+    }
+    .pill-warn {
+        background: #fff4e5;
+        color: #8a4b0f;
+    }
+    .pill-fail {
+        background: #fde2e1;
+        color: #8a1f17;
+    }
+    details {
+        margin-top: 6px;
+        margin-bottom: 4px;
+    }
+    summary {
+        cursor: pointer;
+        font-weight: 600;
+        outline: none;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 4px 6px;
+    }
+    th {
+        background-color: #f0f3ff;
+    }
+    caption {
+        text-align: left;
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Section 2.7 – Inferential Statistics Dashboard</h1>
+    <p class="meta">Generated: 2026-01-07 19:21:07</p>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>Overview</h2>
+      <p>This dashboard summarizes key inferential diagnostics from Section 2.7,
+      including representativeness, distribution shape, group differences, effect sizes,
+      multicollinearity, interactions, and power.</p>
+      <p>Panels included: <strong>7</strong></p>
+    </div>
+    
+        <div class="card">
+          <h2>2.7.1 – Sampling Representativeness</h2>
+          <p>Features benchmarked: <strong>2</strong> | Fails: <strong>0</strong></p>
+          <details>
+            <summary>Preview representativeness table</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>category</th>
+      <th>population_pct</th>
+      <th>sample_pct</th>
+      <th>pct_delta</th>
+      <th>abs_pct_delta</th>
+      <th>feature_max_abs_pct_delta</th>
+      <th>test_method</th>
+      <th>test_statistic</th>
+      <th>p_value</th>
+      <th>p_warn_threshold</th>
+      <th>p_fail_threshold</th>
+      <th>delta_warn_threshold</th>
+      <th>delta_fail_threshold</th>
+      <th>status</th>
+      <th>reason</th>
+      <th>notes</th>
+      <th>p_value_str</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>gender</td>
+      <td>Female</td>
+      <td>0.51</td>
+      <td>0.495244</td>
+      <td>-0.014756</td>
+      <td>0.014756</td>
+      <td>0.014756</td>
+      <td>chi_square</td>
+      <td>6.137025</td>
+      <td>0.013238</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>WARN</td>
+      <td>p<0.05</td>
+      <td>p=0.013238 (warn<0.05, fail<0.01)</td>
+      <td>0.013238</td>
+    </tr>
+    <tr>
+      <td>gender</td>
+      <td>Male</td>
+      <td>0.49</td>
+      <td>0.504756</td>
+      <td>0.014756</td>
+      <td>0.014756</td>
+      <td>0.014756</td>
+      <td>chi_square</td>
+      <td>6.137025</td>
+      <td>0.013238</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>WARN</td>
+      <td>p<0.05</td>
+      <td>p=0.013238 (warn<0.05, fail<0.01)</td>
+      <td>0.013238</td>
+    </tr>
+    <tr>
+      <td>Contract</td>
+      <td>Month-to-month</td>
+      <td>0.55</td>
+      <td>0.550192</td>
+      <td>0.000192</td>
+      <td>0.000192</td>
+      <td>0.009336</td>
+      <td>chi_square</td>
+      <td>5.400023</td>
+      <td>0.067205</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>OK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.067205</td>
+    </tr>
+    <tr>
+      <td>Contract</td>
+      <td>One year</td>
+      <td>0.20</td>
+      <td>0.209144</td>
+      <td>0.009144</td>
+      <td>0.009144</td>
+      <td>0.009336</td>
+      <td>chi_square</td>
+      <td>5.400023</td>
+      <td>0.067205</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>OK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.067205</td>
+    </tr>
+    <tr>
+      <td>Contract</td>
+      <td>Two year</td>
+      <td>0.25</td>
+      <td>0.240664</td>
+      <td>-0.009336</td>
+      <td>0.009336</td>
+      <td>0.009336</td>
+      <td>chi_square</td>
+      <td>5.400023</td>
+      <td>0.067205</td>
+      <td>0.05</td>
+      <td>0.01</td>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>OK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.067205</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.2 – Distribution Normality</h2>
+          <p>Numeric features tested: <strong>7</strong> | Non-normal / heavy-tailed: <strong>21</strong></p>
+          <details>
+            <summary>Preview normality results</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>method</th>
+      <th>statistic</th>
+      <th>p_value</th>
+      <th>normality_label</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tenure</td>
+      <td>shapiro</td>
+      <td>0.902357</td>
+      <td>8.255933e-49</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>dagostino</td>
+      <td>59755.796899</td>
+      <td>0.000000e+00</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>anderson</td>
+      <td>146.705560</td>
+      <td>NaN</td>
+      <td>Non-normal</td>
+      <td>critical_5pct=0.786</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>shapiro</td>
+      <td>0.919973</td>
+      <td>1.554318e-45</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>dagostino</td>
+      <td>7334.521666</td>
+      <td>0.000000e+00</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>anderson</td>
+      <td>121.609268</td>
+      <td>NaN</td>
+      <td>Non-normal</td>
+      <td>critical_5pct=0.786</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>shapiro</td>
+      <td>0.857543</td>
+      <td>2.374228e-55</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>dagostino</td>
+      <td>578.023790</td>
+      <td>3.045992e-126</td>
+      <td>Non-normal</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.3 – Variance Homogeneity</h2>
+          <p>Tests run: <strong>3</strong> | Strong heterogeneity flags: <strong>nan</strong></p>
+          <details>
+            <summary>Preview variance homogeneity results</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>test_name</th>
+      <th>p_value</th>
+      <th>numeric_feature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Contract_MonthlyCharges</td>
+      <td>0.0012</td>
+      <td>MonthlyCharges</td>
+    </tr>
+    <tr>
+      <td>Internet_TotalCharges</td>
+      <td>0.0456</td>
+      <td>TotalCharges</td>
+    </tr>
+    <tr>
+      <td>Payment_tenure</td>
+      <td>0.0234</td>
+      <td>tenure</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.4 – Correlation & Multivariate Structure</h2>
+          <p>Correlation methods and top relationships (by |r|).</p>
+          <p><img src="correlation_heatmap.png" alt="Correlation heatmap"></p>
+          <details>
+            <summary>Top correlation pairs</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>method</th>
+      <th>correlation_value</th>
+      <th>abs_corr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tenure</td>
+      <td>tenure</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>TotalCharges</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>expected_total_from_tenure_monthly</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>MonthlyCharges</td>
+      <td>pearson</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>TotalCharges</td>
+      <td>kendall</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_total_senior</td>
+      <td>expected_total_senior</td>
+      <td>spearman</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>expected_total_from_payment_profile</td>
+      <td>expected_total_from_payment_profile</td>
+      <td>spearman</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>tenure</td>
+      <td>kendall</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.11 – Effect Sizes</h2>
+          <p>Tests with computed effect sizes: <strong>20</strong> | Large/very large effects: <strong>6</strong></p>
+          <details>
+            <summary>Top effect sizes</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>source_section</th>
+      <th>source_file</th>
+      <th>test_family</th>
+      <th>test_name</th>
+      <th>test_type</th>
+      <th>outcome_col</th>
+      <th>group_col</th>
+      <th>effect_type</th>
+      <th>effect_value</th>
+      <th>effect_value_signed</th>
+      <th>effect_abs</th>
+      <th>effect_band</th>
+      <th>magnitude_label</th>
+      <th>p_value</th>
+      <th>statistic</th>
+      <th>n_total</th>
+      <th>notes</th>
+      <th>p_value_display</th>
+      <th>abs_val</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>Churn rate by Contract</td>
+      <td>two_proportion_z</td>
+      <td>Churn</td>
+      <td>Contract</td>
+      <td>odds_ratio</td>
+      <td>25.579814</td>
+      <td>25.579814</td>
+      <td>3.241804</td>
+      <td>very large</td>
+      <td>very large</td>
+      <td>0.000000e+00</td>
+      <td>29.722497</td>
+      <td>NaN</td>
+      <td>Odds ratio from 2x2 table</td>
+      <td>0.000000e+00</td>
+      <td>25.579814</td>
+    </tr>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>Churn rate by Contract</td>
+      <td>two_proportion_z</td>
+      <td>Churn</td>
+      <td>Contract</td>
+      <td>relative_risk</td>
+      <td>15.081855</td>
+      <td>15.081855</td>
+      <td>2.713492</td>
+      <td>very large</td>
+      <td>very large</td>
+      <td>0.000000e+00</td>
+      <td>29.722497</td>
+      <td>NaN</td>
+      <td>Relative risk (rate_A / rate_B)</td>
+      <td>0.000000e+00</td>
+      <td>15.081855</td>
+    </tr>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>OnlineBackup by PaymentMethod</td>
+      <td>two_proportion_z</td>
+      <td>OnlineBackup</td>
+      <td>PaymentMethod</td>
+      <td>odds_ratio</td>
+      <td>2.199595</td>
+      <td>2.199595</td>
+      <td>0.788273</td>
+      <td>large</td>
+      <td>large</td>
+      <td>0.000000e+00</td>
+      <td>10.424106</td>
+      <td>NaN</td>
+      <td>Odds ratio from 2x2 table</td>
+      <td>0.000000e+00</td>
+      <td>2.199595</td>
+    </tr>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>OnlineBackup by PaymentMethod</td>
+      <td>two_proportion_z</td>
+      <td>OnlineBackup</td>
+      <td>PaymentMethod</td>
+      <td>relative_risk</td>
+      <td>1.786204</td>
+      <td>1.786204</td>
+      <td>0.580093</td>
+      <td>large</td>
+      <td>large</td>
+      <td>0.000000e+00</td>
+      <td>10.424106</td>
+      <td>NaN</td>
+      <td>Relative risk (rate_A / rate_B)</td>
+      <td>0.000000e+00</td>
+      <td>1.786204</td>
+    </tr>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>TechSupport by SeniorCitizen</td>
+      <td>two_proportion_z</td>
+      <td>TechSupport</td>
+      <td>SeniorCitizen</td>
+      <td>odds_ratio</td>
+      <td>1.469973</td>
+      <td>1.469973</td>
+      <td>0.385244</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>3.622940e-07</td>
+      <td>5.087772</td>
+      <td>NaN</td>
+      <td>Odds ratio from 2x2 table</td>
+      <td>3.622940e-07</td>
+      <td>1.469973</td>
+    </tr>
+    <tr>
+      <td>2.7.6</td>
+      <td>proportion_tests.csv</td>
+      <td>risk</td>
+      <td>TechSupport by SeniorCitizen</td>
+      <td>two_proportion_z</td>
+      <td>TechSupport</td>
+      <td>SeniorCitizen</td>
+      <td>relative_risk</td>
+      <td>1.327890</td>
+      <td>1.327890</td>
+      <td>0.283591</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>3.622940e-07</td>
+      <td>5.087772</td>
+      <td>NaN</td>
+      <td>Relative risk (rate_A / rate_B)</td>
+      <td>3.622940e-07</td>
+      <td>1.327890</td>
+    </tr>
+    <tr>
+      <td>2.7.5</td>
+      <td>t_test_results.csv</td>
+      <td>parametric</td>
+      <td>Churner_vs_NonChurner_TotalCharges</td>
+      <td>independent</td>
+      <td>TotalCharges</td>
+      <td>Churn</td>
+      <td>cohens_d</td>
+      <td>-0.458297</td>
+      <td>-0.458297</td>
+      <td>0.458297</td>
+      <td>small/medium</td>
+      <td>small/medium</td>
+      <td>8.409853e-75</td>
+      <td>-18.687191</td>
+      <td>7043.0</td>
+      <td>Cohen's d from pooled SD (independent t-test)</td>
+      <td>8.409853e-75</td>
+      <td>0.458297</td>
+    </tr>
+    <tr>
+      <td>2.7.7</td>
+      <td>chi_square_results.csv</td>
+      <td>categorical_assoc</td>
+      <td>Contract__Churn</td>
+      <td>chi_square</td>
+      <td>Churn</td>
+      <td>Contract</td>
+      <td>cramers_v</td>
+      <td>0.410116</td>
+      <td>0.410116</td>
+      <td>0.410116</td>
+      <td>medium</td>
+      <td>medium</td>
+      <td>5.863038e-258</td>
+      <td>1184.596572</td>
+      <td>7043.0</td>
+      <td>Cramér's V (r=3, c=2)</td>
+      <td>5.863038e-258</td>
+      <td>0.410116</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.14 – Interaction Effects</h2>
+          <p>Scenarios tested: <strong>3</strong> | Significant interactions: <strong>0</strong></p>
+          <details>
+            <summary>Interaction details</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>outcome</th>
+      <th>factor_a</th>
+      <th>factor_b</th>
+      <th>interaction_F</th>
+      <th>p_value</th>
+      <th>significant_interaction</th>
+      <th>simple_slopes_summary</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MonthlyCharges</td>
+      <td>Contract</td>
+      <td>Churn</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'</td>
+    </tr>
+    <tr>
+      <td>TotalCharges</td>
+      <td>InternetService</td>
+      <td>SeniorCitizen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: Cannot interpret 'Int64Dtype()' as a data type</td>
+    </tr>
+    <tr>
+      <td>tenure</td>
+      <td>PaymentMethod</td>
+      <td>Contract</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+        <div class="card">
+          <h2>2.7.12 – Power & Sample Size</h2>
+          <p>Scenarios evaluated: <strong>1</strong> | Adequately powered: <strong>0</strong></p>
+          <details>
+            <summary>Power analysis scenarios</summary>
+            <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>scenario_name</th>
+      <th>test_type</th>
+      <th>effect_type</th>
+      <th>effect_value</th>
+      <th>alpha</th>
+      <th>target_power</th>
+      <th>observed_power</th>
+      <th>current_n_total</th>
+      <th>current_n_group_A</th>
+      <th>current_n_group_B</th>
+      <th>required_n_total</th>
+      <th>required_n_group_A</th>
+      <th>required_n_group_B</th>
+      <th>adequately_powered</th>
+      <th>notes</th>
+      <th>shortfall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Contract_MonthlyCharges_power</td>
+      <td>two_proportion_z</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.05</td>
+      <td>0.8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>No matching effect_size_report row for 'prop_Churn_Yes'</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+          </details>
+        </div>
+        
+  </div>
+</body>
+</html>

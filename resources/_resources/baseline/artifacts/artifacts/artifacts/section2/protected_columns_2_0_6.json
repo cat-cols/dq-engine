@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2025-12-28T23:50:34Z",
+  "id_columns_from_config": [],
+  "protected_columns": [
+    "Churn",
+    "Churn_flag",
+    "customerID"
+  ],
+  "id_column_status": [],
+  "candidate_id_columns": [
+    {
+      "column": "customerID",
+      "dtype": "object",
+      "type_group": "string_like",
+      "n_unique": 7043,
+      "unique_ratio": 1.0,
+      "null_pct": 0.0
+    }
+  ]
+}

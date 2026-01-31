@@ -1,0 +1,12 @@
+check,ok,value,note
+CONFIG.RANGES,True,"['tenure', 'MonthlyCharges', 'TotalCharges']",present in CONFIG
+CONFIG.DATA_QUALITY,True,"['NUMERIC_LIKE_THRESHOLD', 'RARE_PCT_THRESHOLD', 'RARE_MIN_COUNT', 'HIGH_CARD_THRESHOLD', 'NEARLY_CONST_THRESHOLD', 'SUSPECT_TOKENS']",present in CONFIG
+CONFIG.TARGET,True,"['COLUMN', 'RAW_COLUMN', 'POSITIVE_CLASS', 'NEGATIVE_CLASS']",present in CONFIG
+CONFIG.ID_COLUMNS,True,['customerID'],present in CONFIG
+TARGET.COLUMN,True,Churn_flag,Encoded flag used across Sections 2–3
+TARGET.RAW_COLUMN,True,Churn,Raw label column prior to encoding
+TARGET.POSITIVE_CLASS,True,Yes,"Positive class label for churn (e.g., 'Yes')"
+TARGET.NEGATIVE_CLASS,True,No,"Negative class label for churn (e.g., 'No')"
+ID_COLUMNS.non_empty,True,['customerID'],"At least one primary identifier expected for Telco (e.g., customerID)"
+RANGES.non_empty,True,"['tenure', 'MonthlyCharges', 'TotalCharges']","Numeric ranges for key Telco fields (tenure, MonthlyCharges, TotalCharges, etc.)"
+DATA_QUALITY.non_empty,True,"['NUMERIC_LIKE_THRESHOLD', 'RARE_PCT_THRESHOLD', 'RARE_MIN_COUNT', 'HIGH_CARD_THRESHOLD', 'NEARLY_CONST_THRESHOLD', 'SUSPECT_TOKENS']","Optional thresholds for Section 2 checks (null %, outliers, etc.)"

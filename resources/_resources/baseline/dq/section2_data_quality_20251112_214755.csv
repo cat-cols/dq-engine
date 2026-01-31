@@ -1,0 +1,24 @@
+check,count_0,count_1,detail,full_row_dupes,imbalance_ratio,label,level,max_null_pct,mem_mb,n_auto_detected_ids,n_cols,n_cols_all_null,n_cols_any_null,n_cols_constant,n_expected,n_extra,n_flags,n_id_from_config,n_ids,n_missing,n_non_unique,n_protected_columns,n_required,n_rows,section,status,timestamp
+Section 2 overview,,,Initial Section 2 setup and dataset shape,,,,info,,,,22.0,,,,,,,,,,,,,7043.0,2.0.1,INFO,2025-11-12 21:47:55.477825
+Config & constants validation for Section 2,,,All required config roots present and Section 2 constants registered.,,,,info,,,,,,,,,,,,,0.0,,,4.0,,2.0.2,OK,2025-11-12 21:48:24.884817
+Dataset ingestion & preview,,,"Dataset already loaded in Section 1; recorded shape, memory footprint, and dtype counts for Section 2.",,,,info,,6.482,,22.0,,,,,,,,,,,,,7043.0,2.0.4,OK,2025-11-12 21:48:35.208604
+Row/column baseline summary,,,"Computed baseline per-column stats (null %, unique counts, constant flags) and saved to baseline_summary.csv.",,,,info,,,,22.0,0.0,1.0,0.0,,,,,,,,,,7043.0,2.0.5,OK,2025-11-12 21:48:37.777173
+Identifier detection & registration,,,"Auto-detected potential ID columns (high uniqueness, name hints) and merged with config-driven IDs into protected_columns.yaml.",,,,info,,,1.0,,,,,,,,1.0,,,,2.0,,,2.0.6,OK,2025-11-12 21:48:40.300024
+Dependency registry build,,,Registered Section 2 nodes (2.0.x infra + 2.1–2.9 pipeline) into section2_registry.json.,,,,info,,,,,,,,,,,,,,,,,,2.0.7,OK,2025-11-12 21:48:44.234912
+Section 2 overview,,,Initial Section 2 setup and dataset shape,,,,info,,,,22.0,,,,,,,,,,,,,7043.0,2.0.1,INFO,2025-11-12 22:06:51.141804
+Config & constants validation for Section 2,,,All required config roots present and Section 2 constants registered.,,,,info,,,,,,,,,,,,,0.0,,,4.0,,2.0.2,OK,2025-11-12 22:07:55.545750
+Section 2 overview,,,Initial Section 2 setup and dataset shape,,,,info,,,,22.0,,,,,,,,,,,,,7043.0,2.0.1,INFO,2025-11-12 22:08:09.383530
+Config & constants validation for Section 2,,,All required config roots present and Section 2 constants registered.,,,,info,,,,,,,,,,,,,0.0,,,4.0,,2.0.2,OK,2025-11-12 22:09:39.844594
+Dataset ingestion & preview,,,"Dataset already loaded in Section 1; recorded shape, memory footprint, and dtype counts for Section 2.",,,,info,,6.482,,22.0,,,,,,,,,,,,,7043.0,2.0.4,OK,2025-11-12 22:09:50.109655
+Row/column baseline summary,,,"Computed baseline per-column stats (null %, unique counts, constant flags) and saved to baseline_summary.csv.",,,,info,,,,22.0,0.0,1.0,0.0,,,,,,,,,,7043.0,2.0.5,OK,2025-11-12 22:09:54.070714
+Identifier detection & registration,,,"Auto-detected potential ID columns (high uniqueness, name hints) and merged with config-driven IDs into protected_columns.yaml.",,,,info,,,1.0,,,,,,,,1.0,,,,2.0,,,2.0.6,OK,2025-11-12 22:09:56.729574
+Sanity preview printout,,,Printed Section 2 execution map and wrote section2_execution_map.md for documentation.,,,,info,,,,,,,,,,,,,,,,,,2.0.8,OK,2025-11-12 22:10:02.771716
+Target creation & validation,5174.0,1869.0,,,0.3612292230382682,severe imbalance,info,,,,,,,,,,,,,,,,,,2.1.1,OK,2025-11-12 22:10:45.679048
+ID & key field verification,,,,,,,info,,,,,,,,,,,,1.0,,0.0,,,,2.1.2,OK,2025-11-12 22:11:39.930912
+Special-case numeric flags,,,,,,,info,,,,,,,,,,1.0,,,,,,,,2.1.3,OK,2025-11-12 22:11:44.320404
+Duplicate audit,,,,0.0,,,info,,,,,,,,,,,,,,,,,,2.1.4,OK,2025-11-12 22:11:47.652663
+Dtype enforcement check,,,,,,,info,,,,,,,,6.0,,,,,,,,,,2.1.5,WARN,2025-11-12 22:12:24.878373
+Schema drift,,,,,,,info,,,,,,,,6.0,16.0,,,,0.0,,,,,2.1.6,OK,2025-11-12 22:13:16.881564
+Schema drift,,,,,,,info,,,,,,,,,16.0,,,,0.0,,,,,2.1.6,OK,2025-11-12 22:13:27.531352
+Missingness baseline,,,,,,,info,0.156,,,,,,,,,,,,,,,,,2.1.8,OK,2025-11-12 22:13:39.072047
+Dataset ingestion & preview,,,"Dataset already loaded in Section 1; recorded shape, memory footprint, and dtype counts for Section 2.",,,,info,,6.482,,22.0,,,,,,,,,,,,,7043.0,2.0.4,OK,2025-11-13 01:30:16.616106

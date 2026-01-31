@@ -1,0 +1,6 @@
+rule_id,total_col,component_cols,tolerance_abs,tolerance_rel,n_rows,n_over_tolerance,pct_over_tolerance,mean_diff,median_diff,max_abs_diff,rule_severity,notes
+total_vs_expected_from_tenure_monthly,TotalCharges,expected_total_from_tenure_monthly,50.0,0.2,7043,19,0.002697714042311515,-0.6056872125514703,0.0,1377.7749999999999,warn,
+zero_tenure_zero_total,TotalCharges,expected_total_for_zero_tenure,5.0,0.25,0,0,,,,,info,No valid rows to evaluate reconciliation
+contract_bounded_total,TotalCharges,expected_min_total_from_contract,50.0,0.2,7043,6669,0.9468976288513418,-2251.1219825991197,-1377.625,8037.0621384,fail,
+senior_citizen_pricing_consistency,TotalCharges,expected_total_senior,75.0,0.25,1142,0,0.0,2.1666622322241547,0.0,355.35000000000036,ok,
+payment_method_consistency,TotalCharges,expected_total_from_payment_profile,40.0,0.15,7043,51,0.007241232429362488,-0.6056872125514703,0.0,1377.7749999999999,warn,

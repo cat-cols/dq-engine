@@ -1,0 +1,100 @@
+{
+  "artifacts": [
+    {
+      "modified_at_utc": "2025-12-27T17:59:05.652474",
+      "name": "invalid_tokens",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/invalid_tokens.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:06.874674",
+      "name": "unexpected_values",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/unexpected_values.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:07.959531",
+      "name": "hygiene_report",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/hygiene_report.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:09.090946",
+      "name": "domain_frequency_report",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/domain_frequency_report.csv",
+      "size_bytes": 155
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:10.172751",
+      "name": "cardinality_audit",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/cardinality_audit.csv",
+      "size_bytes": 172
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:11.233231",
+      "name": "rare_category_report",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/rare_category_report.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:12.389135",
+      "name": "issues_index",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/categorical_domain_issues_catalog/issues_index.csv",
+      "size_bytes": 339
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:13.716301",
+      "name": "category_entropy_summary",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/category_entropy_summary.csv",
+      "size_bytes": 160
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:15.542783",
+      "name": "category_association_matrix",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/category_association_matrix.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:16.668294",
+      "name": "category_redundancy_map",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/category_redundancy_map.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:17.811973",
+      "name": "category_drift_report",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/category_drift_report.csv",
+      "size_bytes": 1
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:19.008191",
+      "name": "categorical_profile_df",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/categorical_profile_df.csv",
+      "size_bytes": 594
+    },
+    {
+      "modified_at_utc": "2025-12-27T01:30:41.589502",
+      "name": "encoding_preview",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/categorical/encoding_preview.csv",
+      "size_bytes": 510
+    },
+    {
+      "modified_at_utc": "2025-12-27T17:59:20.544472",
+      "name": "dashboard_alerts",
+      "relative_path": "_T2/Level_3/resources/artifacts/section2/2_4/dashboard_alerts.json",
+      "size_bytes": 657
+    }
+  ],
+  "config_hash_sha256": "5e21730d511a5047c72c259eac1f51247a100288ab97d2fefbca741d16d5306c",
+  "created_at_utc": "2025-12-27T17:59:21.692121",
+  "data_snapshot": {
+    "data_hash": null,
+    "n_columns": 24,
+    "n_rows": 7043,
+    "source": "/Users/b/DATA/PROJECTS/Telco/data/_raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+  },
+  "related_numeric_metadata_path": "",
+  "run_id": "20251227_095756_a6ebde8",
+  "run_ts": "20251227_095756",
+  "schema_version": "unknown"
+}

@@ -1,0 +1,35 @@
+project:
+  name: dq_engine
+  dataset_id: telco_churn
+
+warehouse:
+  target: snowflake      # snowflake | duckdb
+  database: DQ_ENGINE
+  raw_schema: RAW
+  analytics_schema: ANALYTICS
+  dq_schema: DQ
+  duckdb_path: null
+
+dbt:
+  project_dir: dbt/dq_engine_dbt
+  profiles_dir: dbt/profiles
+
+datasets:
+  telco_churn:
+    source_table: RAW.TELCO
+    models:
+      staging: ANALYTICS.STG_TELCO
+      mart: ANALYTICS.MRT_TELCO_CHURN
+
+checks:
+  - id: accepted_values_churn_flag
+    type: accepted_values
+    table: ANALYTICS.MRT_TELCO_CHURN
+    column: CHURN_FLAG
+    severity: fail
+    params: { values: [0, 1] }
+
+  - id: row_count
+    type: row_count
+    table: ANALYTICS.MRT_TELCO_CHURN
+    severity: warn

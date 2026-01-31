@@ -1,0 +1,2 @@
+source_column,target_column,edge_weight,n_rules,max_severity,rules_contributing
+MonthlyCharges,PaymentMethod,4.0,4,fail,paymentmethod_vs_monthly

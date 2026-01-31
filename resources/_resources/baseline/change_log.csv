@@ -1,0 +1,726 @@
+row_key,column,old_value,new_value,change_type,source_step,timestamp_utc
+Other,TotalCharges,"customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,total_charges_per_month,"customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64","customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_min_total_from_contract,"customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64","customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,MonthlyCharges,"customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64","customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,MonthlyCharges,"customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64","customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_min_total_from_contract,"customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64","customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,MonthlyCharges,"customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64","customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,TotalCharges,"customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,TotalCharges,"customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1889.50
+Other     108.15
+Other    1840.75
+Other     151.65
+          ...   
+Other    1990.50
+Other    7362.90
+Other     346.45
+Other     306.60
+Other    6844.50
+Name: TotalCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,MonthlyCharges,"customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64","customerID
+Other     29.85
+Other     56.95
+Other     53.85
+Other     42.30
+Other     70.70
+          ...  
+Other     84.80
+Other    103.20
+Other     29.60
+Other     74.40
+Other    105.65
+Name: MonthlyCharges, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_min_total_from_contract,"customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64","customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,total_charges_per_month,"customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64","customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_tenure_monthly,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_tenure_monthly, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_min_total_from_contract,"customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64","customerID
+Other      0.00
+Other     56.95
+Other      0.00
+Other     42.30
+Other      0.00
+          ...  
+Other     84.80
+Other    103.20
+Other      0.00
+Other      0.00
+Other    105.65
+Name: expected_min_total_from_contract, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,total_charges_per_month,"customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64","customerID
+Other     29.850000
+Other     55.573529
+Other     54.075000
+Other     40.905556
+Other     75.825000
+            ...    
+Other     82.937500
+Other    102.262500
+Other     31.495455
+Other     76.650000
+Other    103.704545
+Name: total_charges_per_month, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00
+Other,expected_total_from_payment_profile,"customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64","customerID
+Other      29.85
+Other    1936.30
+Other     107.70
+Other    1903.50
+Other     141.40
+          ...   
+Other    2035.20
+Other    7430.40
+Other     325.60
+Other     297.60
+Other    6972.90
+Name: expected_total_from_payment_profile, Length: 7043, dtype: float64",unknown,,2025-12-13 01:41:29.742833+00:00

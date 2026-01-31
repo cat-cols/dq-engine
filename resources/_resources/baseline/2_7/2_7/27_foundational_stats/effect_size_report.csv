@@ -1,0 +1,17 @@
+source_file,test_name,test_type,outcome_col,group_col,effect_type,effect_value,magnitude_label,p_value,statistic,notes
+point_biserial_results.csv,tenure,point_biserial,,,r,-0.3522959741411067,medium,6.609786308357949e-205,,Point-biserial correlation
+point_biserial_results.csv,tenure,point_biserial,,,r_squared,0.12411245339603132,medium,6.609786308357949e-205,,Variance explained (r^2)
+point_biserial_results.csv,MonthlyCharges,point_biserial,,,r,0.193650882316606,small,1.781406918761875e-60,,Point-biserial correlation
+point_biserial_results.csv,MonthlyCharges,point_biserial,,,r_squared,0.037500664221999984,small,1.781406918761875e-60,,Variance explained (r^2)
+point_biserial_results.csv,TotalCharges,point_biserial,,,r,-0.199063297700342,small,7.223183543741915e-64,,Point-biserial correlation
+point_biserial_results.csv,TotalCharges,point_biserial,,,r_squared,0.03962619649133499,small,7.223183543741915e-64,,Variance explained (r^2)
+point_biserial_results.csv,expected_total_from_tenure_monthly,point_biserial,,,r,-0.19859436254355,small,1.4341340271953954e-63,,Point-biserial correlation
+point_biserial_results.csv,expected_total_from_tenure_monthly,point_biserial,,,r_squared,0.03943972083407898,small,1.4341340271953954e-63,,Variance explained (r^2)
+point_biserial_results.csv,expected_min_total_from_contract,point_biserial,,,r,-0.2885255028872538,small,4.233174865062611e-135,,Point-biserial correlation
+point_biserial_results.csv,expected_min_total_from_contract,point_biserial,,,r_squared,0.08324696581634271,small,4.233174865062611e-135,,Variance explained (r^2)
+point_biserial_results.csv,expected_total_senior,point_biserial,,,r,-0.3429230630718519,medium,7.341427878879676e-33,,Point-biserial correlation
+point_biserial_results.csv,expected_total_senior,point_biserial,,,r_squared,0.1175962271865813,medium,7.341427878879676e-33,,Variance explained (r^2)
+point_biserial_results.csv,expected_total_from_payment_profile,point_biserial,,,r,-0.19859436254355,small,1.4341340271953954e-63,,Point-biserial correlation
+point_biserial_results.csv,expected_total_from_payment_profile,point_biserial,,,r_squared,0.03943972083407898,small,1.4341340271953954e-63,,Variance explained (r^2)
+point_biserial_results.csv,total_charges_per_month,point_biserial,,,r,0.0751700683081245,negligible,2.6792738406942456e-10,,Point-biserial correlation
+point_biserial_results.csv,total_charges_per_month,point_biserial,,,r_squared,0.005650539169448104,negligible,2.6792738406942456e-10,,Variance explained (r^2)

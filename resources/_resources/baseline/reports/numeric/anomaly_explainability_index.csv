@@ -1,0 +1,2 @@
+feature,anomaly_type,time_bucket,time_window,severity,rule_id,confidence_score,metric_1,metric_2,source_artifact
+SeniorCitizen,outlier_iqr_z,,,high,outlier_iqr_z,0.6,16.215,0.0,outlier_report_iqr_z.csv
