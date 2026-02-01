@@ -43,8 +43,8 @@ _docs/
 _TODO/
 notebooks/tmp
 src/packages
-src/dq_engine/_dq_engine/
-src/telco_churn/
+src/_dq_engine/
+src/_telco_churn/
 resources/_resources/
 resources/models
 resources/SQL
