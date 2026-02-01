@@ -1,6 +1,0 @@
-feature,target_column,missing_by_class,outliers_by_class,global_missing_pct,global_outlier_pct,bias_potential_score,notes
-Churn_flag,Churn_flag,"{""0"": 0.0, ""1"": 0.0}","{""0"": 0.0, ""1"": 0.0}",0.0,0.0,0.0,higher score = more class-asymmetric issues
-MonthlyCharges,Churn_flag,"{""0"": 0.0, ""1"": 0.0}","{""0"": 0.0, ""1"": 0.0}",0.0,0.0,0.0,higher score = more class-asymmetric issues
-SeniorCitizen,Churn_flag,"{""0"": 0.0, ""1"": 0.0}","{""0"": 0.0, ""1"": 0.0}",0.0,0.0,0.0,higher score = more class-asymmetric issues
-TotalCharges,Churn_flag,"{""0"": 0.213, ""1"": 0.0}","{""0"": 0.0, ""1"": 0.0}",0.156,0.0,0.001,higher score = more class-asymmetric issues
-tenure,Churn_flag,"{""0"": 0.0, ""1"": 0.0}","{""0"": 0.0, ""1"": 0.0}",0.0,0.0,0.0,higher score = more class-asymmetric issues

@@ -1,5 +1,0 @@
-rule_name,description,columns_involved,if_expr,then_expr,n_rows_if,n_violations,pct_violations,severity,notes
-tenure_requires_total_charges,"If tenure > 0, TotalCharges should not be null","['tenure', 'TotalCharges']",tenure > 0,TotalCharges.notna(),7032,0,0.0,ok,
-zero_monthly_implies_no_services,"If MonthlyCharges == 0, customer should have no phone or internet service.","['MonthlyCharges', 'PhoneService', 'InternetService']",MonthlyCharges == 0,(PhoneService == 'No') and (InternetService == 'No'),0,0,0.0,info,
-contract_implies_positive_tenure,"If Contract is not 'Month-to-month', tenure should be > 0.","['Contract', 'tenure']",Contract != 'Month-to-month',tenure > 0,3168,11,0.003472222222222222,warn,
-total_charges_requires_monthly,"If TotalCharges > 0, MonthlyCharges should also be > 0.","['TotalCharges', 'MonthlyCharges']",TotalCharges > 0,MonthlyCharges > 0,7032,0,0.0,ok,

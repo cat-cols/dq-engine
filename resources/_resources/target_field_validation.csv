@@ -1,3 +1,0 @@
-column,dtype,n_unique,null_pct,allowed_values_sample,value_counts_top5,n_inconsistent_with_raw,n_invalid_values_not_0_1
-Churn,object,2,0.0,"[""No"", ""Yes""]","{""No"": 5174, ""Yes"": 1869}",,
-Churn_flag,Int8,2,0.0,"[""0"", ""1""]","{""0"": 5174, ""1"": 1869}",0.0,0.0

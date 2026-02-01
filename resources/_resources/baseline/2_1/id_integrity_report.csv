@@ -1,2 +1,0 @@
-id_column,exists,non_null,nulls,duplicates,unique_ok
-customerID,True,7043,0,7042,False

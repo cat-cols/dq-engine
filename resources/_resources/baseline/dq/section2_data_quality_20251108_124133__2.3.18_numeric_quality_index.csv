@@ -1,6 +1,0 @@
-column,quality_score,missing_risk,range_risk,outlier_risk,drift_risk,bias_risk
-Churn_flag,100.0,0.0,0.0,0.0,0.0,0.0
-MonthlyCharges,100.0,0.0,0.0,0.0,0.0,0.0
-SeniorCitizen,100.0,0.0,0.0,0.0,0.0,0.0
-TotalCharges,99.91,0.003,0.0,0.0,0.0,0.0
-tenure,100.0,0.0,0.0,0.0,0.0,0.0

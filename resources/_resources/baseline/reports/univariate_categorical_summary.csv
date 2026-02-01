@@ -1,3 +1,0 @@
-feature,n_categories,top_category,top_category_share,entropy,balance_label
-Contract,3,Month-to-month,0.539968763311089,1.4539951464056036,Balanced
-Churn,2,No,0.7371858582990203,0.8309633283162189,Fragmented

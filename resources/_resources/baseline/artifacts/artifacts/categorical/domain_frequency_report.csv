@@ -1,2 +1,0 @@
-column,n_unique,pct_blank,pct_top_category,entropy,domain_shape,role,feature_group
-SeniorCitizen_flag_text,2,0.0,83.78532,0.63942,dominant,feature,unknown

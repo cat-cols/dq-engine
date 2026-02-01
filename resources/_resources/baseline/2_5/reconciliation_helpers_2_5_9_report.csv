@@ -1,6 +1,0 @@
-helper,present,n_total_rows,n_nonnull,pct_nonnull,min,max,mean,note
-expected_total_from_tenure_monthly,False,7043,0,0.0,,,,missing_helper_column
-expected_total_for_zero_tenure,False,7043,0,0.0,,,,missing_helper_column
-expected_min_total_from_contract,False,7043,0,0.0,,,,missing_helper_column
-expected_total_senior,False,7043,0,0.0,,,,missing_helper_column
-expected_total_from_payment_profile,False,7043,0,0.0,,,,missing_helper_column

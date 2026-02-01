@@ -1,2 +1,0 @@
-fk_name,fk_col,ref_table,ref_col,n_rows,n_null_fk_rows,n_unmatched_fk,pct_unmatched_fk,severity,notes
-fk_customer_to_dim,customerID,CUSTOMER_DIM,customerID,7043,,,,warn,Reference table DataFrame not found

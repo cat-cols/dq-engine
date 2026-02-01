@@ -1,14 +1,6 @@
 # local machine-specific config
 env/setup_summary.json
 
-# personal notes/docs
-_docs/
-_TODO/
-notebooks/tmp
-src/packages
-src/dq_engine/_dq_engine/
-src/telco_churn/
-
 # --- Python ---
 __pycache__/
 *.py[cod]
@@ -16,7 +8,6 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-
 
 # local env
 venv/
@@ -46,3 +37,28 @@ dashboards/
 data/_raw/
 data/processed/
 data/warehouse/
+
+# personal notes/docs
+_docs/
+_TODO/
+notebooks/tmp
+src/packages
+src/dq_engine/_dq_engine/
+src/telco_churn/
+resources/
+
+# Ignore everything in resources by default
+# resources/**
+
+# …but keep curated portfolio outputs (when ready)
+# !resources/_resources/
+# !resources/_resources/_dash/**
+# !resources/_resources/baseline/
+# !resources/_resources/baseline/figures/**
+# !resources/_resources/baseline/section2_unified_report.csv
+
+# Still ignore bulky/noisy subfolders even inside baseline
+resources/_resources/baseline/artifacts/**
+resources/_resources/**/artifacts/**
+resources/_resources/**/runs/**
+resources/_resources/**/tmp/**

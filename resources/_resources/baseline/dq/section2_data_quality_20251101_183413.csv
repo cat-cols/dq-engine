@@ -1,7 +1,0 @@
-section,rule,value
-0.1_schema_check,schema_version,n/a
-0.1_schema_check,missing_cols,none
-0.1_schema_check,unexpected_cols,Churn;SeniorCitizen;customerID
-0.1_schema_check,binary_not_two,none
-0.1_schema_check,class_balance,"{0: 5174, 1: 1869} | churn_rate=0.2654"
-0.1_schema_check,status,WARN

@@ -1,6 +1,0 @@
-column,n_unique,kind
-Churn_flag,2,binary_numeric
-SeniorCitizen,2,binary_numeric
-MonthlyCharges,1585,continuous
-TotalCharges,6530,continuous
-tenure,73,continuous

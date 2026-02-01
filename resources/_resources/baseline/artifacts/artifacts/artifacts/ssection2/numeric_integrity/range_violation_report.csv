@@ -1,6 +1,0 @@
-column,range_min,range_max,has_range_rule,n_valid,n_below_min,pct_below_min,n_above_max,pct_above_max,n_in_range,pct_in_range,total_violation_pct,range_status,example_below,example_above
-Churn_flag,,,False,7043,0,0.0,0,0.0,,,0.0,no_rule,,
-MonthlyCharges,,,False,7043,0,0.0,0,0.0,,,0.0,no_rule,,
-SeniorCitizen,,,False,7043,0,0.0,0,0.0,,,0.0,no_rule,,
-TotalCharges,,,False,7032,0,0.0,0,0.0,,,0.0,no_rule,,
-tenure,,,False,7043,0,0.0,0,0.0,,,0.0,no_rule,,

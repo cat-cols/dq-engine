@@ -1,4 +1,0 @@
-column,issue,level,count,pct,details,section,run_ts
-SeniorCitizen,unexpected_levels_summary,2 unexpected,7043,100.0,"Unexpected vs EXPECTED[SeniorCitizen]: ['No', 'Yes']",2.4_categorical_quality,2025-11-07T20:05:10
-SeniorCitizen,unexpected_level,No,5901,83.78531875621184,Not in EXPECTED map for this column,2.4_categorical_quality,2025-11-07T20:05:10
-SeniorCitizen,unexpected_level,Yes,1142,16.21468124378816,Not in EXPECTED map for this column,2.4_categorical_quality,2025-11-07T20:05:10

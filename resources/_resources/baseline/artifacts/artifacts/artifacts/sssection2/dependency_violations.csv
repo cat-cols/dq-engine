@@ -1,2 +1,0 @@
-rule_name,description,columns_involved,if_expr,then_expr,n_rows_if,n_violations,pct_violations,severity,notes
-total_charges_requires_monthly,"If TotalCharges > 0, MonthlyCharges should also be > 0.","['TotalCharges', 'MonthlyCharges']",TotalCharges > 0,MonthlyCharges > 0,7032,0,0.0,ok,

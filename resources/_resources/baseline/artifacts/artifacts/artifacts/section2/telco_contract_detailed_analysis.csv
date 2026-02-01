@@ -1,4 +1,0 @@
-Contract,TotalCustomers,Churn,Retain,ChurnRate_%,Tenure_1_Total,Tenure_1_Churn,Tenure_1_ChurnRate_%,Tenure_2_Total,Tenure_2_Churn,Tenure_2_ChurnRate_%,Tenure_3_Total,Tenure_3_Churn,Tenure_3_ChurnRate_%,Tenure_4_Total,Tenure_4_Churn,Tenure_4_ChurnRate_%,Tenure_5_Total,Tenure_5_Churn,Tenure_5_ChurnRate_%
-Month-to-month,3875,1655,2220,42.71,604,380,62.91,230,121,52.61,191,94,49.21,165,82,49.7,128,63,49.22
-One year,1473,166,1307,11.27,7,0,0.0,7,2,28.57,6,0,0.0,7,1,14.29,4,1,25.0
-Two year,1695,48,1647,2.83,2,0,0.0,1,0,0.0,3,0,0.0,4,0,0.0,1,0,0.0

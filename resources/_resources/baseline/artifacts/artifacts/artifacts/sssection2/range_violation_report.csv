@@ -1,4 +1,0 @@
-column,min_allowed,max_allowed,n_below_min,n_above_max
-tenure,0,120,0,0
-MonthlyCharges,0,1000,0,0
-TotalCharges,0,100000,0,0

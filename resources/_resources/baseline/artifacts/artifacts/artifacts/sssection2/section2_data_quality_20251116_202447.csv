@@ -1,4 +1,0 @@
-check,dataset_version_id,detail,git_hash,level,n_cols,n_missing,n_required,n_rows,section,section_name,status,timestamp
-Environment & config readiness preflight,,"Section 2 bootstrap complete: globals, directories, CONFIG roots, and working df are all ready.",,info,21.0,,,7043.0,2.0.1,Environment & config readiness preflight,OK,2025-11-16 20:24:47.805565
-Config & constants validation for Section 2,,All required config roots present and Section 2 constants registered.,,info,,0.0,4.0,,2.0.2,Config & constants validation,OK,2025-11-16 20:24:51.803298
-Section 2 run metadata snapshot,1,Metadata saved to section2_run_metadata.json,,info,,,,,2.0.3,Logging & metadata setup,OK,2025-11-16 20:24:55.025360

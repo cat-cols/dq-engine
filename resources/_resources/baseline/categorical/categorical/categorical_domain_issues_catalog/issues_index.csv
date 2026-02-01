@@ -1,7 +1,0 @@
-issue_type,artifact_path,n_rows,has_critical
-invalid_tokens,invalid_tokens.csv,0,False
-unexpected_values,unexpected_values.csv,0,False
-hygiene_report,hygiene_report.csv,0,False
-domain_frequency_report,domain_frequency_report.csv,1,False
-cardinality_audit,cardinality_audit.csv,1,False
-rare_category_report,rare_category_report.csv,0,False

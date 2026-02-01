@@ -1,3 +1,0 @@
-rule_id,condition_expr,action,columns_to_fix,n_rows_condition,n_rows_repaired,n_rows_flag_only,status,notes
-tenure_requires_totalcharges_fill_zero,(tenure > 0) & (TotalCharges.isna()),set_zero,TotalCharges,0,0,0,no_match,
-tenure_zero_total_zero,(tenure == 0) & (TotalCharges.notna()) & (TotalCharges != 0),set_zero,TotalCharges,0,0,0,no_match,

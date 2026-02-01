@@ -1,2 +1,0 @@
-column,n_unique,cardinality_ratio,high_cardinality,near_unique,quasi_identifier_risk,role,feature_group
-SeniorCitizen_flag_text,2,0.00028,False,False,False,feature,unknown

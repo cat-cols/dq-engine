@@ -1,4 +1,0 @@
-test_name,test_type,method,group_col,group_A_label,group_B_label,numeric_col,col_before,col_after,n_group_A,n_group_B,n_pairs,statistic,p_value,z_statistic,n_total,effect_r,effect_r_signed,effect_type,effect_band,significant,notes
-Month_to_month_vs_Two_year_MonthlyCharges_MWU,independent,mannwhitney,Contract,Month-to-month,Two year,MonthlyCharges,,,3875,1695,,3550129.0,1.4478318873501629e-06,4.818304645323458,5570.0,0.06456046621618587,,r_from_z,negligible,True,
-Churner_vs_NonChurner_TotalCharges_MWU,independent,mannwhitney,Churn,Yes,No,TotalCharges,,,1869,5174,,3381104.5,5.5109719333886004e-83,-19.2986697457778,7043.0,0.22995800379500844,,r_from_z,small,True,
-Senior_vs_NonSenior_tenure_MWU,independent,mannwhitney,SeniorCitizen,1,0,tenure,,,0,0,,,,,,,,,,False,Insufficient sample size in one or both groups

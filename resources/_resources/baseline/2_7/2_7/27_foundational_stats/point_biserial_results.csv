@@ -1,9 +1,0 @@
-numeric_feature,correlation,p_value,significant,notes
-tenure,-0.35229597414110675,6.609786308357949e-205,True,
-MonthlyCharges,0.19365088231660602,1.781406918761875e-60,True,
-TotalCharges,-0.19906329770034206,7.223183543741915e-64,True,
-expected_total_from_tenure_monthly,-0.19859436254355003,1.4341340271953954e-63,True,
-expected_min_total_from_contract,-0.28852550288725387,4.2331748650626114e-135,True,
-expected_total_senior,-0.3429230630718519,7.341427878879676e-33,True,
-expected_total_from_payment_profile,-0.19859436254355003,1.4341340271953954e-63,True,
-total_charges_per_month,0.0751700683081245,2.6792738406942456e-10,True,

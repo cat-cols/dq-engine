@@ -1,6 +1,0 @@
-test_id,p_raw,feature_or_pair,source_file
-levene_Contract_MonthlyCharges,0.0012,MonthlyCharges,variance_homogeneity_report.csv
-levene_Internet_TotalCharges,0.0456,TotalCharges,variance_homogeneity_report.csv
-interaction_Contract_Churn,0.0021,Contract:Churn,interaction_effects.csv
-anova_Contract_Total,1.2e-06,Contract_TotalCharges,anova_kruskal_results.csv
-kruskal_gender_tenure,0.0876,gender_tenure,anova_kruskal_results.csv

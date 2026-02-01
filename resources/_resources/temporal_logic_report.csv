@@ -1,4 +1,0 @@
-interval_name,start_col,end_col,unit,n_rows,n_start_after_end,n_negative_duration,n_too_long,n_too_short,n_future,n_implausibly_old,pct_rows_with_issues,severity,notes
-tenure_interval,pseudo_start,pseudo_end,days,7043,0,0,0,0,0,0,0.0,ok,
-call_duration,call_start_ts,call_end_ts,minutes,0,0,0,0,0,0,0,0.0,info,Start or end column not found in df; interval skipped
-contract_lifetime,contract_start_date,contract_end_date,days,0,0,0,0,0,0,0,0.0,info,Start or end column not found in df; interval skipped

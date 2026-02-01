@@ -1,7 +1,0 @@
-numeric_insight
-SeniorCitizen: high skew (1.83) → consider log/Yeo-Johnson.
-Churn_flag: high skew (1.06) → consider log/Yeo-Johnson.
-SeniorCitizen: 1142 IQR outliers detected.
-TC_rule_residual: 678 IQR outliers detected.
-TC_rule_relerr: 617 IQR outliers detected.
-tenure shows notable corr with Churn_flag (r=-0.35).

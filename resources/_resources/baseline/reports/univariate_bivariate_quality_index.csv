@@ -1,3 +1,0 @@
-feature,type,score_distribution_health,score_completeness_cardinality,score_association_strength,score_visual_clarity,score_stability,exploratory_index_0_100,eda_band
-Contract,categorical,100.0,100.0,100.0,100.0,70.0,94.0,EDA_Ready
-Churn,categorical,80.0,100.0,100.0,90.0,70.0,88.0,EDA_Ready

@@ -1,7 +1,0 @@
-issue_type,artifact_path,n_rows,has_critical
-invalid_tokens,,0,False
-unexpected_values,,0,False
-hygiene_report,,0,False
-domain_frequency_report,,0,False
-cardinality_audit,,0,False
-rare_category_report,,0,False

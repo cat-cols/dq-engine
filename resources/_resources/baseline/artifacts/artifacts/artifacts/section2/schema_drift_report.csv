@@ -1,2 +1,0 @@
-missing_cols,extra_cols,timestamp
-[],"['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']",2025-11-13 06:13:27.528503+00:00

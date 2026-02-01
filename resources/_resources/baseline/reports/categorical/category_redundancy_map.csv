@@ -1,2 +1,0 @@
-feature_i,feature_j,redundancy_score,suggest_drop,notes,role_i,role_j,feature_group_i,feature_group_j
-PhoneService,MultipleLines,1.0,PhoneService,High redundancy; prefer keeping higher-entropy feature.,feature,feature,unknown,unknown

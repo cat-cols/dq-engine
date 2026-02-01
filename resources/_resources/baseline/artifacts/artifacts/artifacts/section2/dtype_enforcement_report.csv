@@ -1,7 +1,0 @@
-column,expected,actual,present,match
-customerID,object,object,True,True
-tenure,int64,int64,True,True
-MonthlyCharges,float64,float64,True,True
-TotalCharges,float64,float64,True,True
-Churn,object,category,True,False
-Churn_flag,Int8,Int8,True,True

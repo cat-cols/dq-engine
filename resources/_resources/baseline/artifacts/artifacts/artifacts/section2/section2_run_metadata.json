@@ -1,9 +1,0 @@
-{
-  "timestamp_utc": "2025-12-13T21:00:28Z",
-  "git_hash": "bd99588b664f601aed98bae6ddb400c6096b137f",
-  "script_or_notebook": "interactive_notebook",
-  "dataset_version_id": "1",
-  "project_root": "/Users/b/DATA/PROJECTS/Telco",
-  "reports_dir": "/Users/b/DATA/PROJECTS/Telco/Level_3/resources/reports",
-  "user": "b"
-}

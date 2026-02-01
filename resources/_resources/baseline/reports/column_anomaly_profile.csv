@@ -1,3 +1,0 @@
-column_name,n_anomalies,n_rows_touched,n_warn,n_fail,max_severity_rank,mean_magnitude,max_severity,anomaly_density_per_row,risk_score
-'tenure'],1,1,1,0,1,11.0,warn,1.0,2.0
-['Contract',1,1,1,0,1,11.0,warn,1.0,2.0

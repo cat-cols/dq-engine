@@ -1,3 +1,0 @@
-column,role,feature_group,encoding_scheme,n_unique,effective_cardinality,high_cardinality,has_rare_categories,feature_readiness_score,readiness_label,pct_rows_affected,is_redundant_partner,max_redundancy_score,max_features_allowed,estimated_dimensionality,would_exceed_max_dim,encoding_recommendation
-SeniorCitizen_flag_text,feature,unknown,one_hot,2.0,2.0,False,False,1.0,unknown,,False,,200,2.0,False,ok
-SeniorCitizen_flag_text,feature,unknown,target,2.0,2.0,False,False,1.0,unknown,,False,,200,1.0,False,ok

@@ -1,7 +1,0 @@
-feature_1,feature_2,statistic,p_value,association_label,notes
-Contract,Churn,1184.5965720837926,5.863038300673391e-258,Strongly Associated,
-PaymentMethod,Churn,648.1423274814,3.6823546520097993e-140,Strongly Associated,
-InternetService,Churn,732.309589667794,9.571788222840544e-160,Strongly Associated,
-SeniorCitizen,Churn,159.42630036838742,1.510066805092378e-36,Strongly Associated,
-Contract,PaperlessBilling,222.26175569027208,5.45095984530217e-49,Strongly Associated,
-PaymentMethod,PaperlessBilling,435.6865186647808,4.115239070710319e-94,Strongly Associated,

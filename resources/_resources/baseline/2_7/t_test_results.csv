@@ -1,4 +1,0 @@
-test_name,test_type,group_col,group_A_label,group_B_label,numeric_col,col_before,col_after,n_group_A,mean_group_A,std_group_A,n_group_B,mean_group_B,std_group_B,n_pairs,t_statistic,p_value,equal_var_assumed,significant,notes
-Month_to_month_vs_Two_year_MonthlyCharges,independent,Contract,Month-to-month,Two year,MonthlyCharges,,,3875,66.39868051612903,26.92124515845988,1695,60.732027728613566,34.60977491557873,,5.994121399681575,2.3261168626059997e-09,False,True,Levene p=0.0000 → equal_var=False
-Churner_vs_NonChurner_TotalCharges,independent,Churn,Yes,No,TotalCharges,,,1869,1531.3684686998395,1889.2772014467118,5174,2546.627610746038,2321.7871743192886,,-18.68719143049202,8.409853046726505e-75,False,True,Levene p=0.0000 → equal_var=False
-Senior_vs_NonSenior_tenure,independent,SeniorCitizen,1,0,tenure,,,0,,,0,,,,,,,False,Insufficient sample size in one or both groups

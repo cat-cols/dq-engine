@@ -1,5 +1,0 @@
-name,scope,severity,target,op,threshold,value,min_fraction,max_fraction,n_subjects,n_violations,pct_violations,contract_status,reason
-no_high_null_for_key_features,numeric_profile,hard,null_pct,<=,5.0,,,,5,0,0.0,OK,
-non_negative_readiness,readiness,soft,readiness_score,>=,0.0,,,,5,0,0.0,OK,
-limit_high_drift_low_readiness,drift,hard,high_drift_low_readiness,fraction_eq,,True,,0.05,5,0,0.0,OK,
-no_hard_contract_failures,contracts,hard,hard_contract_failures,==,,0,,,1,0,0.0,OK,

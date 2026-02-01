@@ -1,4 +1,0 @@
-test_id,test_type,effect_type,n_runs,p_value_mean,p_value_std,p_value_range,effect_mean,effect_std,effect_rel_std,significance_flipped,stability_label,mt_alpha
-ttest_MonthlyCharges_Contract,ttest_independent,cohens_d,10,1.568931573885406e-08,3.552570309821523e-08,1.1089707565224454e-07,0.20480740326955793,0.025868064968935775,0.12630434523350426,False,Moderate,0.05
-chisq_Contract_Churn,chisq,cramers_v,10,5.76741081604963e-245,0.0,5.760460506664355e-244,0.41129341289615634,0.008562460085856274,0.020818373981637606,False,Stable,0.05
-prop_Churn_Contract,two_proportion_z,risk_difference,10,,,,,,,False,Unknown,0.05

@@ -1,4 +1,0 @@
-outcome,factor_a,factor_b,interaction_F,p_value,significant_interaction,simple_slopes_summary,notes
-MonthlyCharges,Contract,Churn,,,False,,Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'
-TotalCharges,InternetService,SeniorCitizen,,,False,,Two-way ANOVA error: Cannot interpret 'Int64Dtype()' as a data type
-tenure,PaymentMethod,Contract,,,False,,Two-way ANOVA error: module 'scipy.stats' has no attribute 'anova_lm'

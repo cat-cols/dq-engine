@@ -1,6 +1,0 @@
-feature,rule_type,rule_id,confidence_score,hard_vs_soft,notes
-SeniorCitizen,outlier_iqr_z,outlier_iqr_z,0.6,soft,max_pct_outliers=16.215
-Churn_flag,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
-MonthlyCharges,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
-TotalCharges,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0
-tenure,outlier_iqr_z,outlier_iqr_z,1.0,soft,max_pct_outliers=0.0

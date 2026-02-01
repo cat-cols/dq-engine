@@ -1,6 +1,0 @@
-column,dtype,n_rows,n_nonnull,n_unique,memory_bytes,memory_mb,scan_cost_units,cardinality_cost_units,dataset_memory_mb,section,check,run_ts
-Churn_flag,Int8,7043,7043,2,14218,0.0136,7043.0,2.1972245773362196,6.2358,2.3.15,numeric_cost_profile,2025-11-09T21:08:24
-MonthlyCharges,float64,7043,7043,1585,56476,0.0539,7043.0,11679.818087478747,6.2358,2.3.15,numeric_cost_profile,2025-11-09T21:08:24
-SeniorCitizen,int64,7043,7043,2,56476,0.0539,7043.0,2.1972245773362196,6.2358,2.3.15,numeric_cost_profile,2025-11-09T21:08:24
-TotalCharges,float64,7043,7032,6530,56476,0.0539,7032.0,57361.57923486435,6.2358,2.3.15,numeric_cost_profile,2025-11-09T21:08:24
-tenure,int64,7043,7043,73,56476,0.0539,7043.0,314.1967518039044,6.2358,2.3.15,numeric_cost_profile,2025-11-09T21:08:24

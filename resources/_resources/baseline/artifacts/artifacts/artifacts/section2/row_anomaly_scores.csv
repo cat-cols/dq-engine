@@ -1,3 +1,0 @@
-row_key,n_anomalies,n_warn,n_fail,max_severity_rank,total_score,max_severity,total_score_capped,score_normalized
-2,2,2,0,1,2.0,warn,2.0,1.0
-3,1,1,0,1,1.0,warn,1.0,0.5

@@ -1,4 +1,0 @@
-column,dtype,is_id,is_protected,include_in_model,source_tags
-Churn,object,False,True,False,"roles:protected,map:is_protected"
-Churn_flag,Int8,False,True,False,"roles:protected,map:is_protected"
-customerID,object,True,True,False,"roles:id,roles:protected,map:is_protected"
