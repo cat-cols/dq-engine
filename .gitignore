@@ -36,9 +36,19 @@ dashboards/
 # data (usually local & usually NOT committed)
 data/_raw/
 data/processed/
-data/warehouse/
 
-# personal notes/docs
+# ignore wh/duck files
+data/warehouse/
+data/duckdb/
+*.duckdb
+*.duckdb-wal
+*.duckdb-shm
+*.wal
+*.tmp
+
+#######################
+# Personal notes/docs #
+#######################
 _docs/
 _TODO/
 notebooks/tmp
@@ -64,3 +74,6 @@ resources/_resources/baseline/artifacts/**
 resources/_resources/**/artifacts/**
 resources/_resources/**/runs/**
 resources/_resources/**/tmp/**
+
+# ignore var and its contents for now
+var/
