@@ -45,7 +45,9 @@ notebooks/tmp
 src/packages
 src/dq_engine/_dq_engine/
 src/telco_churn/
-resources/
+resources/_resources/
+resources/models
+resources/SQL
 
 # Ignore everything in resources by default
 # resources/**
