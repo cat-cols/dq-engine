@@ -52,9 +52,10 @@ data/duckdb/
 _docs/
 _TODO/
 notebooks/tmp
-src/packages
-src/_dq_engine/
-src/_telco_churn/
+src/packages/
+src/dq_engine/_dq_engine/
+src/telco_churn/
+src/__folder_choices_inside
 resources/_resources/
 resources/models
 resources/SQL
